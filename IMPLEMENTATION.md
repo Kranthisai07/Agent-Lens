@@ -21,8 +21,8 @@ git commit -m "paper-06: add methodology section draft"
 ---
 
 ## Phase 0 — Repo Setup
-- [ ] **0.1** Create project folder `agentlens/`
-- [ ] **0.2** Create folder structure:
+- [x] **0.1** Create project folder `agentlens/`
+- [x] **0.2** Create folder structure:
   ```
   agentlens/
   ├── CLAUDE.md
@@ -47,7 +47,7 @@ git commit -m "paper-06: add methodology section draft"
   │   └── TrainAIagentsUseTools3.ipynb
   └── paper/
   ```
-- [ ] **0.3** Create `requirements.txt`:
+- [x] **0.3** Create `requirements.txt`:
   ```
   crewai
   ollama
@@ -58,8 +58,8 @@ git commit -m "paper-06: add methodology section draft"
   seaborn
   joblib
   ```
-- [ ] **0.4** `git init`, add `.gitignore` (ignore `data/trajectories/*.csv` if large, `__pycache__`, `.env`)
-- [ ] **0.5** First commit
+- [x] **0.4** `git init`, add `.gitignore` (ignore `data/trajectories/*.csv` if large, `__pycache__`, `.env`)
+- [x] **0.5** First commit
 
 ```bash
 git commit -m "setup-00: init agentlens repo structure"
@@ -216,7 +216,7 @@ git commit -m "multiagent-08: add second agent and RL tool selection policy"
 ## Current Status
 | Phase | Status |
 |---|---|
-| 0 — Repo Setup | 🔴 Not started |
+| 0 — Repo Setup | 🟢 Done |
 | 1 — Tools + Logging | 🔴 Not started |
 | 2 — CrewAI Agent | 🔴 Not started |
 | 3 — Dataset Expansion | 🔴 Not started |
