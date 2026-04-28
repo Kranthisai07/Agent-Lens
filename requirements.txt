@@ -1,0 +1,8 @@
+crewai
+ollama
+scikit-learn
+pandas
+numpy
+matplotlib
+seaborn
+joblib
