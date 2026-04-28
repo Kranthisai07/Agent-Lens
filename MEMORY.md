@@ -88,7 +88,8 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 ---
 
 ## Key Decisions Made
-- **Use Llama 3.2 3B via Ollama locally** — free, reproducible, no API costs (switched from Mistral 7B on 2026-04-28 to reduce disk + memory footprint; weaker LLM also strengthens the "trained classifier replaces routing" narrative)
+- **Use Llama 3.2 3B via Ollama locally** — free, reproducible, no API costs (switched from Mistral 7B on 2026-04-28 due to 8 GB RAM constraint on dev machine; weaker LLM also strengthens the "trained classifier replaces routing" narrative)
+- **Bypass CrewAI's ReAct loop — call Ollama directly for tool selection** (decided 2026-04-28). Llama 3.2 3B couldn't reliably emit CrewAI's verbose tool-call format and failed with empty LLM responses on most queries. We now ask the LLM for a single-word tool name (Calculator / Search / TableSummarizer) per query and dispatch to the wrapped tool directly. Trajectory semantics improved as a side-effect — logs now record the original natural-language query, not the LLM's rewritten tool input.
 - **Keep it single-agent for the conference paper** — multi-agent is journal scope
 - **No RL for Paper 1** — supervised fine-tuning only; RL is journal Paper 2
 - **Dataset paper framing for Paper 1** — easier to publish, still novel
@@ -122,6 +123,7 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 |---|---|---|
 | 29be410 | setup-00 | init agentlens repo structure |
 | 59ee898 | tools-01 | add Calculator, Search, Summarizer with logging wrapper |
+| b2cf78e | agent-02 | CrewAI agent with Llama 3.2 3B, loads queries from JSON, saves logs to CSV |
 
 ---
 

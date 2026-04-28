@@ -106,14 +106,14 @@ git commit -m "agent-02: CrewAI agent with Llama 3.2 3B, loads queries from JSON
 ## Phase 3 — Dataset Expansion
 **Goal:** Go from 9 queries to 500+ diverse (prompt, tool) pairs.
 
-- [ ] **3.1** Create `data/queries.json` with initial 9 queries from Calix's notebook
-- [ ] **3.2** Use Claude to generate 100 queries per tool category (300 total minimum)
-  - Calculator queries: math, percentages, conversions, word problems
-  - Search queries: facts, history, definitions, people, news
-  - Summarizer queries: CSV stats, column info, data questions
-- [ ] **3.3** Review generated queries — remove duplicates, fix any mislabeled ones
-- [ ] **3.4** Add query count printout so you always know dataset size
-- [ ] **3.5** Target: 500+ queries before training
+- [x] **3.1** Create `data/queries.json` with initial 9 queries from Calix's notebook
+- [x] **3.2** Generate 165+ queries per tool category via `scripts/generate_queries.py` (templated, seeded for reproducibility)
+  - Calculator: 173 — basic arithmetic, percentages, word problems, multi-step, real-world
+  - Search: 172 — concepts, events, people, places, countries, artifacts, phenomena
+  - TableSummarizer: 173 — overview, columns, rows, missing-values, head, statcol, group-by, aggregation
+- [x] **3.3** Review generated queries — `scripts/generate_queries.py` self-validates: 0 duplicates, all tools ≥160 entries
+- [x] **3.4** Validation script prints total + per-tool counts + duplicates on every run
+- [x] **3.5** Target met: 518 queries, balanced across 3 tools
 
 ```bash
 git commit -m "data-03: expand query dataset to 500+ examples across 3 tool categories"
@@ -219,7 +219,7 @@ git commit -m "multiagent-08: add second agent and RL tool selection policy"
 | 0 — Repo Setup | 🟢 Done |
 | 1 — Tools + Logging | 🟢 Done |
 | 2 — CrewAI Agent | 🟢 Done (direct Ollama, not CrewAI ReAct) |
-| 3 — Dataset Expansion | 🔴 Not started |
+| 3 — Dataset Expansion | 🟢 Done (518 queries, 76.8% LLM accuracy on full set) |
 | 4 — Training Pipeline | 🔴 Not started |
 | 5 — Evaluation | 🔴 Not started |
 | 6 — Model Comparison | 🔴 Not started |

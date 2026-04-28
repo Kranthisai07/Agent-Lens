@@ -1,11 +1,2074 @@
 [
-  {"query": "What is 25 multiplied by 48?", "tool": "Calculator"},
-  {"query": "What is the square root of 144?", "tool": "Calculator"},
-  {"query": "What is 15% of 200?", "tool": "Calculator"},
-  {"query": "Who invented the telephone?", "tool": "Search"},
-  {"query": "What is the capital of Japan?", "tool": "Search"},
-  {"query": "What is machine learning?", "tool": "Search"},
-  {"query": "Summarize the sales data", "tool": "TableSummarizer"},
-  {"query": "What are the columns in the dataset?", "tool": "TableSummarizer"},
-  {"query": "Give me the statistics of the sales table", "tool": "TableSummarizer"}
+  {
+    "query": "What is 25 multiplied by 48?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is the square root of 144?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 15% of 200?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Who invented the telephone?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the capital of Japan?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is machine learning?",
+    "tool": "Search"
+  },
+  {
+    "query": "Summarize the sales data",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What are the columns in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Give me the statistics of the sales table",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Subtract 99 from 982",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 656 plus 16?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Divide 625 by 83",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 90% of (13 + 11)?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "65% of 2217 is what?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 18% of 2237?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Divide 720 by 89",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Divide 665 by 11",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 101 take away 47",
+    "tool": "Calculator"
+  },
+  {
+    "query": "There are 16 apples in a basket and 13 more are added. How many apples now?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "560 minus 55 equals what?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 10% of 242",
+    "tool": "Calculator"
+  },
+  {
+    "query": "605 minus 37 equals what?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Convert 34 degrees Celsius to Fahrenheit",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find 20 percent of 2094",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What's 75 percent of 781?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Sales tax is 8% on a $504 item. What is the final cost?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A water tank fills at 28 gallons per minute. Volume after 40 minutes?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A baker makes 14 cookies per batch and bakes 8 batches. Total cookies?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A car uses 22 gallons to travel 417 miles. What is the mpg?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the product of 302 and 82",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 551 multiplied by 17",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 50% of (4 + 11)?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A meal is $314 and the tip is 10%; what is the total bill?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If a printer prints 593 pages per minute, how many pages in 6 minutes?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "227 minus 59 equals what?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "I save $167 per week. How much will I have after 16 weeks?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A train covers 68 miles in 5 hours. What is its average speed in mph?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "An item originally $297 is now $1. What is the percent decrease?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 75% of 2071",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Evaluate (39 - 27) divided by 3",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A shirt costs $431, discounted 25%. What is the final price?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the average of 39, 8, and 16",
+    "tool": "Calculator"
+  },
+  {
+    "query": "50% of 2490 is what?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A book has 418 pages and you read 45 per day. How many days to finish?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute the sum of 915 and 71",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the quotient of 365 and 28",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 230 + 19",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A recipe for 2 servings uses 3 cups of flour. How much for 20 servings?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Gas is $310 per gallon and the tank holds 25 gallons. Total cost?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A box is 39 cm by 38 cm by 8 cm. What is its volume?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find 30 percent of 2444",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the average of 18, 6, and 17",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A recipe for 8 servings uses 6 cups of flour. How much for 22 servings?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A train covers 417 miles in 5 hours. What is its average speed in mph?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Multiply 593 by 26",
+    "tool": "Calculator"
+  },
+  {
+    "query": "There are 16 apples in a basket and 19 more are added. How many apples now?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 283 plus 33?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 70% of 129",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 18% of 1779",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Multiply 723 by 10",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 41 squared divided by 30?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If you split $183 equally among 24 people, how much does each person get?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If I have 25 boxes of 23 items, how many items in total?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Gas is $705 per gallon and the tank holds 8 gallons. Total cost?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 50% of 1532",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A box is 6 cm by 48 cm by 7 cm. What is its volume?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A meal is $251 and the tip is 25%; what is the total bill?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "An employee earns $52/hour for 34 hours per week. Weekly pay?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What's 75 percent of 485?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Convert 408 kilometers to miles (1 km = 0.621 miles)",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Evaluate (9 - 24) divided by 11",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 65% of 1604?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the quotient of 688 and 36",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What's 33 percent of 2129?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 27 cubed minus 12?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A 634% tip on a $443 bill is how much?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 44^2 + 3^2",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A baker makes 4 cookies per batch and bakes 10 batches. Total cookies?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Stock went from $480 to $61. What is the percent change?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find 15 percent of 1060",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the quotient of 168 and 49",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute the sum of 91 and 77",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Convert 42 degrees Fahrenheit to Celsius",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Multiply 48 by 86",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A shirt costs $328, discounted 40%. What is the final price?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find 90 percent of 1338",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute the sum of 434 and 6",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A shirt costs $201, discounted 25%. What is the final price?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If 75 workers finish a job in 10 days, how long for 408 workers?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If 39 out of 259 students passed, what percentage passed?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If 399 workers finish a job in 40 days, how long for 81 workers?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 889 divided by 14?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Stock went from $392 to $421. What is the percent change?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A 479% tip on a $241 bill is how much?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Convert 283 kilometers to miles (1 km = 0.621 miles)",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What's 80 percent of 2222?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 8% of 1342?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 17 squared divided by 10?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A loan of $623 at 3% simple interest for one year. How much interest?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find 10 percent of 914",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find 15 percent of 1134",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Square root of 40 plus 20",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 15% of 575",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A book has 402 pages and you read 55 per day. How many days to finish?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A box is 26 cm by 30 cm by 4 cm. What is its volume?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 8 cubed minus 22?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the result of 42 / 27 + 19",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A meal is $793 and the tip is 20%; what is the total bill?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 96 take away 50",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 998 multiplied by 50",
+    "tool": "Calculator"
+  },
+  {
+    "query": "I bought 4 packs with 29 candies each — how many candies altogether?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If 166 out of 133 students passed, what percentage passed?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 37 plus 15 plus 23?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is the square of 32 minus the square of 20?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A 113% tip on a $488 bill is how much?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "18% of 1908 is what?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A teacher has 31 students in each of 6 classes; how many students total?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 33% of 1030",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Evaluate (40 - 24) divided by 22",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 10% of (28 + 24)?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "There are 12 apples in a basket and 27 more are added. How many apples now?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 346 take away 15",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A recipe for 3 servings uses 5 cups of flour. How much for 18 servings?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 60% of 2440",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is the square of 20 minus the square of 30?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "33% of 1830 is what?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 9 times 15 minus 13",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Add 32 and 13",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A car uses 21 gallons to travel 188 miles. What is the mpg?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If I have 24 boxes of 34 items, how many items in total?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 391 / 37",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A loan of $572 at 4% simple interest for one year. How much interest?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A field is 10 meters long and 38 meters wide. What is its area?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 90% of 372",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If 41 out of 252 students passed, what percentage passed?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A water tank fills at 40 gallons per minute. Volume after 32 minutes?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A car uses 25 gallons to travel 467 miles. What is the mpg?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Convert 61 degrees Celsius to Fahrenheit",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A teacher has 8 students in each of 10 classes; how many students total?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "I save $128 per week. How much will I have after 18 weeks?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find 50 percent of 1929",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 869 times 46?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute (23 + 12) multiplied by 14",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Subtract 29 from 161",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 12% of 1536",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 32 cubed minus 7?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 466 / 83",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 7 plus 18 plus 22?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 694 + 96",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Square root of 49 plus 7",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Gas is $200 per gallon and the tank holds 23 gallons. Total cost?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 3 plus 29 plus 15?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "An employee earns $38/hour for 46 hours per week. Weekly pay?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A teacher has 38 students in each of 9 classes; how many students total?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If a car travels 24 miles per hour for 3 hours, what is the total distance?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "40% of 506 is what?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 779 - 22?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A book has 167 pages and you read 50 per day. How many days to finish?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 756 + 15",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If you split $111 equally among 24 people, how much does each person get?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Add 225 and 31",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is the square of 24 minus the square of 2?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 830 - 2?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What's 5 percent of 1377?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 4 squared divided by 14?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If a printer prints 218 pages per minute, how many pages in 29 minutes?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is 50% of 1146?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A field is 20 meters long and 44 meters wide. What is its area?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Compute 10% of 2231",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the product of 82 and 72",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 856 / 48",
+    "tool": "Calculator"
+  },
+  {
+    "query": "A loan of $326 at 5% simple interest for one year. How much interest?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "If a printer prints 459 pages per minute, how many pages in 8 minutes?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "An item originally $127 is now $1. What is the percent decrease?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 749 multiplied by 60",
+    "tool": "Calculator"
+  },
+  {
+    "query": "An item originally $225 is now $1. What is the percent decrease?",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Calculate 10% of 1626",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find 80 percent of 2257",
+    "tool": "Calculator"
+  },
+  {
+    "query": "Find the product of 635 and 48",
+    "tool": "Calculator"
+  },
+  {
+    "query": "What is the capital of Mexico?",
+    "tool": "Search"
+  },
+  {
+    "query": "What language is spoken in Mexico?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the population of Mexico?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Mexico.",
+    "tool": "Search"
+  },
+  {
+    "query": "What currency is used in Mexico?",
+    "tool": "Search"
+  },
+  {
+    "query": "Where is Mexico located?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is photosynthesis?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about photosynthesis.",
+    "tool": "Search"
+  },
+  {
+    "query": "Define photosynthesis.",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me an overview of photosynthesis.",
+    "tool": "Search"
+  },
+  {
+    "query": "Can you explain photosynthesis?",
+    "tool": "Search"
+  },
+  {
+    "query": "What does photosynthesis mean?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is black holes?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about black holes.",
+    "tool": "Search"
+  },
+  {
+    "query": "Define black holes.",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me an overview of black holes.",
+    "tool": "Search"
+  },
+  {
+    "query": "Can you explain black holes?",
+    "tool": "Search"
+  },
+  {
+    "query": "What does black holes mean?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is evolution by natural selection?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about evolution by natural selection.",
+    "tool": "Search"
+  },
+  {
+    "query": "Define evolution by natural selection.",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me an overview of evolution by natural selection.",
+    "tool": "Search"
+  },
+  {
+    "query": "Can you explain evolution by natural selection?",
+    "tool": "Search"
+  },
+  {
+    "query": "What does evolution by natural selection mean?",
+    "tool": "Search"
+  },
+  {
+    "query": "When did the moon landing happen?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the moon landing.",
+    "tool": "Search"
+  },
+  {
+    "query": "What was the moon landing?",
+    "tool": "Search"
+  },
+  {
+    "query": "What caused the moon landing?",
+    "tool": "Search"
+  },
+  {
+    "query": "Summarize the moon landing for me.",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is the moon landing historically significant?",
+    "tool": "Search"
+  },
+  {
+    "query": "When did the Cold War happen?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the Cold War.",
+    "tool": "Search"
+  },
+  {
+    "query": "What was the Cold War?",
+    "tool": "Search"
+  },
+  {
+    "query": "What caused the Cold War?",
+    "tool": "Search"
+  },
+  {
+    "query": "Summarize the Cold War for me.",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is the Cold War historically significant?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the theory of relativity?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the theory of relativity.",
+    "tool": "Search"
+  },
+  {
+    "query": "Define the theory of relativity.",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me an overview of the theory of relativity.",
+    "tool": "Search"
+  },
+  {
+    "query": "Can you explain the theory of relativity?",
+    "tool": "Search"
+  },
+  {
+    "query": "What does the theory of relativity mean?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the capital of Germany?",
+    "tool": "Search"
+  },
+  {
+    "query": "What language is spoken in Germany?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the population of Germany?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Germany.",
+    "tool": "Search"
+  },
+  {
+    "query": "What currency is used in Germany?",
+    "tool": "Search"
+  },
+  {
+    "query": "Where is Germany located?",
+    "tool": "Search"
+  },
+  {
+    "query": "Who is Frida Kahlo?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Frida Kahlo.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is Frida Kahlo known for?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is Frida Kahlo famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me a biography of Frida Kahlo.",
+    "tool": "Search"
+  },
+  {
+    "query": "When did Frida Kahlo live?",
+    "tool": "Search"
+  },
+  {
+    "query": "Explain how earthquakes happen.",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me how earthquakes happen.",
+    "tool": "Search"
+  },
+  {
+    "query": "Describe how earthquakes happen.",
+    "tool": "Search"
+  },
+  {
+    "query": "Help me understand how earthquakes happen.",
+    "tool": "Search"
+  },
+  {
+    "query": "Could you explain how earthquakes happen?",
+    "tool": "Search"
+  },
+  {
+    "query": "Where is the Mariana Trench?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the Mariana Trench.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is special about the Mariana Trench?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is the Mariana Trench famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Describe the Mariana Trench.",
+    "tool": "Search"
+  },
+  {
+    "query": "What language is spoken in Japan?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the population of Japan?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Japan.",
+    "tool": "Search"
+  },
+  {
+    "query": "What currency is used in Japan?",
+    "tool": "Search"
+  },
+  {
+    "query": "Where is Japan located?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Beethoven's Ninth Symphony.",
+    "tool": "Search"
+  },
+  {
+    "query": "Who created Beethoven's Ninth Symphony?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is Beethoven's Ninth Symphony significant?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the history of Beethoven's Ninth Symphony?",
+    "tool": "Search"
+  },
+  {
+    "query": "Where is the Andes mountains?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the Andes mountains.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is special about the Andes mountains?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is the Andes mountains famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Describe the Andes mountains.",
+    "tool": "Search"
+  },
+  {
+    "query": "Who is Ada Lovelace?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Ada Lovelace.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is Ada Lovelace known for?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is Ada Lovelace famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me a biography of Ada Lovelace.",
+    "tool": "Search"
+  },
+  {
+    "query": "When did Ada Lovelace live?",
+    "tool": "Search"
+  },
+  {
+    "query": "Who is Alan Turing?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Alan Turing.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is Alan Turing known for?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is Alan Turing famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me a biography of Alan Turing.",
+    "tool": "Search"
+  },
+  {
+    "query": "When did Alan Turing live?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the capital of Australia?",
+    "tool": "Search"
+  },
+  {
+    "query": "What language is spoken in Australia?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the population of Australia?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Australia.",
+    "tool": "Search"
+  },
+  {
+    "query": "What currency is used in Australia?",
+    "tool": "Search"
+  },
+  {
+    "query": "Where is Australia located?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is artificial intelligence?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about artificial intelligence.",
+    "tool": "Search"
+  },
+  {
+    "query": "Define artificial intelligence.",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me an overview of artificial intelligence.",
+    "tool": "Search"
+  },
+  {
+    "query": "Can you explain artificial intelligence?",
+    "tool": "Search"
+  },
+  {
+    "query": "What does artificial intelligence mean?",
+    "tool": "Search"
+  },
+  {
+    "query": "When did the Cuban Missile Crisis happen?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the Cuban Missile Crisis.",
+    "tool": "Search"
+  },
+  {
+    "query": "What was the Cuban Missile Crisis?",
+    "tool": "Search"
+  },
+  {
+    "query": "What caused the Cuban Missile Crisis?",
+    "tool": "Search"
+  },
+  {
+    "query": "Summarize the Cuban Missile Crisis for me.",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is the Cuban Missile Crisis historically significant?",
+    "tool": "Search"
+  },
+  {
+    "query": "Who is Albert Einstein?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Albert Einstein.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is Albert Einstein known for?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is Albert Einstein famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me a biography of Albert Einstein.",
+    "tool": "Search"
+  },
+  {
+    "query": "When did Albert Einstein live?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the cloud?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the cloud.",
+    "tool": "Search"
+  },
+  {
+    "query": "Define the cloud.",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me an overview of the cloud.",
+    "tool": "Search"
+  },
+  {
+    "query": "Can you explain the cloud?",
+    "tool": "Search"
+  },
+  {
+    "query": "What does the cloud mean?",
+    "tool": "Search"
+  },
+  {
+    "query": "Where is the Sahara Desert?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the Sahara Desert.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is special about the Sahara Desert?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is the Sahara Desert famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Describe the Sahara Desert.",
+    "tool": "Search"
+  },
+  {
+    "query": "When did the Great Depression happen?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about the Great Depression.",
+    "tool": "Search"
+  },
+  {
+    "query": "What was the Great Depression?",
+    "tool": "Search"
+  },
+  {
+    "query": "What caused the Great Depression?",
+    "tool": "Search"
+  },
+  {
+    "query": "Summarize the Great Depression for me.",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is the Great Depression historically significant?",
+    "tool": "Search"
+  },
+  {
+    "query": "Who is Marie Curie?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Marie Curie.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is Marie Curie known for?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is Marie Curie famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me a biography of Marie Curie.",
+    "tool": "Search"
+  },
+  {
+    "query": "When did Marie Curie live?",
+    "tool": "Search"
+  },
+  {
+    "query": "Explain why the sky is blue.",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me why the sky is blue.",
+    "tool": "Search"
+  },
+  {
+    "query": "Describe why the sky is blue.",
+    "tool": "Search"
+  },
+  {
+    "query": "Help me understand why the sky is blue.",
+    "tool": "Search"
+  },
+  {
+    "query": "Could you explain why the sky is blue?",
+    "tool": "Search"
+  },
+  {
+    "query": "Who is Stephen Hawking?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Stephen Hawking.",
+    "tool": "Search"
+  },
+  {
+    "query": "What is Stephen Hawking known for?",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is Stephen Hawking famous?",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me a biography of Stephen Hawking.",
+    "tool": "Search"
+  },
+  {
+    "query": "When did Stephen Hawking live?",
+    "tool": "Search"
+  },
+  {
+    "query": "When did World War 2 happen?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about World War 2.",
+    "tool": "Search"
+  },
+  {
+    "query": "What was World War 2?",
+    "tool": "Search"
+  },
+  {
+    "query": "What caused World War 2?",
+    "tool": "Search"
+  },
+  {
+    "query": "Summarize World War 2 for me.",
+    "tool": "Search"
+  },
+  {
+    "query": "Why is World War 2 historically significant?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the capital of Brazil?",
+    "tool": "Search"
+  },
+  {
+    "query": "What language is spoken in Brazil?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the population of Brazil?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about Brazil.",
+    "tool": "Search"
+  },
+  {
+    "query": "What currency is used in Brazil?",
+    "tool": "Search"
+  },
+  {
+    "query": "Where is Brazil located?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is plate tectonics?",
+    "tool": "Search"
+  },
+  {
+    "query": "Tell me about plate tectonics.",
+    "tool": "Search"
+  },
+  {
+    "query": "Define plate tectonics.",
+    "tool": "Search"
+  },
+  {
+    "query": "Give me an overview of plate tectonics.",
+    "tool": "Search"
+  },
+  {
+    "query": "Can you explain plate tectonics?",
+    "tool": "Search"
+  },
+  {
+    "query": "What does plate tectonics mean?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the capital of Egypt?",
+    "tool": "Search"
+  },
+  {
+    "query": "What language is spoken in Egypt?",
+    "tool": "Search"
+  },
+  {
+    "query": "What is the population of Egypt?",
+    "tool": "Search"
+  },
+  {
+    "query": "Summarize the sales data.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Describe the dataset.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show me a summary of the sales table.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Give me the statistics of the dataset.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What does the sales dataset look like?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Run a summary on the data.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Print the data summary.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show describe() output for the table.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Give me an overview of the data.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Describe the sales CSV.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show summary statistics for the sales data.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "I want to see the data summary.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show me a quick look at the data.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Give me a description of the dataset.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What's in this dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What columns does the table have?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "List the columns in the dataset.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Which columns are in the data?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show me the column names.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What fields are in the sales CSV?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Print the dataset columns.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the schema of the table?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Give me the column list.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What columns are present in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show me the headers of the data.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "How many records are in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "How many rows does the table have?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the size of the data?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "How big is the sales dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Count the rows in the table.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Tell me the number of records.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "How many entries are in the data?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the row count?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show me the dataset size.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Are there any missing values in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Are there any nulls in the data?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Check for missing data in the table.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Does the dataset contain NaN values?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Tell me if any rows have missing fields.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "How many missing values are in the data?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Are there any empty cells in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Run a missing-values check on the table.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show me the first few rows of the data.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Print the head of the dataset.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Give me a preview of the table.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show the first 5 rows of the sales data.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Display the top of the dataset.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Let me see some sample rows from the table.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Show me the head of the sales CSV.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the average revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the mean revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the median revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the max revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the min revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the total revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the sum revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the standard deviation revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the range revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the average sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the mean sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the median sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the max sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the min sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the total sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the sum sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the standard deviation sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the range sales revenue in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the average the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the mean the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the median the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the max the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the min the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the total the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the sum the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the standard deviation the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the range the revenue column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the average earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the mean earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the median earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the max earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the min earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the total earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the sum earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the standard deviation earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the range earnings in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the average units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the mean units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the median units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the max units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the min units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the total units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the sum units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the standard deviation units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the range units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the average the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the mean the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the median the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the max the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the min the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the total the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the sum the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the standard deviation the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the range the units_sold column in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the average unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the mean unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the median unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the max unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the min unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the total unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the sum unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the standard deviation unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the range unit sales in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the average the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the mean the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the median the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the max the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the min the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the total the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the sum the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the standard deviation the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "What is the range the number of units sold in the dataset?",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the average of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the mean of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the median of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the max of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the min of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the total of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the sum of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the standard deviation of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the range of revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the average of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the mean of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the median of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the max of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the min of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the total of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the sum of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the standard deviation of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the range of sales revenue.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the average of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the mean of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the median of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the max of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the min of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the total of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the sum of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the standard deviation of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the range of the revenue column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the average of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the mean of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the median of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the max of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the min of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the total of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the sum of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the standard deviation of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the range of earnings.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the average of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the mean of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the median of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the max of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the min of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the total of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the sum of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the standard deviation of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the range of units sold.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the average of the units_sold column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the mean of the units_sold column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the median of the units_sold column.",
+    "tool": "TableSummarizer"
+  },
+  {
+    "query": "Calculate the max of the units_sold column.",
+    "tool": "TableSummarizer"
+  }
 ]
