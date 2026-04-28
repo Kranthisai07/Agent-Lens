@@ -70,15 +70,15 @@ git commit -m "setup-00: init agentlens repo structure"
 ## Phase 1 — Tools + Logging Wrapper
 **Goal:** Clean, modular tool definitions with automatic trajectory logging.
 
-- [ ] **1.1** Create `tools/calculator.py` — math eval tool
-- [ ] **1.2** Create `tools/search.py` — general knowledge search tool
-- [ ] **1.3** Create `tools/summarizer.py` — CSV describe/head tool
-- [ ] **1.4** Create `tools/__init__.py` — export all tools + `logging_tool` wrapper
-- [ ] **1.5** The `logging_tool` wrapper must:
+- [x] **1.1** Create `tools/calculator.py` — math eval tool
+- [x] **1.2** Create `tools/search.py` — general knowledge search tool
+- [x] **1.3** Create `tools/summarizer.py` — CSV describe/head tool
+- [x] **1.4** Create `tools/__init__.py` — export all tools + `logging_tool` wrapper
+- [x] **1.5** The `logging_tool` wrapper must:
   - Accept `(tool_name, func)` 
   - Append `{"prompt": input, "tool": tool_name}` to a shared `logs` list
   - Return the tool function result unchanged
-- [ ] **1.6** Test each tool manually (no agent yet)
+- [x] **1.6** Test each tool manually (no agent yet)
 
 ```bash
 git commit -m "tools-01: add Calculator, Search, Summarizer with logging wrapper"
@@ -89,16 +89,16 @@ git commit -m "tools-01: add Calculator, Search, Summarizer with logging wrapper
 ## Phase 2 — CrewAI Agent
 **Goal:** Single agent that uses tools and generates trajectory data automatically.
 
-- [ ] **2.1** Create `agents/crew_agent.py`
-- [ ] **2.2** Configure Ollama LLM: `model="mistral:7b"`, `base_url="http://localhost:11434"`
-- [ ] **2.3** Create Agent with all 3 tools, `max_iter=5` to prevent infinite loops
-- [ ] **2.4** Load queries from `data/queries.json` (not hardcoded)
-- [ ] **2.5** Run agent on each query, collect logs
-- [ ] **2.6** After run, save logs to `data/trajectories/logs.csv` (append mode)
-- [ ] **2.7** Test with 5 queries, verify CSV is populated correctly
+- [x] **2.1** Create `agents/crew_agent.py`
+- [x] **2.2** ~~Configure Ollama LLM via CrewAI LLM~~ — **pivot:** call Ollama directly via `ollama.chat`. CrewAI's ReAct loop produced empty LLM responses with Llama 3.2 3B (model too small for the verbose tool-call format). Direct call uses a tiny system prompt asking for one-word tool name. See MEMORY.md.
+- [x] **2.3** ~~CrewAI Agent with `max_iter=5`~~ — replaced by direct LLM call + dispatch table. Tools still wrapped via `logging_tool` so trajectories are logged identically.
+- [x] **2.4** Load queries from `data/queries.json` (not hardcoded)
+- [x] **2.5** Run agent on each query, collect logs
+- [x] **2.6** After run, save logs to `data/trajectories/logs.csv` (append mode)
+- [x] **2.7** Test with 3 queries, verify CSV is populated correctly — then full 9-query run, all 9 tools correctly classified
 
 ```bash
-git commit -m "agent-02: CrewAI agent with Mistral 7B, loads queries from JSON, saves logs to CSV"
+git commit -m "agent-02: CrewAI agent with Llama 3.2 3B, loads queries from JSON, saves logs to CSV"
 ```
 
 ---
@@ -217,8 +217,8 @@ git commit -m "multiagent-08: add second agent and RL tool selection policy"
 | Phase | Status |
 |---|---|
 | 0 — Repo Setup | 🟢 Done |
-| 1 — Tools + Logging | 🔴 Not started |
-| 2 — CrewAI Agent | 🔴 Not started |
+| 1 — Tools + Logging | 🟢 Done |
+| 2 — CrewAI Agent | 🟢 Done (direct Ollama, not CrewAI ReAct) |
 | 3 — Dataset Expansion | 🔴 Not started |
 | 4 — Training Pipeline | 🔴 Not started |
 | 5 — Evaluation | 🔴 Not started |

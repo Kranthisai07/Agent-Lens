@@ -88,7 +88,7 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 ---
 
 ## Key Decisions Made
-- **Use Mistral 7B via Ollama locally** — free, reproducible, no API costs
+- **Use Llama 3.2 3B via Ollama locally** — free, reproducible, no API costs (switched from Mistral 7B on 2026-04-28 to reduce disk + memory footprint; weaker LLM also strengthens the "trained classifier replaces routing" narrative)
 - **Keep it single-agent for the conference paper** — multi-agent is journal scope
 - **No RL for Paper 1** — supervised fine-tuning only; RL is journal Paper 2
 - **Dataset paper framing for Paper 1** — easier to publish, still novel
@@ -121,6 +121,7 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 | Commit | Phase | Description |
 |---|---|---|
 | 29be410 | setup-00 | init agentlens repo structure |
+| 59ee898 | tools-01 | add Calculator, Search, Summarizer with logging wrapper |
 
 ---
 

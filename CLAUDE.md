@@ -1,10 +1,10 @@
 # CLAUDE.md — AgentLens
 
 ## Project Overview
-**AgentLens** is a research project that collects agent behavioral trajectories — (prompt, tool) tuples — as a CrewAI + Mistral 7B agent runs tasks, then trains a lightweight classifier to learn a tool selection policy. The goal is to replace expensive LLM-based tool routing with a fast, trained model and address objective drift in long-horizon agents.
+**AgentLens** is a research project that collects agent behavioral trajectories — (prompt, tool) tuples — as a CrewAI + Llama 3.2 3B agent runs tasks, then trains a lightweight classifier to learn a tool selection policy. The goal is to replace expensive LLM-based tool routing with a fast, trained model and address objective drift in long-horizon agents.
 
 **Collaborator:** Dr. Ricardo Calix (Purdue Northwest)
-**Stack:** Python, CrewAI, Ollama (Mistral 7B local), scikit-learn, pandas
+**Stack:** Python, CrewAI, Ollama (Llama 3.2 3B local), scikit-learn, pandas
 
 ---
 
@@ -56,7 +56,7 @@ agentlens/
 Every tool is wrapped with a `logging_tool` decorator that appends `(prompt, tool_name)` to a `logs` list before execution. This is the trajectory collection — zero overhead, fully automatic.
 
 ### Phase 2 — Agent Run
-A CrewAI agent with Mistral 7B (via Ollama at `http://localhost:11434`) receives queries and picks tools. All decisions are silently logged.
+A CrewAI agent with Llama 3.2 3B (via Ollama at `http://localhost:11434`) receives queries and picks tools. All decisions are silently logged.
 
 ### Phase 3 — Train Policy
 Logs → TF-IDF vectorization → Logistic Regression → `predict_tool(query)` function.
@@ -79,7 +79,7 @@ Training data is only 9 queries — far too small. **Priority task: expand to 50
 ---
 
 ## Key Conventions
-- Always run Ollama locally before running agent: `ollama run mistral:7b`
+- Always run Ollama locally before running agent: `ollama run llama3.2:3b`
 - Save trajectory logs to `data/trajectories/` as CSV after each run
 - Use `scikit-learn` metrics (accuracy, F1, confusion matrix) for every model eval
 - Keep the pipeline modular — tools, logging, training, and inference are separate files
@@ -98,7 +98,7 @@ Training data is only 9 queries — far too small. **Priority task: expand to 50
 ## Commands
 ```bash
 # Start Ollama
-ollama run mistral:7b
+ollama run llama3.2:3b
 
 # Run agent and collect trajectories
 python agents/crew_agent.py

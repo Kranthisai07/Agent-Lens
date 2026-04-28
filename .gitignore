@@ -3,3 +3,7 @@ __pycache__/
 .env
 models/*.pkl
 data/trajectories/*.csv
+
+# Local installer / runtime binaries (do not check in)
+*.exe
+*.zip

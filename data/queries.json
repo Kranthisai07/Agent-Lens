@@ -1,0 +1,11 @@
+[
+  {"query": "What is 25 multiplied by 48?", "tool": "Calculator"},
+  {"query": "What is the square root of 144?", "tool": "Calculator"},
+  {"query": "What is 15% of 200?", "tool": "Calculator"},
+  {"query": "Who invented the telephone?", "tool": "Search"},
+  {"query": "What is the capital of Japan?", "tool": "Search"},
+  {"query": "What is machine learning?", "tool": "Search"},
+  {"query": "Summarize the sales data", "tool": "TableSummarizer"},
+  {"query": "What are the columns in the dataset?", "tool": "TableSummarizer"},
+  {"query": "Give me the statistics of the sales table", "tool": "TableSummarizer"}
+]

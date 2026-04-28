@@ -102,7 +102,7 @@ Tone: formal academic. Length: [short/medium/long].
 
 | Issue | Fix |
 |---|---|
-| Ollama not responding | Run `ollama run mistral:7b` first, check port 11434 |
+| Ollama not responding | Run `ollama run llama3.2:3b` first, check port 11434 |
 | Tool not being called | Make tool description more specific in `Tool(description=...)` |
 | Agent loops forever | Set `max_iter=5` in Agent config |
 | Logs empty after run | Check `logging_tool` wrapper is applied before `Tool()` is created |
