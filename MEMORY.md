@@ -77,7 +77,19 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 - AgentOS (separate project, independent study — complete)
 
 ### What's In Progress 🟡
-- Expanding training dataset (currently 9 queries — needs 500+)
+- Phase 4 — TF-IDF + LogisticRegression training pipeline (next up)
+
+### Dataset Snapshot — 2026-04-28 (post Phase 3)
+- **Source labels:** `data/queries.json`, 518 entries, balanced (Calculator 173 / Search 172 / TableSummarizer 173), 0 dupes
+- **Generator:** `scripts/generate_queries.py` (seeded `random.seed(42)`) — reproducible
+- **Trajectories collected:** `data/trajectories/logs.csv`, 518 rows
+- **LLM (Llama 3.2 3B) accuracy vs ground-truth labels: 76.8% (398/518)**
+- **Confusion (gt → llm picked):**
+  - TableSummarizer → Calculator: 61 (LLM grabs "Calculate"/"average" cues)
+  - Search → TableSummarizer: 32
+  - Search → Calculator: 26
+  - TableSummarizer → Search: 1
+- **Implication:** the LLM over-predicts Calculator (260 vs 173 true). A trained classifier should beat 76.8% comfortably; that's our Phase 4–5 baseline-to-beat in the paper.
 
 ### What's Next 🔴
 - Add train/test split + proper metrics (accuracy, F1, confusion matrix)
@@ -124,6 +136,7 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 | 29be410 | setup-00 | init agentlens repo structure |
 | 59ee898 | tools-01 | add Calculator, Search, Summarizer with logging wrapper |
 | b2cf78e | agent-02 | CrewAI agent with Llama 3.2 3B, loads queries from JSON, saves logs to CSV |
+| 1188169 | data-03 | expand query dataset to 500+ examples across 3 tool categories |
 
 ---
 

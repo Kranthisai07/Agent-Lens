@@ -1,0 +1,519 @@
+prompt,ground_truth,predicted
+What is 25 multiplied by 48?,Calculator,Calculator
+What is the square root of 144?,Calculator,Calculator
+What is 15% of 200?,Calculator,Calculator
+Who invented the telephone?,Search,Search
+What is the capital of Japan?,Search,Search
+What is machine learning?,Search,Search
+Summarize the sales data,TableSummarizer,TableSummarizer
+What are the columns in the dataset?,TableSummarizer,TableSummarizer
+Give me the statistics of the sales table,TableSummarizer,TableSummarizer
+Subtract 99 from 982,Calculator,Calculator
+What is 656 plus 16?,Calculator,Calculator
+Divide 625 by 83,Calculator,Calculator
+What is 90% of (13 + 11)?,Calculator,Calculator
+65% of 2217 is what?,Calculator,Calculator
+What is 18% of 2237?,Calculator,Calculator
+Divide 720 by 89,Calculator,Calculator
+Divide 665 by 11,Calculator,Calculator
+Compute 101 take away 47,Calculator,Calculator
+There are 16 apples in a basket and 13 more are added. How many apples now?,Calculator,Calculator
+560 minus 55 equals what?,Calculator,Calculator
+Calculate 10% of 242,Calculator,Calculator
+605 minus 37 equals what?,Calculator,Calculator
+Convert 34 degrees Celsius to Fahrenheit,Calculator,Calculator
+Find 20 percent of 2094,Calculator,Calculator
+What's 75 percent of 781?,Calculator,Calculator
+Sales tax is 8% on a $504 item. What is the final cost?,Calculator,Calculator
+A water tank fills at 28 gallons per minute. Volume after 40 minutes?,Calculator,Calculator
+A baker makes 14 cookies per batch and bakes 8 batches. Total cookies?,Calculator,Calculator
+A car uses 22 gallons to travel 417 miles. What is the mpg?,Calculator,Calculator
+Find the product of 302 and 82,Calculator,Calculator
+Calculate 551 multiplied by 17,Calculator,Calculator
+What is 50% of (4 + 11)?,Calculator,Calculator
+A meal is $314 and the tip is 10%; what is the total bill?,Calculator,Calculator
+"If a printer prints 593 pages per minute, how many pages in 6 minutes?",Calculator,Calculator
+227 minus 59 equals what?,Calculator,Calculator
+I save $167 per week. How much will I have after 16 weeks?,Calculator,Calculator
+A train covers 68 miles in 5 hours. What is its average speed in mph?,Calculator,Calculator
+An item originally $297 is now $1. What is the percent decrease?,Calculator,Calculator
+Calculate 75% of 2071,Calculator,Calculator
+Evaluate (39 - 27) divided by 3,Calculator,Calculator
+"A shirt costs $431, discounted 25%. What is the final price?",Calculator,Calculator
+"Find the average of 39, 8, and 16",Calculator,Calculator
+50% of 2490 is what?,Calculator,Calculator
+A book has 418 pages and you read 45 per day. How many days to finish?,Calculator,Calculator
+Compute the sum of 915 and 71,Calculator,Calculator
+Find the quotient of 365 and 28,Calculator,Calculator
+Calculate 230 + 19,Calculator,Calculator
+A recipe for 2 servings uses 3 cups of flour. How much for 20 servings?,Calculator,Calculator
+Gas is $310 per gallon and the tank holds 25 gallons. Total cost?,Calculator,Calculator
+A box is 39 cm by 38 cm by 8 cm. What is its volume?,Calculator,Calculator
+Find 30 percent of 2444,Calculator,Calculator
+"Find the average of 18, 6, and 17",Calculator,Calculator
+A recipe for 8 servings uses 6 cups of flour. How much for 22 servings?,Calculator,Calculator
+A train covers 417 miles in 5 hours. What is its average speed in mph?,Calculator,Calculator
+Multiply 593 by 26,Calculator,Calculator
+There are 16 apples in a basket and 19 more are added. How many apples now?,Calculator,Calculator
+What is 283 plus 33?,Calculator,Calculator
+Compute 70% of 129,Calculator,Calculator
+Calculate 18% of 1779,Calculator,Calculator
+Multiply 723 by 10,Calculator,Calculator
+What is 41 squared divided by 30?,Calculator,Calculator
+"If you split $183 equally among 24 people, how much does each person get?",Calculator,Calculator
+"If I have 25 boxes of 23 items, how many items in total?",Calculator,Calculator
+Gas is $705 per gallon and the tank holds 8 gallons. Total cost?,Calculator,Calculator
+Calculate 50% of 1532,Calculator,Calculator
+A box is 6 cm by 48 cm by 7 cm. What is its volume?,Calculator,Calculator
+A meal is $251 and the tip is 25%; what is the total bill?,Calculator,Calculator
+An employee earns $52/hour for 34 hours per week. Weekly pay?,Calculator,Calculator
+What's 75 percent of 485?,Calculator,Calculator
+Convert 408 kilometers to miles (1 km = 0.621 miles),Calculator,Calculator
+Evaluate (9 - 24) divided by 11,Calculator,Calculator
+What is 65% of 1604?,Calculator,Calculator
+Find the quotient of 688 and 36,Calculator,Calculator
+What's 33 percent of 2129?,Calculator,Calculator
+What is 27 cubed minus 12?,Calculator,Calculator
+A 634% tip on a $443 bill is how much?,Calculator,Calculator
+Calculate 44^2 + 3^2,Calculator,Calculator
+A baker makes 4 cookies per batch and bakes 10 batches. Total cookies?,Calculator,Calculator
+Stock went from $480 to $61. What is the percent change?,Calculator,Calculator
+Find 15 percent of 1060,Calculator,Calculator
+Find the quotient of 168 and 49,Calculator,Calculator
+Compute the sum of 91 and 77,Calculator,Calculator
+Convert 42 degrees Fahrenheit to Celsius,Calculator,Calculator
+Multiply 48 by 86,Calculator,Calculator
+"A shirt costs $328, discounted 40%. What is the final price?",Calculator,Calculator
+Find 90 percent of 1338,Calculator,Calculator
+Compute the sum of 434 and 6,Calculator,Calculator
+"A shirt costs $201, discounted 25%. What is the final price?",Calculator,Calculator
+"If 75 workers finish a job in 10 days, how long for 408 workers?",Calculator,Calculator
+"If 39 out of 259 students passed, what percentage passed?",Calculator,Calculator
+"If 399 workers finish a job in 40 days, how long for 81 workers?",Calculator,Calculator
+What is 889 divided by 14?,Calculator,Calculator
+Stock went from $392 to $421. What is the percent change?,Calculator,Calculator
+A 479% tip on a $241 bill is how much?,Calculator,Calculator
+Convert 283 kilometers to miles (1 km = 0.621 miles),Calculator,Calculator
+What's 80 percent of 2222?,Calculator,Calculator
+What is 8% of 1342?,Calculator,Calculator
+What is 17 squared divided by 10?,Calculator,Calculator
+A loan of $623 at 3% simple interest for one year. How much interest?,Calculator,Calculator
+Find 10 percent of 914,Calculator,Calculator
+Find 15 percent of 1134,Calculator,Calculator
+Square root of 40 plus 20,Calculator,Calculator
+Compute 15% of 575,Calculator,Calculator
+A book has 402 pages and you read 55 per day. How many days to finish?,Calculator,Calculator
+A box is 26 cm by 30 cm by 4 cm. What is its volume?,Calculator,Calculator
+What is 8 cubed minus 22?,Calculator,Calculator
+Find the result of 42 / 27 + 19,Calculator,Calculator
+A meal is $793 and the tip is 20%; what is the total bill?,Calculator,Calculator
+Compute 96 take away 50,Calculator,Calculator
+Calculate 998 multiplied by 50,Calculator,Calculator
+I bought 4 packs with 29 candies each — how many candies altogether?,Calculator,Calculator
+"If 166 out of 133 students passed, what percentage passed?",Calculator,Calculator
+What is 37 plus 15 plus 23?,Calculator,Calculator
+What is the square of 32 minus the square of 20?,Calculator,Calculator
+A 113% tip on a $488 bill is how much?,Calculator,Calculator
+18% of 1908 is what?,Calculator,Calculator
+A teacher has 31 students in each of 6 classes; how many students total?,Calculator,Calculator
+Compute 33% of 1030,Calculator,Calculator
+Evaluate (40 - 24) divided by 22,Calculator,Calculator
+What is 10% of (28 + 24)?,Calculator,Calculator
+There are 12 apples in a basket and 27 more are added. How many apples now?,Calculator,Calculator
+Compute 346 take away 15,Calculator,Calculator
+A recipe for 3 servings uses 5 cups of flour. How much for 18 servings?,Calculator,Calculator
+Calculate 60% of 2440,Calculator,Calculator
+What is the square of 20 minus the square of 30?,Calculator,Calculator
+33% of 1830 is what?,Calculator,Calculator
+Compute 9 times 15 minus 13,Calculator,Calculator
+Add 32 and 13,Calculator,Calculator
+A car uses 21 gallons to travel 188 miles. What is the mpg?,Calculator,Calculator
+"If I have 24 boxes of 34 items, how many items in total?",Calculator,Calculator
+Calculate 391 / 37,Calculator,Calculator
+A loan of $572 at 4% simple interest for one year. How much interest?,Calculator,Calculator
+A field is 10 meters long and 38 meters wide. What is its area?,Calculator,Calculator
+Compute 90% of 372,Calculator,Calculator
+"If 41 out of 252 students passed, what percentage passed?",Calculator,Calculator
+A water tank fills at 40 gallons per minute. Volume after 32 minutes?,Calculator,Calculator
+A car uses 25 gallons to travel 467 miles. What is the mpg?,Calculator,Calculator
+Convert 61 degrees Celsius to Fahrenheit,Calculator,Calculator
+A teacher has 8 students in each of 10 classes; how many students total?,Calculator,Calculator
+I save $128 per week. How much will I have after 18 weeks?,Calculator,Calculator
+Find 50 percent of 1929,Calculator,Calculator
+What is 869 times 46?,Calculator,Calculator
+Compute (23 + 12) multiplied by 14,Calculator,Calculator
+Subtract 29 from 161,Calculator,Calculator
+Compute 12% of 1536,Calculator,Calculator
+What is 32 cubed minus 7?,Calculator,Calculator
+Calculate 466 / 83,Calculator,Calculator
+What is 7 plus 18 plus 22?,Calculator,Calculator
+Calculate 694 + 96,Calculator,Calculator
+Square root of 49 plus 7,Calculator,Calculator
+Gas is $200 per gallon and the tank holds 23 gallons. Total cost?,Calculator,Calculator
+What is 3 plus 29 plus 15?,Calculator,Calculator
+An employee earns $38/hour for 46 hours per week. Weekly pay?,Calculator,Calculator
+A teacher has 38 students in each of 9 classes; how many students total?,Calculator,Calculator
+"If a car travels 24 miles per hour for 3 hours, what is the total distance?",Calculator,Calculator
+40% of 506 is what?,Calculator,Calculator
+What is 779 - 22?,Calculator,Calculator
+A book has 167 pages and you read 50 per day. How many days to finish?,Calculator,Calculator
+Calculate 756 + 15,Calculator,Calculator
+"If you split $111 equally among 24 people, how much does each person get?",Calculator,Calculator
+Add 225 and 31,Calculator,Calculator
+What is the square of 24 minus the square of 2?,Calculator,Calculator
+What is 830 - 2?,Calculator,Calculator
+What's 5 percent of 1377?,Calculator,Calculator
+What is 4 squared divided by 14?,Calculator,Calculator
+"If a printer prints 218 pages per minute, how many pages in 29 minutes?",Calculator,Calculator
+What is 50% of 1146?,Calculator,Calculator
+A field is 20 meters long and 44 meters wide. What is its area?,Calculator,Calculator
+Compute 10% of 2231,Calculator,Calculator
+Find the product of 82 and 72,Calculator,Calculator
+Calculate 856 / 48,Calculator,Calculator
+A loan of $326 at 5% simple interest for one year. How much interest?,Calculator,Calculator
+"If a printer prints 459 pages per minute, how many pages in 8 minutes?",Calculator,Calculator
+An item originally $127 is now $1. What is the percent decrease?,Calculator,Calculator
+Calculate 749 multiplied by 60,Calculator,Calculator
+An item originally $225 is now $1. What is the percent decrease?,Calculator,Calculator
+Calculate 10% of 1626,Calculator,Calculator
+Find 80 percent of 2257,Calculator,Calculator
+Find the product of 635 and 48,Calculator,Calculator
+What is the capital of Mexico?,Search,Search
+What language is spoken in Mexico?,Search,Search
+What is the population of Mexico?,Search,Calculator
+Tell me about Mexico.,Search,Search
+What currency is used in Mexico?,Search,Search
+Where is Mexico located?,Search,Search
+What is photosynthesis?,Search,Search
+Tell me about photosynthesis.,Search,Calculator
+Define photosynthesis.,Search,TableSummarizer
+Give me an overview of photosynthesis.,Search,TableSummarizer
+Can you explain photosynthesis?,Search,TableSummarizer
+What does photosynthesis mean?,Search,Search
+What is black holes?,Search,Search
+Tell me about black holes.,Search,Search
+Define black holes.,Search,TableSummarizer
+Give me an overview of black holes.,Search,Search
+Can you explain black holes?,Search,Calculator
+What does black holes mean?,Search,Search
+What is evolution by natural selection?,Search,Search
+Tell me about evolution by natural selection.,Search,Calculator
+Define evolution by natural selection.,Search,TableSummarizer
+Give me an overview of evolution by natural selection.,Search,TableSummarizer
+Can you explain evolution by natural selection?,Search,TableSummarizer
+What does evolution by natural selection mean?,Search,Search
+When did the moon landing happen?,Search,Calculator
+Tell me about the moon landing.,Search,Search
+What was the moon landing?,Search,Search
+What caused the moon landing?,Search,Search
+Summarize the moon landing for me.,Search,TableSummarizer
+Why is the moon landing historically significant?,Search,Search
+When did the Cold War happen?,Search,Search
+Tell me about the Cold War.,Search,Search
+What was the Cold War?,Search,Search
+What caused the Cold War?,Search,Search
+Summarize the Cold War for me.,Search,TableSummarizer
+Why is the Cold War historically significant?,Search,Search
+What is the theory of relativity?,Search,Search
+Tell me about the theory of relativity.,Search,Search
+Define the theory of relativity.,Search,TableSummarizer
+Give me an overview of the theory of relativity.,Search,Search
+Can you explain the theory of relativity?,Search,TableSummarizer
+What does the theory of relativity mean?,Search,Search
+What is the capital of Germany?,Search,Calculator
+What language is spoken in Germany?,Search,Search
+What is the population of Germany?,Search,Calculator
+Tell me about Germany.,Search,Search
+What currency is used in Germany?,Search,Calculator
+Where is Germany located?,Search,Search
+Who is Frida Kahlo?,Search,Search
+Tell me about Frida Kahlo.,Search,Search
+What is Frida Kahlo known for?,Search,Search
+Why is Frida Kahlo famous?,Search,Search
+Give me a biography of Frida Kahlo.,Search,Search
+When did Frida Kahlo live?,Search,Search
+Explain how earthquakes happen.,Search,TableSummarizer
+Tell me how earthquakes happen.,Search,Search
+Describe how earthquakes happen.,Search,TableSummarizer
+Help me understand how earthquakes happen.,Search,Calculator
+Could you explain how earthquakes happen?,Search,TableSummarizer
+Where is the Mariana Trench?,Search,Search
+Tell me about the Mariana Trench.,Search,Search
+What is special about the Mariana Trench?,Search,TableSummarizer
+Why is the Mariana Trench famous?,Search,Search
+Describe the Mariana Trench.,Search,TableSummarizer
+What language is spoken in Japan?,Search,Search
+What is the population of Japan?,Search,Calculator
+Tell me about Japan.,Search,Search
+What currency is used in Japan?,Search,Calculator
+Where is Japan located?,Search,Search
+Tell me about Beethoven's Ninth Symphony.,Search,Search
+Who created Beethoven's Ninth Symphony?,Search,TableSummarizer
+Why is Beethoven's Ninth Symphony significant?,Search,Search
+What is the history of Beethoven's Ninth Symphony?,Search,TableSummarizer
+Where is the Andes mountains?,Search,Search
+Tell me about the Andes mountains.,Search,Search
+What is special about the Andes mountains?,Search,TableSummarizer
+Why is the Andes mountains famous?,Search,TableSummarizer
+Describe the Andes mountains.,Search,TableSummarizer
+Who is Ada Lovelace?,Search,Search
+Tell me about Ada Lovelace.,Search,Calculator
+What is Ada Lovelace known for?,Search,Calculator
+Why is Ada Lovelace famous?,Search,Calculator
+Give me a biography of Ada Lovelace.,Search,Search
+When did Ada Lovelace live?,Search,Search
+Who is Alan Turing?,Search,Search
+Tell me about Alan Turing.,Search,Search
+What is Alan Turing known for?,Search,Search
+Why is Alan Turing famous?,Search,Search
+Give me a biography of Alan Turing.,Search,TableSummarizer
+When did Alan Turing live?,Search,Search
+What is the capital of Australia?,Search,Search
+What language is spoken in Australia?,Search,Search
+What is the population of Australia?,Search,Calculator
+Tell me about Australia.,Search,Search
+What currency is used in Australia?,Search,Calculator
+Where is Australia located?,Search,Search
+What is artificial intelligence?,Search,Search
+Tell me about artificial intelligence.,Search,Search
+Define artificial intelligence.,Search,Search
+Give me an overview of artificial intelligence.,Search,Search
+Can you explain artificial intelligence?,Search,TableSummarizer
+What does artificial intelligence mean?,Search,Search
+When did the Cuban Missile Crisis happen?,Search,Search
+Tell me about the Cuban Missile Crisis.,Search,Search
+What was the Cuban Missile Crisis?,Search,Search
+What caused the Cuban Missile Crisis?,Search,Search
+Summarize the Cuban Missile Crisis for me.,Search,TableSummarizer
+Why is the Cuban Missile Crisis historically significant?,Search,TableSummarizer
+Who is Albert Einstein?,Search,Search
+Tell me about Albert Einstein.,Search,Search
+What is Albert Einstein known for?,Search,Search
+Why is Albert Einstein famous?,Search,Search
+Give me a biography of Albert Einstein.,Search,Search
+When did Albert Einstein live?,Search,Search
+What is the cloud?,Search,Search
+Tell me about the cloud.,Search,Search
+Define the cloud.,Search,Search
+Give me an overview of the cloud.,Search,Search
+Can you explain the cloud?,Search,Search
+What does the cloud mean?,Search,Search
+Where is the Sahara Desert?,Search,Search
+Tell me about the Sahara Desert.,Search,Search
+What is special about the Sahara Desert?,Search,Search
+Why is the Sahara Desert famous?,Search,Search
+Describe the Sahara Desert.,Search,Search
+When did the Great Depression happen?,Search,Search
+Tell me about the Great Depression.,Search,Search
+What was the Great Depression?,Search,Search
+What caused the Great Depression?,Search,Search
+Summarize the Great Depression for me.,Search,TableSummarizer
+Why is the Great Depression historically significant?,Search,Search
+Who is Marie Curie?,Search,Search
+Tell me about Marie Curie.,Search,Search
+What is Marie Curie known for?,Search,Search
+Why is Marie Curie famous?,Search,Search
+Give me a biography of Marie Curie.,Search,Search
+When did Marie Curie live?,Search,Search
+Explain why the sky is blue.,Search,Search
+Tell me why the sky is blue.,Search,Search
+Describe why the sky is blue.,Search,Search
+Help me understand why the sky is blue.,Search,Calculator
+Could you explain why the sky is blue?,Search,Search
+Who is Stephen Hawking?,Search,Search
+Tell me about Stephen Hawking.,Search,Search
+What is Stephen Hawking known for?,Search,Search
+Why is Stephen Hawking famous?,Search,Search
+Give me a biography of Stephen Hawking.,Search,Search
+When did Stephen Hawking live?,Search,Search
+When did World War 2 happen?,Search,Search
+Tell me about World War 2.,Search,Search
+What was World War 2?,Search,Search
+What caused World War 2?,Search,Search
+Summarize World War 2 for me.,Search,TableSummarizer
+Why is World War 2 historically significant?,Search,TableSummarizer
+What is the capital of Brazil?,Search,Search
+What language is spoken in Brazil?,Search,Search
+What is the population of Brazil?,Search,Calculator
+Tell me about Brazil.,Search,Search
+What currency is used in Brazil?,Search,Search
+Where is Brazil located?,Search,Search
+What is plate tectonics?,Search,Search
+Tell me about plate tectonics.,Search,TableSummarizer
+Define plate tectonics.,Search,TableSummarizer
+Give me an overview of plate tectonics.,Search,TableSummarizer
+Can you explain plate tectonics?,Search,TableSummarizer
+What does plate tectonics mean?,Search,Search
+What is the capital of Egypt?,Search,Search
+What language is spoken in Egypt?,Search,Search
+What is the population of Egypt?,Search,Calculator
+Summarize the sales data.,TableSummarizer,TableSummarizer
+Describe the dataset.,TableSummarizer,TableSummarizer
+Show me a summary of the sales table.,TableSummarizer,TableSummarizer
+Give me the statistics of the dataset.,TableSummarizer,TableSummarizer
+What does the sales dataset look like?,TableSummarizer,TableSummarizer
+Run a summary on the data.,TableSummarizer,TableSummarizer
+Print the data summary.,TableSummarizer,TableSummarizer
+Show describe() output for the table.,TableSummarizer,TableSummarizer
+Give me an overview of the data.,TableSummarizer,TableSummarizer
+Describe the sales CSV.,TableSummarizer,TableSummarizer
+Show summary statistics for the sales data.,TableSummarizer,TableSummarizer
+I want to see the data summary.,TableSummarizer,TableSummarizer
+Show me a quick look at the data.,TableSummarizer,TableSummarizer
+Give me a description of the dataset.,TableSummarizer,TableSummarizer
+What's in this dataset?,TableSummarizer,Search
+What columns does the table have?,TableSummarizer,TableSummarizer
+List the columns in the dataset.,TableSummarizer,TableSummarizer
+Which columns are in the data?,TableSummarizer,TableSummarizer
+Show me the column names.,TableSummarizer,TableSummarizer
+What fields are in the sales CSV?,TableSummarizer,TableSummarizer
+Print the dataset columns.,TableSummarizer,TableSummarizer
+What is the schema of the table?,TableSummarizer,TableSummarizer
+Give me the column list.,TableSummarizer,TableSummarizer
+What columns are present in the dataset?,TableSummarizer,TableSummarizer
+Show me the headers of the data.,TableSummarizer,TableSummarizer
+How many records are in the dataset?,TableSummarizer,Calculator
+How many rows does the table have?,TableSummarizer,TableSummarizer
+What is the size of the data?,TableSummarizer,Calculator
+How big is the sales dataset?,TableSummarizer,TableSummarizer
+Count the rows in the table.,TableSummarizer,TableSummarizer
+Tell me the number of records.,TableSummarizer,Calculator
+How many entries are in the data?,TableSummarizer,Calculator
+What is the row count?,TableSummarizer,TableSummarizer
+Show me the dataset size.,TableSummarizer,TableSummarizer
+Are there any missing values in the dataset?,TableSummarizer,TableSummarizer
+Are there any nulls in the data?,TableSummarizer,TableSummarizer
+Check for missing data in the table.,TableSummarizer,TableSummarizer
+Does the dataset contain NaN values?,TableSummarizer,TableSummarizer
+Tell me if any rows have missing fields.,TableSummarizer,TableSummarizer
+How many missing values are in the data?,TableSummarizer,TableSummarizer
+Are there any empty cells in the dataset?,TableSummarizer,TableSummarizer
+Run a missing-values check on the table.,TableSummarizer,TableSummarizer
+Show me the first few rows of the data.,TableSummarizer,TableSummarizer
+Print the head of the dataset.,TableSummarizer,TableSummarizer
+Give me a preview of the table.,TableSummarizer,TableSummarizer
+Show the first 5 rows of the sales data.,TableSummarizer,TableSummarizer
+Display the top of the dataset.,TableSummarizer,TableSummarizer
+Let me see some sample rows from the table.,TableSummarizer,TableSummarizer
+Show me the head of the sales CSV.,TableSummarizer,TableSummarizer
+What is the average revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the mean revenue in the dataset?,TableSummarizer,Calculator
+What is the median revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the max revenue in the dataset?,TableSummarizer,Calculator
+What is the min revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the total revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the sum revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the standard deviation revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the range revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the average sales revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the mean sales revenue in the dataset?,TableSummarizer,Calculator
+What is the median sales revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the max sales revenue in the dataset?,TableSummarizer,Calculator
+What is the min sales revenue in the dataset?,TableSummarizer,Calculator
+What is the total sales revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the sum sales revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the standard deviation sales revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the range sales revenue in the dataset?,TableSummarizer,TableSummarizer
+What is the average the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the mean the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the median the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the max the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the min the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the total the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the sum the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the standard deviation the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the range the revenue column in the dataset?,TableSummarizer,TableSummarizer
+What is the average earnings in the dataset?,TableSummarizer,TableSummarizer
+What is the mean earnings in the dataset?,TableSummarizer,Calculator
+What is the median earnings in the dataset?,TableSummarizer,TableSummarizer
+What is the max earnings in the dataset?,TableSummarizer,Calculator
+What is the min earnings in the dataset?,TableSummarizer,TableSummarizer
+What is the total earnings in the dataset?,TableSummarizer,TableSummarizer
+What is the sum earnings in the dataset?,TableSummarizer,TableSummarizer
+What is the standard deviation earnings in the dataset?,TableSummarizer,TableSummarizer
+What is the range earnings in the dataset?,TableSummarizer,TableSummarizer
+What is the average units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the mean units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the median units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the max units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the min units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the total units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the sum units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the standard deviation units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the range units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the average the units_sold column in the dataset?,TableSummarizer,TableSummarizer
+What is the mean the units_sold column in the dataset?,TableSummarizer,TableSummarizer
+What is the median the units_sold column in the dataset?,TableSummarizer,TableSummarizer
+What is the max the units_sold column in the dataset?,TableSummarizer,Calculator
+What is the min the units_sold column in the dataset?,TableSummarizer,TableSummarizer
+What is the total the units_sold column in the dataset?,TableSummarizer,TableSummarizer
+What is the sum the units_sold column in the dataset?,TableSummarizer,TableSummarizer
+What is the standard deviation the units_sold column in the dataset?,TableSummarizer,TableSummarizer
+What is the range the units_sold column in the dataset?,TableSummarizer,TableSummarizer
+What is the average unit sales in the dataset?,TableSummarizer,TableSummarizer
+What is the mean unit sales in the dataset?,TableSummarizer,Calculator
+What is the median unit sales in the dataset?,TableSummarizer,TableSummarizer
+What is the max unit sales in the dataset?,TableSummarizer,Calculator
+What is the min unit sales in the dataset?,TableSummarizer,TableSummarizer
+What is the total unit sales in the dataset?,TableSummarizer,TableSummarizer
+What is the sum unit sales in the dataset?,TableSummarizer,TableSummarizer
+What is the standard deviation unit sales in the dataset?,TableSummarizer,TableSummarizer
+What is the range unit sales in the dataset?,TableSummarizer,TableSummarizer
+What is the average the number of units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the mean the number of units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the median the number of units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the max the number of units sold in the dataset?,TableSummarizer,Calculator
+What is the min the number of units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the total the number of units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the sum the number of units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the standard deviation the number of units sold in the dataset?,TableSummarizer,TableSummarizer
+What is the range the number of units sold in the dataset?,TableSummarizer,TableSummarizer
+Calculate the average of revenue.,TableSummarizer,Calculator
+Calculate the mean of revenue.,TableSummarizer,Calculator
+Calculate the median of revenue.,TableSummarizer,Calculator
+Calculate the max of revenue.,TableSummarizer,Calculator
+Calculate the min of revenue.,TableSummarizer,Calculator
+Calculate the total of revenue.,TableSummarizer,Calculator
+Calculate the sum of revenue.,TableSummarizer,Calculator
+Calculate the standard deviation of revenue.,TableSummarizer,Calculator
+Calculate the range of revenue.,TableSummarizer,Calculator
+Calculate the average of sales revenue.,TableSummarizer,Calculator
+Calculate the mean of sales revenue.,TableSummarizer,Calculator
+Calculate the median of sales revenue.,TableSummarizer,Calculator
+Calculate the max of sales revenue.,TableSummarizer,Calculator
+Calculate the min of sales revenue.,TableSummarizer,Calculator
+Calculate the total of sales revenue.,TableSummarizer,Calculator
+Calculate the sum of sales revenue.,TableSummarizer,Calculator
+Calculate the standard deviation of sales revenue.,TableSummarizer,Calculator
+Calculate the range of sales revenue.,TableSummarizer,Calculator
+Calculate the average of the revenue column.,TableSummarizer,Calculator
+Calculate the mean of the revenue column.,TableSummarizer,Calculator
+Calculate the median of the revenue column.,TableSummarizer,TableSummarizer
+Calculate the max of the revenue column.,TableSummarizer,Calculator
+Calculate the min of the revenue column.,TableSummarizer,Calculator
+Calculate the total of the revenue column.,TableSummarizer,Calculator
+Calculate the sum of the revenue column.,TableSummarizer,TableSummarizer
+Calculate the standard deviation of the revenue column.,TableSummarizer,Calculator
+Calculate the range of the revenue column.,TableSummarizer,Calculator
+Calculate the average of earnings.,TableSummarizer,Calculator
+Calculate the mean of earnings.,TableSummarizer,Calculator
+Calculate the median of earnings.,TableSummarizer,Calculator
+Calculate the max of earnings.,TableSummarizer,Calculator
+Calculate the min of earnings.,TableSummarizer,Calculator
+Calculate the total of earnings.,TableSummarizer,Calculator
+Calculate the sum of earnings.,TableSummarizer,Calculator
+Calculate the standard deviation of earnings.,TableSummarizer,Calculator
+Calculate the range of earnings.,TableSummarizer,Calculator
+Calculate the average of units sold.,TableSummarizer,Calculator
+Calculate the mean of units sold.,TableSummarizer,Calculator
+Calculate the median of units sold.,TableSummarizer,Calculator
+Calculate the max of units sold.,TableSummarizer,Calculator
+Calculate the min of units sold.,TableSummarizer,Calculator
+Calculate the total of units sold.,TableSummarizer,Calculator
+Calculate the sum of units sold.,TableSummarizer,Calculator
+Calculate the standard deviation of units sold.,TableSummarizer,Calculator
+Calculate the range of units sold.,TableSummarizer,Calculator
+Calculate the average of the units_sold column.,TableSummarizer,Calculator
+Calculate the mean of the units_sold column.,TableSummarizer,Calculator
+Calculate the median of the units_sold column.,TableSummarizer,TableSummarizer
+Calculate the max of the units_sold column.,TableSummarizer,Calculator
