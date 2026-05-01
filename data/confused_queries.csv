@@ -1,0 +1,114 @@
+prompt,ground_truth,predicted
+What is the population of Mexico?,Search,Calculator
+Tell me about photosynthesis.,Search,Calculator
+Define photosynthesis.,Search,TableSummarizer
+Give me an overview of photosynthesis.,Search,TableSummarizer
+Can you explain photosynthesis?,Search,TableSummarizer
+Define black holes.,Search,TableSummarizer
+Can you explain black holes?,Search,Calculator
+Tell me about evolution by natural selection.,Search,Calculator
+Define evolution by natural selection.,Search,TableSummarizer
+Give me an overview of evolution by natural selection.,Search,TableSummarizer
+Can you explain evolution by natural selection?,Search,TableSummarizer
+When did the moon landing happen?,Search,Calculator
+Summarize the moon landing for me.,Search,TableSummarizer
+Summarize the Cold War for me.,Search,TableSummarizer
+Define the theory of relativity.,Search,TableSummarizer
+Can you explain the theory of relativity?,Search,TableSummarizer
+What is the capital of Germany?,Search,Calculator
+What is the population of Germany?,Search,Calculator
+What currency is used in Germany?,Search,Calculator
+Explain how earthquakes happen.,Search,TableSummarizer
+Describe how earthquakes happen.,Search,TableSummarizer
+Help me understand how earthquakes happen.,Search,Calculator
+Could you explain how earthquakes happen?,Search,TableSummarizer
+What is special about the Mariana Trench?,Search,TableSummarizer
+Describe the Mariana Trench.,Search,TableSummarizer
+What is the population of Japan?,Search,Calculator
+What currency is used in Japan?,Search,Calculator
+Who created Beethoven's Ninth Symphony?,Search,TableSummarizer
+What is the history of Beethoven's Ninth Symphony?,Search,TableSummarizer
+What is special about the Andes mountains?,Search,TableSummarizer
+Why is the Andes mountains famous?,Search,TableSummarizer
+Describe the Andes mountains.,Search,TableSummarizer
+Tell me about Ada Lovelace.,Search,Calculator
+What is Ada Lovelace known for?,Search,Calculator
+Why is Ada Lovelace famous?,Search,Calculator
+Give me a biography of Alan Turing.,Search,TableSummarizer
+What is the population of Australia?,Search,Calculator
+What currency is used in Australia?,Search,Calculator
+Can you explain artificial intelligence?,Search,TableSummarizer
+Summarize the Cuban Missile Crisis for me.,Search,TableSummarizer
+Why is the Cuban Missile Crisis historically significant?,Search,TableSummarizer
+Summarize the Great Depression for me.,Search,TableSummarizer
+Help me understand why the sky is blue.,Search,Calculator
+Summarize World War 2 for me.,Search,TableSummarizer
+Why is World War 2 historically significant?,Search,TableSummarizer
+What is the population of Brazil?,Search,Calculator
+Tell me about plate tectonics.,Search,TableSummarizer
+Define plate tectonics.,Search,TableSummarizer
+Give me an overview of plate tectonics.,Search,TableSummarizer
+Can you explain plate tectonics?,Search,TableSummarizer
+What is the population of Egypt?,Search,Calculator
+What's in this dataset?,TableSummarizer,Search
+How many records are in the dataset?,TableSummarizer,Calculator
+What is the size of the data?,TableSummarizer,Calculator
+Tell me the number of records.,TableSummarizer,Calculator
+How many entries are in the data?,TableSummarizer,Calculator
+What is the mean revenue in the dataset?,TableSummarizer,Calculator
+What is the max revenue in the dataset?,TableSummarizer,Calculator
+What is the mean sales revenue in the dataset?,TableSummarizer,Calculator
+What is the max sales revenue in the dataset?,TableSummarizer,Calculator
+What is the min sales revenue in the dataset?,TableSummarizer,Calculator
+What is the mean earnings in the dataset?,TableSummarizer,Calculator
+What is the max earnings in the dataset?,TableSummarizer,Calculator
+What is the max the units_sold column in the dataset?,TableSummarizer,Calculator
+What is the mean unit sales in the dataset?,TableSummarizer,Calculator
+What is the max unit sales in the dataset?,TableSummarizer,Calculator
+What is the max the number of units sold in the dataset?,TableSummarizer,Calculator
+Calculate the average of revenue.,TableSummarizer,Calculator
+Calculate the mean of revenue.,TableSummarizer,Calculator
+Calculate the median of revenue.,TableSummarizer,Calculator
+Calculate the max of revenue.,TableSummarizer,Calculator
+Calculate the min of revenue.,TableSummarizer,Calculator
+Calculate the total of revenue.,TableSummarizer,Calculator
+Calculate the sum of revenue.,TableSummarizer,Calculator
+Calculate the standard deviation of revenue.,TableSummarizer,Calculator
+Calculate the range of revenue.,TableSummarizer,Calculator
+Calculate the average of sales revenue.,TableSummarizer,Calculator
+Calculate the mean of sales revenue.,TableSummarizer,Calculator
+Calculate the median of sales revenue.,TableSummarizer,Calculator
+Calculate the max of sales revenue.,TableSummarizer,Calculator
+Calculate the min of sales revenue.,TableSummarizer,Calculator
+Calculate the total of sales revenue.,TableSummarizer,Calculator
+Calculate the sum of sales revenue.,TableSummarizer,Calculator
+Calculate the standard deviation of sales revenue.,TableSummarizer,Calculator
+Calculate the range of sales revenue.,TableSummarizer,Calculator
+Calculate the average of the revenue column.,TableSummarizer,Calculator
+Calculate the mean of the revenue column.,TableSummarizer,Calculator
+Calculate the max of the revenue column.,TableSummarizer,Calculator
+Calculate the min of the revenue column.,TableSummarizer,Calculator
+Calculate the total of the revenue column.,TableSummarizer,Calculator
+Calculate the standard deviation of the revenue column.,TableSummarizer,Calculator
+Calculate the range of the revenue column.,TableSummarizer,Calculator
+Calculate the average of earnings.,TableSummarizer,Calculator
+Calculate the mean of earnings.,TableSummarizer,Calculator
+Calculate the median of earnings.,TableSummarizer,Calculator
+Calculate the max of earnings.,TableSummarizer,Calculator
+Calculate the min of earnings.,TableSummarizer,Calculator
+Calculate the total of earnings.,TableSummarizer,Calculator
+Calculate the sum of earnings.,TableSummarizer,Calculator
+Calculate the standard deviation of earnings.,TableSummarizer,Calculator
+Calculate the range of earnings.,TableSummarizer,Calculator
+Calculate the average of units sold.,TableSummarizer,Calculator
+Calculate the mean of units sold.,TableSummarizer,Calculator
+Calculate the median of units sold.,TableSummarizer,Calculator
+Calculate the max of units sold.,TableSummarizer,Calculator
+Calculate the min of units sold.,TableSummarizer,Calculator
+Calculate the total of units sold.,TableSummarizer,Calculator
+Calculate the sum of units sold.,TableSummarizer,Calculator
+Calculate the standard deviation of units sold.,TableSummarizer,Calculator
+Calculate the range of units sold.,TableSummarizer,Calculator
+Calculate the average of the units_sold column.,TableSummarizer,Calculator
+Calculate the mean of the units_sold column.,TableSummarizer,Calculator
+Calculate the max of the units_sold column.,TableSummarizer,Calculator
