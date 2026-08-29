@@ -340,20 +340,20 @@ numbers).
    drafted) before any table is frozen.
 
 ### A.4 Figures/tables to create for the final paper
-- **Figure 1 — System architecture.** Redraw the §3.1 ASCII pipeline as a clean
-  vector diagram (collection → training → deployment).
-- **Figure 2 — CV confusion matrix.** Use `data/cyber_confusion_matrix_cv.png`
-  (aggregated out-of-fold, n=640); already generated, publication-ready.
-- **Figure 3 — Per-category LLM accuracy.** New bar chart from Table I
-  (direct→opposite) highlighting the ambiguous dip; to be generated.
-- **Figure 4 — Latency comparison.** New log-scale bar (classifier 0.3 ms vs LLM
-  median 209 ms / mean 816 ms); to be generated.
+- **Figure 1 — System architecture.** `paper/figures/fig1_architecture.png`
+  (collection → training → deployment); generated, grayscale, print-safe.
+- **Figure 2 — CV confusion matrix.** `paper/figures/fig2_confusion_matrix.png`
+  (aggregated out-of-fold, n=640); generated, publication-ready.
+- **Figure 3 — Per-category LLM accuracy.** `paper/figures/fig3_category_accuracy.png`
+  (bar chart from Table I highlighting the ambiguous dip); generated.
+- **Figure 4 — Latency comparison.** `paper/figures/fig4_latency.png` (log-scale:
+  classifier 0.3 ms vs LLM median 209 ms / mean 816 ms); generated.
 - **Table I — Category breakdown** (drafted).
 - **Table II — Main CV results** (drafted; source `data/cyber_cv_results.csv`).
 
 ### A.5 Data provenance (for reproducibility statement)
 All numbers trace to committed artifacts: `data/trajectories/cyber_logs.csv`
 (640 rows), `data/cyber_cv_results.csv`, `data/cyber_baseline_predictions.csv`,
-`data/llm_latency.json`, and `data/cyber_confusion_matrix_cv.png`. Generators:
+`data/llm_latency.json`, and `paper/figures/fig2_confusion_matrix.png`. Generators:
 `scripts/generate_cyber_queries.py`, `agents/cyber_agent.py`,
 `training/train_cyber.py`, `training/evaluate_cyber.py`.

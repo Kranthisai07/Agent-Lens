@@ -360,8 +360,8 @@ CV estimate is 94.5% +/- 2.5% hard for SVM. The classifier beats the LLM by
 lower latency. All four models are statistically comparable overall; RF has the
 widest hard-acc spread (+/-4.9%).
 
-**Confusion matrix** `data/cyber_confusion_matrix_cv.png` (aggregated out-of-fold,
-n=640, pooled 98.3%) replaces the single-split figure for the paper. 11 errors
+**Confusion matrix** `paper/figures/fig2_confusion_matrix.png` (aggregated
+out-of-fold, n=640, pooled 98.3%) replaces the single-split figure for the paper. 11 errors
 total, all between semantically adjacent tools: NmapScan->PortScan (2),
 ListProcesses->ListeningPorts (2), and the log family (CheckFailedLogins,
 GetSystemInfo, ReadAuthLog -> ReadSyslog).
@@ -374,8 +374,9 @@ GetSystemInfo, ReadAuthLog -> ReadSyslog).
 - #3 two LLM baselines (test-split vs full-set): the CV table uses the full-set
   LLM baseline (79.4% / 73.5%), which is the honest single-pass figure.
 
-Saved: `data/cyber_cv_results.csv`, `data/cyber_confusion_matrix_cv.png`. The
-deployed model (single-split SVM) and evaluate_cyber.py are unchanged.
+Saved: `data/cyber_cv_results.csv`, `paper/figures/fig2_confusion_matrix.png`
+(train_cyber.py writes the CV matrix straight into paper/figures/). The deployed
+model (single-split SVM) and evaluate_cyber.py are unchanged.
 
 ---
 

@@ -36,7 +36,7 @@ MODELS_DIR = ROOT / "models"
 COMPARISON_PATH = ROOT / "data" / "cyber_model_comparison.csv"
 SPLIT_PATH = ROOT / "data" / "cyber_test_index.json"  # shared with evaluate_cyber.py
 CV_RESULTS_PATH = ROOT / "data" / "cyber_cv_results.csv"
-CV_CM_PATH = ROOT / "data" / "cyber_confusion_matrix_cv.png"
+CV_CM_PATH = ROOT / "paper" / "figures" / "fig2_confusion_matrix.png"
 
 TEXT_COL = "prompt"
 LABEL_COL = "tool_ground_truth"
