@@ -21,7 +21,7 @@
 Automated Tool Selection in AI-Assisted Cybersecurity Agents}
 
 \author{
-\IEEEauthorblockN{Kranthi Bitra, Ricardo Calix}
+\IEEEauthorblockN{Kranthi Gadi, Ricardo Calix}
 \IEEEauthorblockA{Purdue University Northwest\\
 Hammond, IN, USA\\
 \{kbitra, rcalix\}@pnw.edu}
@@ -120,7 +120,8 @@ decision underneath, and contributes a labeled benchmark for it in the security
 domain.
 
 \textbf{Behavioral cloning and imitation learning.} Learning a policy from
-logged expert state--action pairs is the classical behavioral-cloning setup.
+logged expert state--action pairs is the classical behavioral-cloning
+setup~\cite{pomerleau1991}.
 AgentLens is behavioral cloning where the ``state'' is a natural-language prompt
 and the ``action'' is a tool; unlike typical imitation learning we clone against
 \emph{corrected} ground-truth labels rather than the demonstrator's raw actions,
@@ -197,7 +198,7 @@ categories designed to probe distinct failure modes (Table~\ref{tab:categories})
 \toprule
 Category & $n$ & LLM Accuracy \\
 \midrule
-direct     & 440 & 83.0\% \\
+direct     & 440 & 82.0\% \\
 ambiguous  & 40  & 57.5\% \\
 multistep  & 40  & 70.0\% \\
 trick      & 40  & 72.5\% \\
@@ -342,7 +343,7 @@ as open source. AgentLens lays the groundwork for a reinforcement-learning-based
 multi-agent extension with real tool execution.
 
 % ---------------------------------------------------------------- REFERENCES
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 
 \bibitem{toolformer}
 T.~Schick \emph{et al.}, ``Toolformer: Language Models Can Teach Themselves to
@@ -374,6 +375,10 @@ F.~Pedregosa \emph{et al.}, ``Scikit-learn: Machine Learning in Python,''
 \bibitem{paramiko}
 J.~Forcier \emph{et al.}, ``Paramiko: A Python Implementation of SSHv2,'' 2024.
 [Online]. Available: \url{https://www.paramiko.org/}
+
+\bibitem{pomerleau1991}
+D.~Pomerleau, ``Efficient Training of Artificial Neural Networks for Autonomous
+Navigation,'' \emph{Neural Computation}, vol.~3, no.~1, pp.~88--97, 1991.
 
 \end{thebibliography}
 
