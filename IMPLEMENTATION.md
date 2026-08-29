@@ -124,15 +124,15 @@ git commit -m "data-03: expand query dataset to 500+ examples across 3 tool cate
 ## Phase 4 — Training Pipeline
 **Goal:** Train logistic regression policy model on collected trajectories.
 
-- [ ] **4.1** Create `training/train.py`
-- [ ] **4.2** Load `data/trajectories/logs.csv`
-- [ ] **4.3** Print class distribution — make sure tools are balanced
-- [ ] **4.4** TF-IDF vectorizer with `ngram_range=(1,2)`, `max_features=5000`
-- [ ] **4.5** 80/20 train/test split with `random_state=42`
-- [ ] **4.6** Train `LogisticRegression(max_iter=1000)`
-- [ ] **4.7** Save model: `joblib.dump(model, "models/policy_model.pkl")`
-- [ ] **4.8** Save vectorizer: `joblib.dump(vec, "models/tfidf_vectorizer.pkl")`
-- [ ] **4.9** Add `predict_tool(query)` function using saved model
+- [x] **4.1** Create `training/train.py`
+- [x] **4.2** Load `data/trajectories/logs.csv` — trains on `tool_ground_truth`, uses `tool_predicted` as the LLM baseline column
+- [x] **4.3** Print class distribution — 173/172/173, imbalance ratio 1.01x
+- [x] **4.4** TF-IDF vectorizer with `ngram_range=(1,2)`, `max_features=5000` → 1424 features
+- [x] **4.5** Stratified 80/20 split with `random_state=42` — 414 train / 104 test
+- [x] **4.6** Train `LogisticRegression(max_iter=1000)` — plus SVM, MLP, RandomForest (Phase 6 pulled forward)
+- [x] **4.7** Save model: `models/policy_model.pkl` (best by macro F1 = MLP)
+- [x] **4.8** Save vectorizer: `models/tfidf_vectorizer.pkl` (+ `models/label_classes.json`)
+- [x] **4.9** `predict_tool(query)` in `training/predict.py` → `{"tool", "confidence"}`
 
 ```bash
 git commit -m "train-04: TF-IDF + LogisticRegression pipeline, saves model and vectorizer"
@@ -143,17 +143,19 @@ git commit -m "train-04: TF-IDF + LogisticRegression pipeline, saves model and v
 ## Phase 5 — Evaluation
 **Goal:** Proper metrics for the paper.
 
-- [ ] **5.1** Create `training/evaluate.py`
-- [ ] **5.2** Load saved model + vectorizer
-- [ ] **5.3** Run on test split
-- [ ] **5.4** Print:
-  - Accuracy
-  - F1 (macro + per class)
-  - Classification report
-  - Confusion matrix (heatmap saved as PNG)
-- [ ] **5.5** Save confusion matrix to `data/confusion_matrix.png`
-- [ ] **5.6** Baseline comparison: random guessing = `1/num_tools`
-- [ ] **5.7** Record results in MEMORY.md
+- [x] **5.1** Create `training/evaluate.py`
+- [x] **5.2** Load saved model + vectorizer
+- [x] **5.3** Run on test split — reuses `train.py:build_split` so the split is identical
+- [x] **5.4** Print accuracy, F1 (macro + per class), classification report, confusion matrix
+- [x] **5.5** Save confusion matrix to `data/confusion_matrix.png` (seaborn, dpi=150)
+- [x] **5.6** Baseline comparison: random 0.3333, majority 0.3365, LLM 0.7885, classifier 1.0000
+- [x] **5.7** Record results in MEMORY.md
+
+> ⚠️ **Result is saturated.** The best model scores **100.0%** on the test split and
+> the confusion matrix is perfectly diagonal — zero errors to analyse. This is a
+> property of the dataset, not a research finding: the templated queries carry
+> unambiguous lexical cues. See MEMORY.md "Phase 4-5 Results" for why this is
+> not publishable as-is and what has to change.
 
 ```bash
 git commit -m "eval-05: accuracy, F1, confusion matrix, baseline comparison"
@@ -164,14 +166,16 @@ git commit -m "eval-05: accuracy, F1, confusion matrix, baseline comparison"
 ## Phase 6 — Model Comparison (Paper Table)
 **Goal:** Compare multiple classifiers for the results section.
 
-- [ ] **6.1** Add to `training/evaluate.py`:
-  - Logistic Regression (baseline)
-  - SVM (linear kernel)
-  - MLP (64, 32 hidden layers)
-  - Optional: Random Forest
-- [ ] **6.2** Output comparison table: model | accuracy | F1-macro | train time
-- [ ] **6.3** Save table to `data/model_comparison.csv`
-- [ ] **6.4** This table goes directly into the paper
+- [x] **6.1** Implemented in `training/train.py` (not evaluate.py — all four models are
+  trained in one pass so the split and vectorizer are shared):
+  - Logistic Regression (baseline) — 0.9808 acc / 0.9807 F1
+  - SVM (linear kernel) — 0.9904 / 0.9903
+  - MLP (64, 32 hidden layers) — 1.0000 / 1.0000  ← selected
+  - Random Forest (n=100) — 0.9615 / 0.9616
+- [x] **6.2** Comparison table: model | accuracy | F1-macro | train time | per-class F1
+- [x] **6.3** Save table to `data/model_comparison.csv`
+- [x] **6.4** Table is paper-ready, but see the Phase 5 caveat — every model is at or
+  near ceiling, so the table shows no meaningful separation between classifiers.
 
 ```bash
 git commit -m "eval-06: multi-model comparison table for paper results section"
@@ -219,10 +223,10 @@ git commit -m "multiagent-08: add second agent and RL tool selection policy"
 | 0 — Repo Setup | 🟢 Done |
 | 1 — Tools + Logging | 🟢 Done |
 | 2 — CrewAI Agent | 🟢 Done (direct Ollama, not CrewAI ReAct) |
-| 3 — Dataset Expansion | 🟢 Done (518 queries, 76.8% LLM accuracy on full set) |
-| 4 — Training Pipeline | 🔴 Not started |
-| 5 — Evaluation | 🔴 Not started |
-| 6 — Model Comparison | 🔴 Not started |
+| 3 — Dataset Expansion | 🟢 Done (518 queries; LLM 78.6% on re-run 20260829-133312) |
+| 4 — Training Pipeline | 🟢 Done (4 models trained, saved) |
+| 5 — Evaluation | 🟢 Done (100% test acc — saturated, see caveat) |
+| 6 — Model Comparison | 🟢 Done (folded into train.py, `data/model_comparison.csv`) |
 | 7 — Paper (Conference) | 🔴 Not started |
 | 8 — Multi-Agent + RL | 🔴 Not started |
 

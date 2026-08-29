@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 .env
 models/*.pkl
+models/*.joblib
 
 # Local installer / runtime binaries (do not check in)
 *.exe

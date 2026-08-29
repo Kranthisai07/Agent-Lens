@@ -77,7 +77,8 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 - AgentOS (separate project, independent study — complete)
 
 ### What's In Progress 🟡
-- Phase 4 — TF-IDF + LogisticRegression training pipeline (next up)
+- Phase 7 — paper. Blocked on a venue decision (Big Data deadline passed 2026-08-21)
+  and on the dataset-difficulty problem below.
 
 ### Dataset Snapshot — 2026-04-28 (post Phase 3)
 - **Source labels:** `data/queries.json`, 518 entries, balanced (Calculator 173 / Search 172 / TableSummarizer 173), 0 dupes
@@ -92,10 +93,82 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 - **Implication:** the LLM over-predicts Calculator (260 vs 173 true). A trained classifier should beat 76.8% comfortably; that's our Phase 4–5 baseline-to-beat in the paper.
 
 ### What's Next 🔴
-- Add train/test split + proper metrics (accuracy, F1, confusion matrix)
-- Add 1-2 more tools to make task harder and more interesting
-- Persistent log saving to CSV
-- Conference paper draft (Overleaf)
+- **Build a harder dataset** — current task is saturated (see Phase 4-5 Results)
+- Decide venue with Calix; IEEE Big Data 2026 deadline has passed
+- Add 1-2 more tools / the cybersecurity SSH toolset
+- Conference paper draft (Overleaf link still not shared)
+
+
+### Phase 4-5 Results — 2026-08-29
+
+**Trajectory re-run** (`run_id 20260829-133312`, schema now includes ground truth):
+- 518 queries, balanced 173 Calculator / 172 Search / 173 TableSummarizer
+- **LLM (Llama 3.2 3B) baseline: 407/518 = 78.6%** on the full set, 78.85% on the test split
+- LLM confusion: TableSummarizer→Calculator 63, Search→TableSummarizer 28,
+  Search→Calculator 19, TableSummarizer→Search 1
+- LLM still over-predicts Calculator (255 predicted vs 173 true) — stable across all 3 runs
+
+**Model comparison** (TF-IDF 1-2gram, max_features=5000 → 1424 features;
+stratified 80/20, random_state=42; 414 train / 104 test). Full table in
+`data/model_comparison.csv`:
+
+| Model | Accuracy | F1 macro | Train time | F1 Calc | F1 Search | F1 TableSumm |
+|---|---|---|---|---|---|---|
+| **MLP (64,32)** | **1.0000** | **1.0000** | 421.5 ms | 1.0000 | 1.0000 | 1.0000 |
+| SVM (linear) | 0.9904 | 0.9903 | 16.8 ms | 1.0000 | 0.9855 | 0.9855 |
+| LogisticRegression | 0.9808 | 0.9807 | 17.5 ms | 0.9859 | 0.9706 | 0.9855 |
+| RandomForest (100) | 0.9615 | 0.9616 | 136.9 ms | 0.9565 | 0.9429 | 0.9855 |
+
+Saved: `models/policy_model.pkl` (MLP), `models/tfidf_vectorizer.pkl`,
+`models/label_classes.json`. Confusion matrix: `data/confusion_matrix.png`.
+
+**Baselines**
+| Baseline | Accuracy |
+|---|---|
+| Random guessing (1/3) | 0.3333 |
+| Majority class | 0.3365 |
+| LLM routing (test split) | 0.7885 |
+| **Trained classifier** | **1.0000** |
+
+Gain over LLM: **+21.15 percentage points**; 100% relative error reduction.
+
+**Latency** (measured, `data/llm_latency.json`, n=12 real Ollama calls):
+| Route | ms/query |
+|---|---|
+| Classifier, single | 0.331 |
+| Classifier, batched | 0.018 |
+| LLM, median | 209.4 |
+| LLM, mean | 815.7 (skewed by a 7.7 s cold start; stdev 2158 ms) |
+
+**Speedup: ~632x vs LLM median, ~2461x vs mean.** Routing all 518 queries:
+0.17 s (classifier) vs ~423 s (LLM). The earlier "~2-3 s/query" assumption was
+wrong — measure, do not assume.
+
+**⚠️ The headline number is not a good result.**
+100% accuracy with a perfectly diagonal confusion matrix means the task is
+saturated, not that the method is strong. The dataset is template-generated and
+each class carries an unambiguous lexical cue ("Calculate…", "Who invented…",
+"the dataset"). A grouped split that shares no template between train and test
+also scores 100%, so this is not train/test leakage — the task is simply too
+easy. Consequences:
+- The confusion matrix figure is empty (all zeros off-diagonal) — useless as a
+  paper figure.
+- The 4-model comparison table shows no separation; nothing to conclude.
+- No reviewer will accept "we beat a 3B LLM at keyword matching" as a finding.
+
+`predict_tool()` gets all 8 spot-check queries right at >0.98 confidence,
+including the 4 the LLM gets wrong ("Calculate the average revenue in the
+dataset", "How many records are in the dataset?", "What is the population of
+Mexico?", "Define photosynthesis"). Note 6 of those 8 are in the training data;
+only 2 are genuinely held out. Nothing was flagged uncertain at the 0.7
+threshold — the model is uniformly overconfident, which is itself evidence the
+task is trivial.
+
+**What has to change before Phase 7:** the pipeline is now complete and correct
+end-to-end; the bottleneck has moved from *code* to *task difficulty*. The
+cybersecurity attacker/defender dataset needs genuinely ambiguous queries
+(two plausible tools), overlapping vocabulary between tools, and human-written
+phrasings — targeting a task where TF-IDF lands in the 70-80s, not 100.
 
 ---
 
@@ -137,6 +210,9 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 | 59ee898 | tools-01 | add Calculator, Search, Summarizer with logging wrapper |
 | b2cf78e | agent-02 | CrewAI agent with Llama 3.2 3B, loads queries from JSON, saves logs to CSV |
 | 1188169 | data-03 | expand query dataset to 500+ examples across 3 tool categories |
+| 3f646e6 | rescue-00 | restore docs and trajectories to version control |
+| e57a51e | fix-01 | log ground truth labels alongside LLM predictions, fix eval() security issue |
+| (this) | train-04+eval-05 | TF-IDF classifier pipeline, 4-model comparison, confusion matrix |
 
 ---
 
