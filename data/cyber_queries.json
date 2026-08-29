@@ -1,302 +1,4482 @@
 [
   {
-    "query": "Connect to the target via SSH",
-    "tool": "SSHConnect",
-    "agent": "attacker"
+    "query": "Which processes are using the most CPU lately on this box?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
   },
   {
-    "query": "Open an SSH session to the defender host",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "SSH into 192.168.56.102",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "Establish an SSH connection to the target machine",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "Log in to the defender over SSH",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "Start a remote shell on the target via SSH",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "Authenticate to the defender host over SSH",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "Get an SSH connection to 192.168.56.102",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "Open a secure shell to the target",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "Connect to the defender machine remotely",
-    "tool": "SSHConnect",
-    "agent": "attacker"
-  },
-  {
-    "query": "What services are running on the defender machine?",
+    "query": "Do a port scan of the defender that also reports the service version on each port",
     "tool": "NmapScan",
-    "agent": "attacker"
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
   },
   {
-    "query": "Do a version scan of 192.168.56.102",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Enumerate services and their versions on the target",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Run a service detection scan against the defender",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Identify what software is running on the target's open ports",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Fingerprint the services on 192.168.56.102",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Which service versions are exposed on the target?",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Perform an nmap version scan of the defender host",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Detect running services and versions on the target",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Scan the defender to see what services it exposes",
-    "tool": "NmapScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Scan the target for open ports",
+    "query": "Run nmap -p 1-1000 against 192.168.56.102",
     "tool": "PortScan",
-    "agent": "attacker"
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
   },
   {
-    "query": "Scan ports 1 to 1000 on the defender",
+    "query": "Scan ports 1-1000 on the defender host",
     "tool": "PortScan",
-    "agent": "attacker"
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
   },
   {
-    "query": "Which TCP ports are open on 192.168.56.102?",
-    "tool": "PortScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Find all open ports on the target machine",
-    "tool": "PortScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Do a port scan of the defender host",
-    "tool": "PortScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "List the open ports on 192.168.56.102",
-    "tool": "PortScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Check which ports are open on the target",
-    "tool": "PortScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Enumerate open TCP ports on the defender",
-    "tool": "PortScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Run a port scan against 192.168.56.102",
-    "tool": "PortScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "What ports are reachable on the target?",
-    "tool": "PortScan",
-    "agent": "attacker"
-  },
-  {
-    "query": "Show the recent authentication log",
+    "query": "Display the tail of the auth log right now on the server",
     "tool": "ReadAuthLog",
-    "agent": "defender"
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
   },
   {
-    "query": "Read the last entries in auth.log",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "Display the tail of /var/log/auth.log",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "What does the authentication log show recently?",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "Pull up the recent auth log entries",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "Show me the latest SSH authentication events",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "Read the system authentication log",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "Check the auth.log for recent activity",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "Give me the recent lines from auth.log",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "Inspect the authentication log on this machine",
-    "tool": "ReadAuthLog",
-    "agent": "defender"
-  },
-  {
-    "query": "What ports are currently listening?",
+    "query": "Which local ports are in LISTEN state on the server?",
     "tool": "ListeningPorts",
-    "agent": "defender"
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
   },
   {
-    "query": "List the open listening sockets on this machine",
-    "tool": "ListeningPorts",
-    "agent": "defender"
+    "query": "Anything weird in the logs lately?",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "natural"
   },
   {
-    "query": "Show all TCP ports in LISTEN state",
-    "tool": "ListeningPorts",
-    "agent": "defender"
+    "query": "Show the hostname, kernel and uptime right now on the defender",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
   },
   {
-    "query": "Which services are listening for connections?",
-    "tool": "ListeningPorts",
-    "agent": "defender"
+    "query": "Grep auth.log for failed password attempts recently on the server",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
   },
   {
-    "query": "Display the listening network ports",
-    "tool": "ListeningPorts",
-    "agent": "defender"
-  },
-  {
-    "query": "Check what ports this host is listening on",
-    "tool": "ListeningPorts",
-    "agent": "defender"
-  },
-  {
-    "query": "Show the open server sockets",
-    "tool": "ListeningPorts",
-    "agent": "defender"
-  },
-  {
-    "query": "List listening TCP endpoints on the defender",
-    "tool": "ListeningPorts",
-    "agent": "defender"
-  },
-  {
-    "query": "What is bound and listening on this machine?",
-    "tool": "ListeningPorts",
-    "agent": "defender"
-  },
-  {
-    "query": "Enumerate the listening ports",
-    "tool": "ListeningPorts",
-    "agent": "defender"
-  },
-  {
-    "query": "Block the suspicious IP address 192.168.56.101",
-    "tool": "BlockIP",
-    "agent": "defender"
-  },
-  {
-    "query": "Add a firewall rule to drop traffic from the attacker",
-    "tool": "BlockIP",
-    "agent": "defender"
-  },
-  {
-    "query": "Block 192.168.56.101 with iptables",
-    "tool": "BlockIP",
-    "agent": "defender"
-  },
-  {
-    "query": "Drop all incoming traffic from the attacker IP",
-    "tool": "BlockIP",
-    "agent": "defender"
-  },
-  {
-    "query": "Firewall off the suspicious host 192.168.56.101",
-    "tool": "BlockIP",
-    "agent": "defender"
-  },
-  {
-    "query": "Deny network access from 192.168.56.101",
-    "tool": "BlockIP",
-    "agent": "defender"
-  },
-  {
-    "query": "Ban the attacker's IP at the firewall",
-    "tool": "BlockIP",
-    "agent": "defender"
-  },
-  {
-    "query": "Add an iptables DROP rule for 192.168.56.101",
-    "tool": "BlockIP",
-    "agent": "defender"
-  },
-  {
-    "query": "Stop traffic from the malicious IP address",
-    "tool": "BlockIP",
-    "agent": "defender"
+    "query": "Is Apache 2.4.49 vulnerable to any known exploits?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
   },
   {
     "query": "Blacklist 192.168.56.101 on the firewall",
     "tool": "BlockIP",
-    "agent": "defender"
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "I don't need the listening ports, just the processes eating CPU",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Is ssh 1.18 vulnerable to any known exploits?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Blacklist the flagged address on the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run a scan against the target VM",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Show the top processes by CPU usage on this machine",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List recent failed login attempts recently on this box",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "How many failed SSH logins were there in the last hour on the server?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Drop all incoming traffic from the suspicious IP",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's nginx 8.0.32, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "How many failed SSH logins were there right now here?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Can you get me onto the defender host?",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Open an SSH session to 192.168.56.102",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the SSH authentication events since boot here",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's Apache 1.18, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Grep auth.log for failed password attempts in the last hour on this host",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a service and version detection scan on the target VM",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check nginx 8.0.32 against the vulnerability database",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Add an iptables DROP rule for 192.168.56.101",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show basic system information just now on this machine",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Review the logs for anything unusual right now",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Report the system info: hostname, OS, uptime",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap on the target VM but I only care which ports are open, not versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Does OpenSSH version 1.18 have any known vulnerabilities?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages just now on this host",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Use nmap -sV to detect software versions on the target machine",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Block 10.0.0.66 with iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Review the logs for anything unusual since boot",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Do a port scan of the defender host that also reports the service version on each port",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "SSH into the target",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report known security advisories for MySQL 1.18",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "First scan the defender for open ports, then we'll look at versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Show the recent authentication log just now on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Dump the recent lines of auth.log on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Open a secure shell to the target",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages over the past day on the defender",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate open ports on the defender host across 80-8080",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the defender host \u2014 tell me if Apache 2.3.4 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Find failed SSH authentication attempts in the last hour on this machine",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "How long has this thing been running, and what is it?",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Does OpenSSH version 8.0.32 have any known vulnerabilities?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What's actually running on the target?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Read the recent syslog messages just now on the defender",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the syslog in the last hour on this box",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Grep auth.log for failed password attempts right now",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Count the failed login attempts right now on this box",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List recent failed login attempts recently on this machine",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What server ports are bound and listening over the past day here?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "How many failed SSH logins were there right now on this machine?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Tail the system log (syslog) lately",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "After the port scan, run version detection on the defender host",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Find published CVEs affecting Apache 2.4.49",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Can you get me onto the defender?",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Enumerate open ports on the target VM across 22-443",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU just now on the server?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap -p 1-1024 against the target machine",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the system authentication log on this host",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Skip the plain port list, I need the service versions on the defender host",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "List the ports in LISTEN state just now on the server",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Review the logs for anything unusual recently",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Enumerate the listening ports this morning on the server",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Anything weird in the logs?",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "First scan the defender host for open ports, then we'll look at versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Enumerate the listening ports right now on the defender",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me what the system has been up to today",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Someone keeps trying to get into the server lately \u2014 can you check?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Add an iptables DROP rule for the malicious host",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the ports in LISTEN state recently on the server",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What server ports are bound and listening since boot on the server?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the last entries of /var/log/syslog recently on the defender",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the last entries of /var/log/syslog since boot on this machine",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate services and their versions on the target VM",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Use nmap -sV to detect software versions on the defender",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Identify the exact service versions exposed by the defender",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the failed password entries from auth.log",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a port scan of the target VM that also reports the service version on each port",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Find failed SSH authentication attempts",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me what the system has been up to this morning",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Enumerate open ports on the target across 1-1000",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap on 192.168.56.102 but I only care which ports are open, not versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Enumerate the running processes this morning on the server",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the failed password entries from auth.log here",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a port scan of the target machine that also reports the service version on each port",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Show the hostname, kernel and uptime this morning here",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which local ports are in LISTEN state today?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Scan ports 1-65535 on the defender",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Find published CVEs affecting MySQL 8.2",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Anything weird in the logs in the last hour?",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Not the syslog \u2014 I mean the authentication log right now",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state recently?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Run ss -tlnp and show the listening sockets on this machine",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Drop all incoming traffic from the attacker IP",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just log it \u2014 actually block the suspicious IP at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "We identified the flagged address as the attacker \u2014 now block it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state today?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Run an nmap -sV version scan of 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look up known CVEs for vsftpd 7.2",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate services and their versions on the defender host",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me what the system has been up to just now",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Show the last entries of /var/log/syslog right now on this host",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "This isn't about failed logins \u2014 show me the plain syslog",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Scan the target VM and see what comes back",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Scan ports 1-1000 on 192.168.56.102",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state over the past day?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "What service versions are running on the target?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "First scan the target for open ports, then we'll look at versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Is that old OpenSSH on there going to get us hacked?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Is nginx 8.0.32 vulnerable to any known exploits?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What's actually running on the target machine?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "After the port scan, run version detection on the target VM",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Enumerate services and their versions on the target",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report known security advisories for vsftpd 8.2",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the open listening TCP sockets on the defender",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the uname and load average lately on the server",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Blacklist the malicious host on the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the uname and load average over the past day on this box",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "SSH into 192.168.56.102",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "No need for service versions, only tell me which ports are open on the defender",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Does vsftpd version 8.2 have any known vulnerabilities?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the SSH authentication events lately",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the target VM \u2014 tell me if OpenSSH 2.4.49 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Show the top processes by CPU usage here",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state in the last hour?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Skip the plain port list, I need the service versions on the target",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Not the syslog \u2014 I mean the authentication log lately",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Blacklist 10.0.0.66 on the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Ban 10.0.0.66 using iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Is that old nginx on there going to get us hacked?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Do a service and version detection scan on the defender host",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running since boot",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Which TCP ports in 1-1000 are open on the defender host?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check the target VM over the network",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Check vsftpd 2.4.49 against the vulnerability database",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do some recon on the target machine",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Check the failed logins \u2014 actually, just show me the whole auth log",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Look up known CVEs for ssh 8.0.32",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Port-scan the defender and report which ports are open",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the hostname, kernel and uptime on this host",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "SSH to the defender host and open a session",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check MySQL 2.4.49 against the vulnerability database",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the failed password entries from auth.log on the server",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "First scan the target machine for open ports, then we'll look at versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Once we know it's MySQL 1.18, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Who's been logging into this machine lately?",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Authenticate to 192.168.56.102 over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the process list sorted by CPU here",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU recently on this box?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the syslog over the past day on the server",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "First scan the target VM for open ports, then we'll look at versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Count the failed login attempts this morning here",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "SSH to 192.168.56.102 and open a session",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Tail the system log (syslog) right now on this host",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the recent general system log entries right now on this machine",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Get an SSH connection to the target",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages over the past day on this box",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run an nmap -sV version scan of the defender",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check this host for suspicious activity in the last hour",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Identify the exact service versions exposed by 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a service and version detection scan on 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just log it \u2014 actually block the attacker IP at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Show me the SSH authentication events recently on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Open a secure shell to 192.168.56.102",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the target machine \u2014 tell me if http 8.0.32 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Enumerate the running processes just now",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the auth log since boot on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's http 8.2, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Show me the SSH authentication events here",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a port scan of the target machine over range 1-1000",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Connect to the target machine via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the syslog in the last hour",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's Apache 8.0.32, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Read the system authentication log on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Scan the defender host and see what comes back",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Read the system authentication log on the server",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the target VM \u2014 tell me if http 7.2 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running right now",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running this morning",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Is that old vsftpd on there going to get us hacked?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Run a scan against 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Show basic system information just now on this box",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Establish an SSH connection to 192.168.56.102",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What server ports are bound and listening on the defender?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me an overview of this host over the past day",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Enumerate the listening ports recently",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run ps aux and show the top processes over the past day on this host",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages recently here",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check what's exposed on this host just now",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Identify the exact service versions exposed by the defender host",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What OS and kernel is this machine running on this box?",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the syslog just now on this box",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What OS and kernel is this machine running on the defender?",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the running processes sorted by CPU right now on the defender",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap on the target but I only care which ports are open, not versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "the flagged address is clearly bad news \u2014 get rid of it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Don't just scan 192.168.56.102 \u2014 tell me if the web server 2.3.4 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Dump the recent lines of auth.log on this host",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Is http 7.2 vulnerable to any known exploits?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Get an SSH connection to 192.168.56.102",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running in the last hour",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Run an nmap -sV version scan of the target machine",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Get an SSH connection to the defender",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Review the logs for anything unusual in the last hour",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Show the last entries of /var/log/syslog on this box",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List listening ports, then we'll map them to processes",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Do a service and version detection scan on the target machine",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Someone keeps trying to get into the server in the last hour \u2014 can you check?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Don't just scan the defender host \u2014 tell me if MySQL 8.0.32 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Which processes are using the most CPU in the last hour on the defender?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Find published CVEs affecting ssh 8.0.32",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU since boot on this host?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which TCP ports in 1-1000 are open on 192.168.56.102?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Not the syslog \u2014 I mean the authentication log recently",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Block the malicious host with iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List recent failed login attempts just now on this box",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me an overview of this host today",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Don't just log it \u2014 actually block 192.168.56.101 at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "SSH into the defender",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Find the failed SSH logins so we can block the source",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Report known security advisories for http 1.18",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Drop all incoming traffic from the malicious host",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Blacklist the suspicious IP on the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What's my server got open to the network right now?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Can you get me onto the target machine?",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Firewall off 10.0.0.66",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Count the failed login attempts recently on this box",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check what's exposed on this host",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Show the top processes by CPU usage on this host",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Use nmap -sV to detect software versions on the target",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Establish an SSH connection to the target machine",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Log in to the defender host over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the running processes sorted by CPU recently on this box",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What service versions are running on 192.168.56.102?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state right now?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Run nmap on the defender host but I only care which ports are open, not versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Show the recent authentication log today on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU right now on this box?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look at the web server on the defender from a security angle",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Enumerate open ports on 192.168.56.102 across 1-1024",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running today",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Read the last entries in /var/log/auth.log on this machine",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Grep auth.log for failed password attempts this morning here",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the SSH authentication events lately here",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Open an SSH session to the defender",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "See what's active on this box lately",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Once we know it's nginx 2.3.4, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Block the attacker IP with iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which TCP ports in 22-443 are open on the defender?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "No need for service versions, only tell me which ports are open on 192.168.56.102",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "List the open TCP ports on the target machine",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages since boot here",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run ss -tlnp and show the listening sockets on this box",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "I don't want the process list, just uptime and kernel",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Ban the suspicious IP using iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU right now on the server?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Authenticate to the target VM over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate the running processes this morning",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What service versions are running on the defender?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU lately on the server?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Deny network access from 192.168.56.101 at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Scan ports 22-443 on the target",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Log in to the target machine over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the process list sorted by CPU",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me what the system has been up to in the last hour",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "What's actually running on the defender host?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Report known security advisories for http 8.0.32",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Ignore the running processes; I want the listening ports",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Run ss -tlnp and show the listening sockets on this host",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Fingerprint the service versions on 192.168.56.102 with nmap",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which TCP ports in 1-1024 are open on the target machine?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Can you get me onto the target VM?",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Give me the uname and load average just now on this host",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List recent failed login attempts today on the defender",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap on the target machine but I only care which ports are open, not versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Check vsftpd 8.0.32 against the vulnerability database",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "We identified 10.0.0.66 as the attacker \u2014 now block it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Do a port scan of the target VM over range 80-8080",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state lately?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Anything weird in the logs this morning?",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Do some recon on the target VM",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "What server ports are bound and listening today on the defender?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Is that old Apache on there going to get us hacked?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Enumerate services and their versions on the target machine",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Get an SSH connection to the target machine",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the last entries of /var/log/syslog over the past day",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Grab the system info before we dig into the logs",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Ignore the running processes; I want the listening ports just now",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Give me the uname and load average recently on this box",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show basic system information on the server",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Blacklist the attacker IP on the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check ssh 1.18 against the vulnerability database",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the ports in LISTEN state since boot on the defender",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Skip the plain port list, I need the service versions on 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "List the ports in LISTEN state lately here",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Use nmap -sV to detect software versions on the defender host",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Establish an SSH connection to the defender host",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Find failed SSH authentication attempts this morning here",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap on the defender but I only care which ports are open, not versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Run ss -tlnp and show the listening sockets on the defender",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Firewall off the malicious host",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just log it \u2014 actually block 10.0.0.66 at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Tail the system log (syslog) on the server",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Find failed SSH authentication attempts lately on this machine",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "How many failed SSH logins were there recently on the defender?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "192.168.56.101 is clearly bad news \u2014 get rid of it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Run nmap -p 1-1000 against the defender",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show basic system information today on this machine",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the ports in LISTEN state since boot",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Find published CVEs affecting vsftpd 8.0.32",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate the running processes lately on the server",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report the system info: hostname, OS, uptime on this host",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's vsftpd 2.3.4, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "No need for service versions, only tell me which ports are open on the target",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Ignore the running processes; I want the listening ports today",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Firewall off 192.168.56.101",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's nginx 2.4.49, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "What's actually running on the defender?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Why is this box so slow? What's hogging it?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "What service versions are running on the target VM?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate open ports on the target VM across 1-65535",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the hostname, kernel and uptime in the last hour here",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running lately",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Read the last entries in /var/log/auth.log",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate the running processes today on this box",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Open an SSH session to the defender host",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Add an iptables DROP rule for the flagged address",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running over the past day",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Open an SSH session to the target machine",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the ports in LISTEN state right now on the server",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Ignore the running processes; I want the listening ports this morning",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Skip the plain port list, I need the service versions on the defender",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Show the last entries of /var/log/syslog here",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Is OpenSSH 7.2 vulnerable to any known exploits?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages this morning on the server",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a port scan of the target machine over range 80-8080",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Not the syslog \u2014 I mean the authentication log",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Show me the recent general system log entries this morning on the defender",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Log in to 192.168.56.102 over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Scan ports 1-1024 on the target machine",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the open TCP ports on the target VM",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Start a remote shell on the target via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Anything weird in the logs today?",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "What's actually running on the target VM?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Which processes are using the most CPU recently on this machine?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Ignore the running processes; I want the listening ports over the past day",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Scan ports 1-1024 on the target VM",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Grep auth.log for failed password attempts today on this host",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look at MySQL on the target VM from a security angle",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Fingerprint the service versions on the defender with nmap",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate open ports on the defender across 1-65535",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Is that old the web server on there going to get us hacked?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Check http 8.2 against the vulnerability database",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate the running processes in the last hour on this machine",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate the listening ports right now on this machine",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "How many failed SSH logins were there since boot on this host?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the target machine \u2014 tell me if MySQL 8.0.32 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Do a service and version detection scan on the target",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Ban 192.168.56.101 using iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages since boot on this host",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the recent authentication log on this host",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Deny network access from the malicious host at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Open a secure shell to the defender",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report the system info: hostname, OS, uptime on the server",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a port scan of the defender over range 22-443",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's OpenSSH 2.4.49, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Not the syslog \u2014 I mean the authentication log over the past day",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Show the failed password entries from auth.log on this host",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Count the failed login attempts just now on the server",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Count the failed login attempts recently on this machine",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU since boot here?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Skip the logs, I only want the uptime and kernel of this host",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Read the last entries in /var/log/auth.log on the server",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run an nmap -sV version scan of the defender host",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages in the last hour here",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "SSH into the target machine",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "No need for service versions, only tell me which ports are open on the target VM",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Get an SSH connection to the defender host",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Dump the recent lines of auth.log",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check what's exposed on this host since boot",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Drop all incoming traffic from the flagged address",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the running processes sorted by CPU over the past day on the server",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run uname -a and uptime on this box",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Probe the target for me",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Look at MySQL on the target from a security angle",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Which processes are using the most CPU on this machine?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which local ports are in LISTEN state today on this host?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Can you see what doors are open on the target machine?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Do a port scan of 192.168.56.102 over range 1-1024",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the recent authentication log in the last hour on the defender",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the auth log recently on the defender",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the running processes sorted by CPU just now on this host",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Block the suspicious IP with iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look for signs of an attack in the logs over the past day",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Show basic system information since boot here",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Find published CVEs affecting the web server 8.0.32",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a service and version detection scan on the defender",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the failed password entries from auth.log on this box",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Fingerprint the service versions on the target VM with nmap",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the auth log since boot on the server",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Authenticate to the target over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the failed password entries from auth.log on the defender",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which local ports are in LISTEN state over the past day on this host?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "We identified the suspicious IP as the attacker \u2014 now block it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "After the port scan, run version detection on the target",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Run ss -tlnp and show the listening sockets on the server",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate the running processes in the last hour on this box",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check this host for suspicious activity right now",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "What server ports are bound and listening on this box?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which TCP ports in 80-8080 are open on 192.168.56.102?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's vsftpd 7.2, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Enumerate services and their versions on 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "After the port scan, run version detection on the target machine",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Read the system authentication log here",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the ports in LISTEN state",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Tail the system log (syslog) recently here",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report the system info: hostname, OS, uptime on this machine",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run ss -tlnp and show the listening sockets",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do some recon on the defender",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "How many failed SSH logins were there in the last hour here?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the target \u2014 tell me if ssh 2.4.49 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Find failed SSH authentication attempts over the past day on this host",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Add an iptables DROP rule for 10.0.0.66",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's vsftpd 1.18, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Deny network access from the attacker IP at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate open ports on 192.168.56.102 across 1-1000",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's ssh 1.18, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Show basic system information on this host",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "10.0.0.66 is clearly bad news \u2014 get rid of it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Forget the auth log, show me the general system log instead",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Not the syslog \u2014 I mean the authentication log since boot",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "What service versions are running on the target machine?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the uname and load average in the last hour",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state this morning?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Enumerate the running processes recently on this box",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Ban the malicious host using iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "No need for service versions, only tell me which ports are open on the target machine",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "What's actually running on 192.168.56.102?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Anything weird in the logs recently?",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "How many failed SSH logins were there on the defender?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Dump recent /var/log/syslog lines",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "First scan 192.168.56.102 for open ports, then we'll look at versions",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "What server ports are bound and listening today on this machine?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the recent general system log entries recently on the server",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the SSH authentication events on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the recent general system log entries over the past day on this host",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Does MySQL version 2.3.4 have any known vulnerabilities?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look up known CVEs for nginx 1.18",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the hostname, kernel and uptime since boot on the server",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Authenticate to the defender over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Can you see what doors are open on 192.168.56.102?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Firewall off the flagged address",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Someone keeps trying to get into the server this morning \u2014 can you check?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Ignore the running processes; I want the listening ports in the last hour",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Show basic system information since boot on this host",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Dump recent /var/log/syslog lines on this machine",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Identify the exact service versions exposed by the target",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "How many failed SSH logins were there this morning on the server?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show basic system information in the last hour",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap -p 22-443 against the defender",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just log it \u2014 actually block the flagged address at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Display the tail of the syslog on the server",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the top processes by CPU usage",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show basic system information lately on this host",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the last entries of /var/log/syslog this morning on this machine",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Can you see what doors are open on the defender?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Find published CVEs affecting Apache 8.2",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Does Apache version 8.0.32 have any known vulnerabilities?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the auth log today",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the process list sorted by CPU on the defender",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Port-scan the target VM and report which ports are open",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the SSH authentication events recently on the defender",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Port-scan 192.168.56.102 and report which ports are open",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the target VM \u2014 tell me if http 2.3.4 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Open an SSH session to the target VM",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the last entries in /var/log/auth.log on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Start a remote shell on 192.168.56.102 via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What service versions are running on the defender host?",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run an nmap -sV version scan of the target",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap -p 22-443 against 192.168.56.102",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me an overview of this host lately",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Find published CVEs affecting vsftpd 8.2",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the last entries of /var/log/syslog since boot on the server",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Fingerprint the service versions on the target with nmap",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "After the port scan, run version detection on the defender",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Don't just scan the defender host \u2014 tell me if the web server 8.2 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Block 192.168.56.101 with iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Deny network access from the suspicious IP at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the recent syslog messages on this host",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Is ssh 2.3.4 vulnerable to any known exploits?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "We identified 192.168.56.101 as the attacker \u2014 now block it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Don't just scan the defender \u2014 tell me if the web server 2.4.49 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Once we know it's Apache 7.2, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Start a remote shell on the target machine via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU since boot on the server?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Does ssh version 2.3.4 have any known vulnerabilities?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the open TCP ports on the defender",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What server ports are bound and listening right now here?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap -p 80-8080 against 192.168.56.102",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Connect to 192.168.56.102 via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the SSH authentication events today here",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Firewall off the suspicious IP",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run ps aux and show the top processes right now here",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the target \u2014 tell me if vsftpd 8.2 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Show basic system information right now here",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the syslog over the past day here",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me what the system has been up to since boot",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Check this host for suspicious activity today",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Give me an overview of this host just now",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Read the recent syslog messages recently on this host",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the running processes sorted by CPU",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "See what's active on this box right now",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Use nmap -sV to detect software versions on the target VM",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate the listening ports just now on this box",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What OS and kernel is this machine running?",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "See what's active on this box recently",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Show the failed password entries from auth.log on this machine",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "We identified the attacker IP as the attacker \u2014 now block it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Find published CVEs affecting nginx 1.18",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Port-scan the target and report which ports are open",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Ban the attacker IP using iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's OpenSSH 8.0.32, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Dump the recent lines of auth.log on the defender",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the uname and load average right now on this machine",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Dump recent /var/log/syslog lines on the server",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Grep auth.log for failed password attempts over the past day on the server",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate the listening ports this morning on this host",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the recent general system log entries just now on this host",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Firewall off the attacker IP",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me an overview of this host this morning",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Run ss -tlnp and show the listening sockets here",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't scan any ports \u2014 just tell me what processes are running just now",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Show the open listening TCP sockets here",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Start a remote shell on the defender via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show me the recent general system log entries lately on this box",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Add an iptables DROP rule for the attacker IP",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Never mind the processes \u2014 which sockets are in LISTEN state just now?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Do a port scan of the target that also reports the service version on each port",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Do a port scan of 192.168.56.102 that also reports the service version on each port",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Once we know it's vsftpd 2.4.49, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Show the hostname, kernel and uptime right now on this machine",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU recently on this host?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the auth log just now on this box",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check this host for suspicious activity since boot",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Once we know it's Apache 8.2, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Don't just scan the target machine \u2014 tell me if the web server 2.4.49 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Can you get me onto 192.168.56.102?",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Pull the auth log first, then we'll count the failures",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Run uname -a and uptime here",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Someone keeps trying to get into the server over the past day \u2014 can you check?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Read the last entries in /var/log/auth.log on the defender",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "the malicious host is clearly bad news \u2014 get rid of it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Read the auth log and pull out just the failed password lines",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Run nmap -p 1-65535 against the defender",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which local ports are in LISTEN state in the last hour on this machine?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Don't just scan the target machine \u2014 tell me if MySQL 8.2 is actually exploitable",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "opposite"
+  },
+  {
+    "query": "Show the processes, then we'll decide what to kill",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Is MySQL 7.2 vulnerable to any known exploits?",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List recent failed login attempts today on this host",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run an nmap -sV version scan of the target VM",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Drop all incoming traffic from 10.0.0.66",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which processes are using the most CPU on this box?",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look up known CVEs for OpenSSH 7.2",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "How many failed SSH logins were there recently here?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's MySQL 2.3.4, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Dump the recent lines of auth.log here",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Identify the exact service versions exposed by the target machine",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Block the flagged address with iptables",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the syslog in the last hour on the server",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run ps aux and show the top processes this morning on this box",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report the system info: hostname, OS, uptime on this box",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the uname and load average since boot on this box",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Once we know it's http 7.2, check it for known CVEs",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Dump the recent lines of auth.log on this machine",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the recent authentication log today on this host",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look up known CVEs for ssh 1.18",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check http 2.3.4 against the vulnerability database",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report known security advisories for vsftpd 2.3.4",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Fingerprint the service versions on the target machine with nmap",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check 192.168.56.102 over the network",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "After the port scan, run version detection on 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "multistep"
+  },
+  {
+    "query": "Show me the SSH authentication events recently on the server",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What OS and kernel is this machine running on this machine?",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "What OS and kernel is this machine running here?",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Add an iptables DROP rule for the suspicious IP",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Check this host for suspicious activity this morning",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Grep auth.log for failed password attempts on this box",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which local ports are in LISTEN state right now?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the top processes by CPU usage on the defender",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run nmap -p 1-65535 against the target machine",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run uname -a and uptime",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look up known CVEs for OpenSSH 8.0.32",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Open a secure shell to the defender host",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Do a port scan of 192.168.56.102 over range 80-8080",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "No need for service versions, only tell me which ports are open on the defender host",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Read the last entries in /var/log/auth.log here",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "SSH to the target machine and open a session",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the open listening TCP sockets on this host",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the recent authentication log in the last hour on this machine",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Drop all incoming traffic from 192.168.56.101",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Can you see what doors are open on the defender host?",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Show the top processes by CPU usage on this box",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Not the whole auth log \u2014 only the failed password attempts",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Deny network access from 10.0.0.66 at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the ports in LISTEN state today on the defender",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Read the system authentication log on the defender",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "How many failed SSH logins were there right now on this host?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the open listening TCP sockets",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "List the ports in LISTEN state recently on this box",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Skip the plain port list, I need the service versions on the target VM",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "trick"
+  },
+  {
+    "query": "Use nmap -sV to detect software versions on 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report the system info: hostname, OS, uptime here",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Someone keeps trying to get into the server since boot \u2014 can you check?",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Display the tail of the auth log this morning on this machine",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Look at ssh on 192.168.56.102 from a security angle",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  {
+    "query": "Find failed SSH authentication attempts just now on this box",
+    "tool": "CheckFailedLogins",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Report known security advisories for ssh 8.2",
+    "tool": "CheckVulnerability",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate open ports on the target VM across 1-1000",
+    "tool": "PortScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "the attacker IP is clearly bad news \u2014 get rid of it",
+    "tool": "BlockIP",
+    "agent": "defender",
+    "difficulty": "hard",
+    "category": "natural"
+  },
+  {
+    "query": "Log in to the target over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Give me the uname and load average today here",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Enumerate services and their versions on the defender",
+    "tool": "NmapScan",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Log in to the target VM over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the hostname, kernel and uptime today here",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Connect to the target VM via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Show the recent authentication log since boot on this machine",
+    "tool": "ReadAuthLog",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Display the tail of the syslog recently on the defender",
+    "tool": "ReadSyslog",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Which local ports are in LISTEN state over the past day on this machine?",
+    "tool": "ListeningPorts",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run uname -a and uptime on this machine",
+    "tool": "GetSystemInfo",
+    "agent": "shared",
+    "difficulty": "easy",
+    "category": "direct"
+  },
+  {
+    "query": "Run ps aux and show the top processes on the defender",
+    "tool": "ListProcesses",
+    "agent": "defender",
+    "difficulty": "easy",
+    "category": "direct"
   }
 ]

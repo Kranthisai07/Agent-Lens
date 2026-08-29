@@ -1,0 +1,641 @@
+query,tool,agent,difficulty,category,predicted,correct
+Which processes are using the most CPU lately on this box?,ListProcesses,defender,easy,direct,ListProcesses,True
+Do a port scan of the defender that also reports the service version on each port,NmapScan,attacker,hard,opposite,PortScan,False
+Run nmap -p 1-1000 against 192.168.56.102,PortScan,attacker,easy,direct,NmapScan,False
+Scan ports 1-1000 on the defender host,PortScan,attacker,easy,direct,NmapScan,False
+Display the tail of the auth log right now on the server,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Which local ports are in LISTEN state on the server?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Anything weird in the logs lately?,ReadSyslog,shared,hard,natural,ReadSyslog,True
+"Show the hostname, kernel and uptime right now on the defender",GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Grep auth.log for failed password attempts recently on the server,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Is Apache 2.4.49 vulnerable to any known exploits?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Blacklist 192.168.56.101 on the firewall,BlockIP,defender,easy,direct,BlockIP,True
+"I don't need the listening ports, just the processes eating CPU",ListProcesses,defender,hard,opposite,ListProcesses,True
+Is ssh 1.18 vulnerable to any known exploits?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Blacklist the flagged address on the firewall,BlockIP,defender,easy,direct,BlockIP,True
+Run a scan against the target VM,NmapScan,attacker,hard,ambiguous,NmapScan,True
+Show the top processes by CPU usage on this machine,ListProcesses,defender,easy,direct,ListProcesses,True
+List recent failed login attempts recently on this box,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+How many failed SSH logins were there in the last hour on the server?,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Drop all incoming traffic from the suspicious IP,BlockIP,defender,easy,direct,BlockIP,True
+"Once we know it's nginx 8.0.32, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+How many failed SSH logins were there right now here?,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+Can you get me onto the defender host?,SSHConnect,attacker,hard,natural,SSHConnect,True
+Open an SSH session to 192.168.56.102,SSHConnect,attacker,easy,direct,SSHConnect,True
+Show me the SSH authentication events since boot here,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+"Once we know it's Apache 1.18, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Grep auth.log for failed password attempts in the last hour on this host,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Do a service and version detection scan on the target VM,NmapScan,attacker,easy,direct,NmapScan,True
+Check nginx 8.0.32 against the vulnerability database,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Add an iptables DROP rule for 192.168.56.101,BlockIP,defender,easy,direct,BlockIP,True
+Show basic system information just now on this machine,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Review the logs for anything unusual right now,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+"Report the system info: hostname, OS, uptime",GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+"Run nmap on the target VM but I only care which ports are open, not versions",PortScan,attacker,hard,opposite,PortScan,True
+Does OpenSSH version 1.18 have any known vulnerabilities?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Read the recent syslog messages just now on this host,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Use nmap -sV to detect software versions on the target machine,NmapScan,attacker,easy,direct,NmapScan,True
+Block 10.0.0.66 with iptables,BlockIP,defender,easy,direct,BlockIP,True
+Review the logs for anything unusual since boot,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+Do a port scan of the defender host that also reports the service version on each port,NmapScan,attacker,hard,opposite,PortScan,False
+SSH into the target,SSHConnect,attacker,easy,direct,SSHConnect,True
+Report known security advisories for MySQL 1.18,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+"First scan the defender for open ports, then we'll look at versions",PortScan,attacker,hard,multistep,NmapScan,False
+Show the recent authentication log just now on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Dump the recent lines of auth.log on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Open a secure shell to the target,SSHConnect,attacker,easy,direct,SSHConnect,True
+Read the recent syslog messages over the past day on the defender,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Enumerate open ports on the defender host across 80-8080,PortScan,attacker,easy,direct,PortScan,True
+Don't just scan the defender host — tell me if Apache 2.3.4 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Find failed SSH authentication attempts in the last hour on this machine,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+"How long has this thing been running, and what is it?",GetSystemInfo,shared,hard,natural,ReadSyslog,False
+Does OpenSSH version 8.0.32 have any known vulnerabilities?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+What's actually running on the target?,NmapScan,attacker,hard,natural,NmapScan,True
+Read the recent syslog messages just now on the defender,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Display the tail of the syslog in the last hour on this box,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Grep auth.log for failed password attempts right now,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Count the failed login attempts right now on this box,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+List recent failed login attempts recently on this machine,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+What server ports are bound and listening over the past day here?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+How many failed SSH logins were there right now on this machine?,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+Tail the system log (syslog) lately,ReadSyslog,shared,easy,direct,ReadSyslog,True
+"After the port scan, run version detection on the defender host",NmapScan,attacker,hard,multistep,CheckVulnerability,False
+Find published CVEs affecting Apache 2.4.49,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Can you get me onto the defender?,SSHConnect,attacker,hard,natural,SSHConnect,True
+Enumerate open ports on the target VM across 22-443,PortScan,attacker,easy,direct,PortScan,True
+Which processes are using the most CPU just now on the server?,ListProcesses,defender,easy,direct,ListProcesses,True
+Run nmap -p 1-1024 against the target machine,PortScan,attacker,easy,direct,NmapScan,False
+Read the system authentication log on this host,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+"Skip the plain port list, I need the service versions on the defender host",NmapScan,attacker,hard,trick,CheckVulnerability,False
+List the ports in LISTEN state just now on the server,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Review the logs for anything unusual recently,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+Enumerate the listening ports this morning on the server,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Anything weird in the logs?,ReadSyslog,shared,hard,natural,ReadSyslog,True
+"First scan the defender host for open ports, then we'll look at versions",PortScan,attacker,hard,multistep,NmapScan,False
+Enumerate the listening ports right now on the defender,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Show me what the system has been up to today,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+Someone keeps trying to get into the server lately — can you check?,CheckFailedLogins,defender,hard,natural,ListeningPorts,False
+Add an iptables DROP rule for the malicious host,BlockIP,defender,easy,direct,BlockIP,True
+List the ports in LISTEN state recently on the server,ListeningPorts,defender,easy,direct,ListeningPorts,True
+What server ports are bound and listening since boot on the server?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Show the last entries of /var/log/syslog recently on the defender,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Show the last entries of /var/log/syslog since boot on this machine,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Enumerate services and their versions on the target VM,NmapScan,attacker,easy,direct,NmapScan,True
+Use nmap -sV to detect software versions on the defender,NmapScan,attacker,easy,direct,NmapScan,True
+Identify the exact service versions exposed by the defender,NmapScan,attacker,easy,direct,PortScan,False
+Show the failed password entries from auth.log,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Do a port scan of the target VM that also reports the service version on each port,NmapScan,attacker,hard,opposite,PortScan,False
+Find failed SSH authentication attempts,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Show me what the system has been up to this morning,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+Enumerate open ports on the target across 1-1000,PortScan,attacker,easy,direct,PortScan,True
+"Run nmap on 192.168.56.102 but I only care which ports are open, not versions",PortScan,attacker,hard,opposite,PortScan,True
+Enumerate the running processes this morning on the server,ListProcesses,defender,easy,direct,ListProcesses,True
+Show the failed password entries from auth.log here,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Do a port scan of the target machine that also reports the service version on each port,NmapScan,attacker,hard,opposite,PortScan,False
+"Show the hostname, kernel and uptime this morning here",GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Which local ports are in LISTEN state today?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Scan ports 1-65535 on the defender,PortScan,attacker,easy,direct,NmapScan,False
+Find published CVEs affecting MySQL 8.2,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Anything weird in the logs in the last hour?,ReadSyslog,shared,hard,natural,ReadSyslog,True
+Not the syslog — I mean the authentication log right now,ReadAuthLog,defender,hard,trick,ReadAuthLog,True
+Never mind the processes — which sockets are in LISTEN state recently?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+Run ss -tlnp and show the listening sockets on this machine,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Drop all incoming traffic from the attacker IP,BlockIP,defender,easy,direct,BlockIP,True
+Don't just log it — actually block the suspicious IP at the firewall,BlockIP,defender,hard,trick,BlockIP,True
+We identified the flagged address as the attacker — now block it,BlockIP,defender,hard,multistep,BlockIP,True
+Never mind the processes — which sockets are in LISTEN state today?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+Run an nmap -sV version scan of 192.168.56.102,NmapScan,attacker,easy,direct,NmapScan,True
+Look up known CVEs for vsftpd 7.2,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Enumerate services and their versions on the defender host,NmapScan,attacker,easy,direct,PortScan,False
+Show me what the system has been up to just now,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+Show the last entries of /var/log/syslog right now on this host,ReadSyslog,shared,easy,direct,ReadSyslog,True
+This isn't about failed logins — show me the plain syslog,ReadSyslog,shared,hard,trick,ReadSyslog,True
+Scan the target VM and see what comes back,PortScan,attacker,hard,ambiguous,NmapScan,False
+Scan ports 1-1000 on 192.168.56.102,PortScan,attacker,easy,direct,NmapScan,False
+Never mind the processes — which sockets are in LISTEN state over the past day?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+What service versions are running on the target?,NmapScan,attacker,easy,direct,NmapScan,True
+"First scan the target for open ports, then we'll look at versions",PortScan,attacker,hard,multistep,NmapScan,False
+Is that old OpenSSH on there going to get us hacked?,CheckVulnerability,attacker,hard,natural,CheckVulnerability,True
+Is nginx 8.0.32 vulnerable to any known exploits?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+What's actually running on the target machine?,NmapScan,attacker,hard,natural,NmapScan,True
+"After the port scan, run version detection on the target VM",NmapScan,attacker,hard,multistep,CheckVulnerability,False
+Enumerate services and their versions on the target,NmapScan,attacker,easy,direct,NmapScan,True
+Report known security advisories for vsftpd 8.2,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Show the open listening TCP sockets on the defender,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Give me the uname and load average lately on the server,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Blacklist the malicious host on the firewall,BlockIP,defender,easy,direct,BlockIP,True
+Give me the uname and load average over the past day on this box,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+SSH into 192.168.56.102,SSHConnect,attacker,easy,direct,SSHConnect,True
+"No need for service versions, only tell me which ports are open on the defender",PortScan,attacker,hard,trick,NmapScan,False
+Does vsftpd version 8.2 have any known vulnerabilities?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Show me the SSH authentication events lately,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Don't just scan the target VM — tell me if OpenSSH 2.4.49 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Show the top processes by CPU usage here,ListProcesses,defender,easy,direct,ListProcesses,True
+Never mind the processes — which sockets are in LISTEN state in the last hour?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+Don't scan any ports — just tell me what processes are running,ListProcesses,defender,hard,trick,ListProcesses,True
+"Skip the plain port list, I need the service versions on the target",NmapScan,attacker,hard,trick,CheckVulnerability,False
+Not the syslog — I mean the authentication log lately,ReadAuthLog,defender,hard,trick,ReadAuthLog,True
+Blacklist 10.0.0.66 on the firewall,BlockIP,defender,easy,direct,BlockIP,True
+Ban 10.0.0.66 using iptables,BlockIP,defender,easy,direct,BlockIP,True
+Is that old nginx on there going to get us hacked?,CheckVulnerability,attacker,hard,natural,CheckVulnerability,True
+Do a service and version detection scan on the defender host,NmapScan,attacker,easy,direct,NmapScan,True
+Don't scan any ports — just tell me what processes are running since boot,ListProcesses,defender,hard,trick,ListProcesses,True
+Which TCP ports in 1-1000 are open on the defender host?,PortScan,attacker,easy,direct,NmapScan,False
+Check the target VM over the network,NmapScan,attacker,hard,ambiguous,NmapScan,True
+Check vsftpd 2.4.49 against the vulnerability database,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Do some recon on the target machine,PortScan,attacker,hard,ambiguous,NmapScan,False
+"Check the failed logins — actually, just show me the whole auth log",ReadAuthLog,defender,hard,opposite,ReadAuthLog,True
+Look up known CVEs for ssh 8.0.32,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Port-scan the defender and report which ports are open,PortScan,attacker,easy,direct,NmapScan,False
+"Show the hostname, kernel and uptime on this host",GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+SSH to the defender host and open a session,SSHConnect,attacker,easy,direct,SSHConnect,True
+Check MySQL 2.4.49 against the vulnerability database,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Show the failed password entries from auth.log on the server,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+"First scan the target machine for open ports, then we'll look at versions",PortScan,attacker,hard,multistep,NmapScan,False
+"Once we know it's MySQL 1.18, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Who's been logging into this machine lately?,ReadAuthLog,defender,hard,natural,ReadAuthLog,True
+Authenticate to 192.168.56.102 over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Give me the process list sorted by CPU here,ListProcesses,defender,easy,direct,ListProcesses,True
+Which processes are using the most CPU recently on this box?,ListProcesses,defender,easy,direct,ListProcesses,True
+Display the tail of the syslog over the past day on the server,ReadSyslog,shared,easy,direct,ReadSyslog,True
+"First scan the target VM for open ports, then we'll look at versions",PortScan,attacker,hard,multistep,NmapScan,False
+Count the failed login attempts this morning here,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+SSH to 192.168.56.102 and open a session,SSHConnect,attacker,easy,direct,SSHConnect,True
+Tail the system log (syslog) right now on this host,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Show me the recent general system log entries right now on this machine,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Get an SSH connection to the target,SSHConnect,attacker,easy,direct,SSHConnect,True
+Read the recent syslog messages over the past day on this box,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Run an nmap -sV version scan of the defender,NmapScan,attacker,easy,direct,NmapScan,True
+Check this host for suspicious activity in the last hour,ReadAuthLog,defender,hard,ambiguous,CheckFailedLogins,False
+Identify the exact service versions exposed by 192.168.56.102,NmapScan,attacker,easy,direct,NmapScan,True
+Do a service and version detection scan on 192.168.56.102,NmapScan,attacker,easy,direct,NmapScan,True
+Don't just log it — actually block the attacker IP at the firewall,BlockIP,defender,hard,trick,BlockIP,True
+Show me the SSH authentication events recently on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Open a secure shell to 192.168.56.102,SSHConnect,attacker,easy,direct,SSHConnect,True
+Don't just scan the target machine — tell me if http 8.0.32 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Enumerate the running processes just now,ListProcesses,defender,easy,direct,ListProcesses,True
+Display the tail of the auth log since boot on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+"Once we know it's http 8.2, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Show me the SSH authentication events here,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Do a port scan of the target machine over range 1-1000,PortScan,attacker,easy,direct,NmapScan,False
+Connect to the target machine via SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Display the tail of the syslog in the last hour,ReadSyslog,shared,easy,direct,ReadSyslog,True
+"Once we know it's Apache 8.0.32, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Read the system authentication log on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Scan the defender host and see what comes back,PortScan,attacker,hard,ambiguous,NmapScan,False
+Read the system authentication log on the server,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Don't just scan the target VM — tell me if http 7.2 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Don't scan any ports — just tell me what processes are running right now,ListProcesses,defender,hard,trick,ListProcesses,True
+Don't scan any ports — just tell me what processes are running this morning,ListProcesses,defender,hard,trick,ListProcesses,True
+Is that old vsftpd on there going to get us hacked?,CheckVulnerability,attacker,hard,natural,CheckVulnerability,True
+Run a scan against 192.168.56.102,NmapScan,attacker,hard,ambiguous,NmapScan,True
+Show basic system information just now on this box,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Establish an SSH connection to 192.168.56.102,SSHConnect,attacker,easy,direct,SSHConnect,True
+What server ports are bound and listening on the defender?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Give me an overview of this host over the past day,GetSystemInfo,shared,hard,ambiguous,ReadSyslog,False
+Enumerate the listening ports recently,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Run ps aux and show the top processes over the past day on this host,ListProcesses,defender,easy,direct,ListProcesses,True
+Read the recent syslog messages recently here,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Check what's exposed on this host just now,ListeningPorts,defender,hard,ambiguous,ListeningPorts,True
+Identify the exact service versions exposed by the defender host,NmapScan,attacker,easy,direct,PortScan,False
+What OS and kernel is this machine running on this box?,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Display the tail of the syslog just now on this box,ReadSyslog,shared,easy,direct,ReadSyslog,True
+What OS and kernel is this machine running on the defender?,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+List the running processes sorted by CPU right now on the defender,ListProcesses,defender,easy,direct,ListProcesses,True
+"Run nmap on the target but I only care which ports are open, not versions",PortScan,attacker,hard,opposite,PortScan,True
+the flagged address is clearly bad news — get rid of it,BlockIP,defender,hard,natural,BlockIP,True
+Don't just scan 192.168.56.102 — tell me if the web server 2.3.4 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Dump the recent lines of auth.log on this host,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Is http 7.2 vulnerable to any known exploits?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Get an SSH connection to 192.168.56.102,SSHConnect,attacker,easy,direct,SSHConnect,True
+Don't scan any ports — just tell me what processes are running in the last hour,ListProcesses,defender,hard,trick,ListProcesses,True
+Run an nmap -sV version scan of the target machine,NmapScan,attacker,easy,direct,NmapScan,True
+Get an SSH connection to the defender,SSHConnect,attacker,easy,direct,SSHConnect,True
+Review the logs for anything unusual in the last hour,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+Show the last entries of /var/log/syslog on this box,ReadSyslog,shared,easy,direct,ReadSyslog,True
+"List listening ports, then we'll map them to processes",ListeningPorts,defender,hard,multistep,ListeningPorts,True
+Do a service and version detection scan on the target machine,NmapScan,attacker,easy,direct,NmapScan,True
+Someone keeps trying to get into the server in the last hour — can you check?,CheckFailedLogins,defender,hard,natural,CheckFailedLogins,True
+Don't just scan the defender host — tell me if MySQL 8.0.32 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Which processes are using the most CPU in the last hour on the defender?,ListProcesses,defender,easy,direct,ListProcesses,True
+Find published CVEs affecting ssh 8.0.32,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Which processes are using the most CPU since boot on this host?,ListProcesses,defender,easy,direct,ListProcesses,True
+Which TCP ports in 1-1000 are open on 192.168.56.102?,PortScan,attacker,easy,direct,NmapScan,False
+Not the syslog — I mean the authentication log recently,ReadAuthLog,defender,hard,trick,ReadAuthLog,True
+Block the malicious host with iptables,BlockIP,defender,easy,direct,BlockIP,True
+List recent failed login attempts just now on this box,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+Give me an overview of this host today,GetSystemInfo,shared,hard,ambiguous,GetSystemInfo,True
+Don't just log it — actually block 192.168.56.101 at the firewall,BlockIP,defender,hard,trick,BlockIP,True
+SSH into the defender,SSHConnect,attacker,easy,direct,SSHConnect,True
+Find the failed SSH logins so we can block the source,CheckFailedLogins,defender,hard,multistep,CheckFailedLogins,True
+Report known security advisories for http 1.18,CheckVulnerability,attacker,easy,direct,PortScan,False
+Drop all incoming traffic from the malicious host,BlockIP,defender,easy,direct,BlockIP,True
+Blacklist the suspicious IP on the firewall,BlockIP,defender,easy,direct,BlockIP,True
+What's my server got open to the network right now?,ListeningPorts,defender,hard,natural,ListeningPorts,True
+Can you get me onto the target machine?,SSHConnect,attacker,hard,natural,SSHConnect,True
+Firewall off 10.0.0.66,BlockIP,defender,easy,direct,BlockIP,True
+Count the failed login attempts recently on this box,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+Check what's exposed on this host,ListeningPorts,defender,hard,ambiguous,ListeningPorts,True
+Show the top processes by CPU usage on this host,ListProcesses,defender,easy,direct,ListProcesses,True
+Use nmap -sV to detect software versions on the target,NmapScan,attacker,easy,direct,NmapScan,True
+Establish an SSH connection to the target machine,SSHConnect,attacker,easy,direct,SSHConnect,True
+Log in to the defender host over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+List the running processes sorted by CPU recently on this box,ListProcesses,defender,easy,direct,ListProcesses,True
+What service versions are running on 192.168.56.102?,NmapScan,attacker,easy,direct,NmapScan,True
+Never mind the processes — which sockets are in LISTEN state right now?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+"Run nmap on the defender host but I only care which ports are open, not versions",PortScan,attacker,hard,opposite,PortScan,True
+Show the recent authentication log today on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Which processes are using the most CPU right now on this box?,ListProcesses,defender,easy,direct,ListProcesses,True
+Look at the web server on the defender from a security angle,CheckVulnerability,attacker,hard,ambiguous,NmapScan,False
+Enumerate open ports on 192.168.56.102 across 1-1024,PortScan,attacker,easy,direct,NmapScan,False
+Don't scan any ports — just tell me what processes are running today,ListProcesses,defender,hard,trick,ListProcesses,True
+Read the last entries in /var/log/auth.log on this machine,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Grep auth.log for failed password attempts this morning here,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Show me the SSH authentication events lately here,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Open an SSH session to the defender,SSHConnect,attacker,easy,direct,SSHConnect,True
+See what's active on this box lately,ListProcesses,defender,hard,ambiguous,ListeningPorts,False
+"Once we know it's nginx 2.3.4, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Block the attacker IP with iptables,BlockIP,defender,easy,direct,BlockIP,True
+Which TCP ports in 22-443 are open on the defender?,PortScan,attacker,easy,direct,NmapScan,False
+"No need for service versions, only tell me which ports are open on 192.168.56.102",PortScan,attacker,hard,trick,NmapScan,False
+List the open TCP ports on the target machine,PortScan,attacker,easy,direct,PortScan,True
+Read the recent syslog messages since boot here,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Run ss -tlnp and show the listening sockets on this box,ListeningPorts,defender,easy,direct,ListeningPorts,True
+"I don't want the process list, just uptime and kernel",GetSystemInfo,shared,hard,trick,GetSystemInfo,True
+Ban the suspicious IP using iptables,BlockIP,defender,easy,direct,BlockIP,True
+Which processes are using the most CPU right now on the server?,ListProcesses,defender,easy,direct,ListProcesses,True
+Authenticate to the target VM over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Enumerate the running processes this morning,ListProcesses,defender,easy,direct,ListProcesses,True
+What service versions are running on the defender?,NmapScan,attacker,easy,direct,NmapScan,True
+Which processes are using the most CPU lately on the server?,ListProcesses,defender,easy,direct,ListProcesses,True
+Deny network access from 192.168.56.101 at the firewall,BlockIP,defender,easy,direct,BlockIP,True
+Scan ports 22-443 on the target,PortScan,attacker,easy,direct,PortScan,True
+Log in to the target machine over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Give me the process list sorted by CPU,ListProcesses,defender,easy,direct,ListProcesses,True
+Show me what the system has been up to in the last hour,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+What's actually running on the defender host?,NmapScan,attacker,hard,natural,NmapScan,True
+Report known security advisories for http 8.0.32,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Ignore the running processes; I want the listening ports,ListeningPorts,defender,hard,trick,ListeningPorts,True
+Run ss -tlnp and show the listening sockets on this host,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Fingerprint the service versions on 192.168.56.102 with nmap,NmapScan,attacker,easy,direct,NmapScan,True
+Which TCP ports in 1-1024 are open on the target machine?,PortScan,attacker,easy,direct,NmapScan,False
+Can you get me onto the target VM?,SSHConnect,attacker,hard,natural,SSHConnect,True
+Give me the uname and load average just now on this host,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+List recent failed login attempts today on the defender,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+"Run nmap on the target machine but I only care which ports are open, not versions",PortScan,attacker,hard,opposite,PortScan,True
+Check vsftpd 8.0.32 against the vulnerability database,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+We identified 10.0.0.66 as the attacker — now block it,BlockIP,defender,hard,multistep,BlockIP,True
+Do a port scan of the target VM over range 80-8080,PortScan,attacker,easy,direct,PortScan,True
+Never mind the processes — which sockets are in LISTEN state lately?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+Anything weird in the logs this morning?,ReadSyslog,shared,hard,natural,ReadSyslog,True
+Do some recon on the target VM,PortScan,attacker,hard,ambiguous,NmapScan,False
+What server ports are bound and listening today on the defender?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Is that old Apache on there going to get us hacked?,CheckVulnerability,attacker,hard,natural,CheckVulnerability,True
+Enumerate services and their versions on the target machine,NmapScan,attacker,easy,direct,NmapScan,True
+Get an SSH connection to the target machine,SSHConnect,attacker,easy,direct,SSHConnect,True
+Show the last entries of /var/log/syslog over the past day,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Grab the system info before we dig into the logs,GetSystemInfo,shared,hard,multistep,GetSystemInfo,True
+Ignore the running processes; I want the listening ports just now,ListeningPorts,defender,hard,trick,ListeningPorts,True
+Give me the uname and load average recently on this box,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Show basic system information on the server,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Blacklist the attacker IP on the firewall,BlockIP,defender,easy,direct,BlockIP,True
+Check ssh 1.18 against the vulnerability database,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+List the ports in LISTEN state since boot on the defender,ListeningPorts,defender,easy,direct,ListeningPorts,True
+"Skip the plain port list, I need the service versions on 192.168.56.102",NmapScan,attacker,hard,trick,CheckVulnerability,False
+List the ports in LISTEN state lately here,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Use nmap -sV to detect software versions on the defender host,NmapScan,attacker,easy,direct,NmapScan,True
+Establish an SSH connection to the defender host,SSHConnect,attacker,easy,direct,SSHConnect,True
+Find failed SSH authentication attempts this morning here,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+"Run nmap on the defender but I only care which ports are open, not versions",PortScan,attacker,hard,opposite,PortScan,True
+Run ss -tlnp and show the listening sockets on the defender,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Firewall off the malicious host,BlockIP,defender,easy,direct,BlockIP,True
+Don't just log it — actually block 10.0.0.66 at the firewall,BlockIP,defender,hard,trick,BlockIP,True
+Tail the system log (syslog) on the server,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Find failed SSH authentication attempts lately on this machine,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+How many failed SSH logins were there recently on the defender?,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+192.168.56.101 is clearly bad news — get rid of it,BlockIP,defender,hard,natural,BlockIP,True
+Run nmap -p 1-1000 against the defender,PortScan,attacker,easy,direct,NmapScan,False
+Show basic system information today on this machine,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+List the ports in LISTEN state since boot,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Find published CVEs affecting vsftpd 8.0.32,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Enumerate the running processes lately on the server,ListProcesses,defender,easy,direct,ListProcesses,True
+"Report the system info: hostname, OS, uptime on this host",GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+"Once we know it's vsftpd 2.3.4, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+"No need for service versions, only tell me which ports are open on the target",PortScan,attacker,hard,trick,NmapScan,False
+Ignore the running processes; I want the listening ports today,ListeningPorts,defender,hard,trick,ListeningPorts,True
+Firewall off 192.168.56.101,BlockIP,defender,easy,direct,BlockIP,True
+"Once we know it's nginx 2.4.49, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+What's actually running on the defender?,NmapScan,attacker,hard,natural,NmapScan,True
+Why is this box so slow? What's hogging it?,ListProcesses,defender,hard,natural,ListeningPorts,False
+What service versions are running on the target VM?,NmapScan,attacker,easy,direct,NmapScan,True
+Enumerate open ports on the target VM across 1-65535,PortScan,attacker,easy,direct,PortScan,True
+"Show the hostname, kernel and uptime in the last hour here",GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Don't scan any ports — just tell me what processes are running lately,ListProcesses,defender,hard,trick,ListProcesses,True
+Read the last entries in /var/log/auth.log,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Enumerate the running processes today on this box,ListProcesses,defender,easy,direct,ListProcesses,True
+Open an SSH session to the defender host,SSHConnect,attacker,easy,direct,SSHConnect,True
+Add an iptables DROP rule for the flagged address,BlockIP,defender,easy,direct,BlockIP,True
+Don't scan any ports — just tell me what processes are running over the past day,ListProcesses,defender,hard,trick,ListProcesses,True
+Open an SSH session to the target machine,SSHConnect,attacker,easy,direct,SSHConnect,True
+List the ports in LISTEN state right now on the server,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Ignore the running processes; I want the listening ports this morning,ListeningPorts,defender,hard,trick,ListeningPorts,True
+"Skip the plain port list, I need the service versions on the defender",NmapScan,attacker,hard,trick,CheckVulnerability,False
+Show the last entries of /var/log/syslog here,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Is OpenSSH 7.2 vulnerable to any known exploits?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Read the recent syslog messages this morning on the server,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Do a port scan of the target machine over range 80-8080,PortScan,attacker,easy,direct,PortScan,True
+Not the syslog — I mean the authentication log,ReadAuthLog,defender,hard,trick,ReadAuthLog,True
+Show me the recent general system log entries this morning on the defender,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Log in to 192.168.56.102 over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Scan ports 1-1024 on the target machine,PortScan,attacker,easy,direct,NmapScan,False
+List the open TCP ports on the target VM,PortScan,attacker,easy,direct,PortScan,True
+Start a remote shell on the target via SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Anything weird in the logs today?,ReadSyslog,shared,hard,natural,ReadSyslog,True
+What's actually running on the target VM?,NmapScan,attacker,hard,natural,NmapScan,True
+Which processes are using the most CPU recently on this machine?,ListProcesses,defender,easy,direct,ListProcesses,True
+Ignore the running processes; I want the listening ports over the past day,ListeningPorts,defender,hard,trick,ListeningPorts,True
+Scan ports 1-1024 on the target VM,PortScan,attacker,easy,direct,NmapScan,False
+Grep auth.log for failed password attempts today on this host,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Look at MySQL on the target VM from a security angle,CheckVulnerability,attacker,hard,ambiguous,CheckVulnerability,True
+Fingerprint the service versions on the defender with nmap,NmapScan,attacker,easy,direct,NmapScan,True
+Enumerate open ports on the defender across 1-65535,PortScan,attacker,easy,direct,PortScan,True
+Is that old the web server on there going to get us hacked?,CheckVulnerability,attacker,hard,natural,CheckVulnerability,True
+Check http 8.2 against the vulnerability database,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Enumerate the running processes in the last hour on this machine,ListProcesses,defender,easy,direct,ListProcesses,True
+Enumerate the listening ports right now on this machine,ListeningPorts,defender,easy,direct,ListeningPorts,True
+How many failed SSH logins were there since boot on this host?,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Don't just scan the target machine — tell me if MySQL 8.0.32 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Do a service and version detection scan on the target,NmapScan,attacker,easy,direct,NmapScan,True
+Ban 192.168.56.101 using iptables,BlockIP,defender,easy,direct,BlockIP,True
+Read the recent syslog messages since boot on this host,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Show the recent authentication log on this host,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Deny network access from the malicious host at the firewall,BlockIP,defender,easy,direct,BlockIP,True
+Open a secure shell to the defender,SSHConnect,attacker,easy,direct,SSHConnect,True
+"Report the system info: hostname, OS, uptime on the server",GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Do a port scan of the defender over range 22-443,PortScan,attacker,easy,direct,PortScan,True
+"Once we know it's OpenSSH 2.4.49, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Not the syslog — I mean the authentication log over the past day,ReadAuthLog,defender,hard,trick,ReadAuthLog,True
+Show the failed password entries from auth.log on this host,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Count the failed login attempts just now on the server,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+Count the failed login attempts recently on this machine,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+Which processes are using the most CPU since boot here?,ListProcesses,defender,easy,direct,ListProcesses,True
+"Skip the logs, I only want the uptime and kernel of this host",GetSystemInfo,shared,hard,opposite,GetSystemInfo,True
+Read the last entries in /var/log/auth.log on the server,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Run an nmap -sV version scan of the defender host,NmapScan,attacker,easy,direct,NmapScan,True
+Read the recent syslog messages in the last hour here,ReadSyslog,shared,easy,direct,ReadSyslog,True
+SSH into the target machine,SSHConnect,attacker,easy,direct,SSHConnect,True
+"No need for service versions, only tell me which ports are open on the target VM",PortScan,attacker,hard,trick,NmapScan,False
+Get an SSH connection to the defender host,SSHConnect,attacker,easy,direct,SSHConnect,True
+Never mind the processes — which sockets are in LISTEN state?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+Dump the recent lines of auth.log,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Check what's exposed on this host since boot,ListeningPorts,defender,hard,ambiguous,ListeningPorts,True
+Drop all incoming traffic from the flagged address,BlockIP,defender,easy,direct,BlockIP,True
+List the running processes sorted by CPU over the past day on the server,ListProcesses,defender,easy,direct,ListProcesses,True
+Run uname -a and uptime on this box,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Probe the target for me,PortScan,attacker,hard,ambiguous,NmapScan,False
+Look at MySQL on the target from a security angle,CheckVulnerability,attacker,hard,ambiguous,CheckVulnerability,True
+Which processes are using the most CPU on this machine?,ListProcesses,defender,easy,direct,ListProcesses,True
+Which local ports are in LISTEN state today on this host?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Can you see what doors are open on the target machine?,PortScan,attacker,hard,natural,PortScan,True
+Do a port scan of 192.168.56.102 over range 1-1024,PortScan,attacker,easy,direct,NmapScan,False
+Show the recent authentication log in the last hour on the defender,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Display the tail of the auth log recently on the defender,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+List the running processes sorted by CPU just now on this host,ListProcesses,defender,easy,direct,ListProcesses,True
+Block the suspicious IP with iptables,BlockIP,defender,easy,direct,BlockIP,True
+Look for signs of an attack in the logs over the past day,CheckFailedLogins,defender,hard,ambiguous,ReadAuthLog,False
+Show basic system information since boot here,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Find published CVEs affecting the web server 8.0.32,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Do a service and version detection scan on the defender,NmapScan,attacker,easy,direct,NmapScan,True
+Show the failed password entries from auth.log on this box,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Fingerprint the service versions on the target VM with nmap,NmapScan,attacker,easy,direct,NmapScan,True
+Display the tail of the auth log since boot on the server,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Authenticate to the target over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Show the failed password entries from auth.log on the defender,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Which local ports are in LISTEN state over the past day on this host?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+We identified the suspicious IP as the attacker — now block it,BlockIP,defender,hard,multistep,BlockIP,True
+"After the port scan, run version detection on the target",NmapScan,attacker,hard,multistep,CheckVulnerability,False
+Run ss -tlnp and show the listening sockets on the server,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Enumerate the running processes in the last hour on this box,ListProcesses,defender,easy,direct,ListProcesses,True
+Check this host for suspicious activity right now,ReadAuthLog,defender,hard,ambiguous,ListeningPorts,False
+What server ports are bound and listening on this box?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Which TCP ports in 80-8080 are open on 192.168.56.102?,PortScan,attacker,easy,direct,NmapScan,False
+"Once we know it's vsftpd 7.2, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Enumerate services and their versions on 192.168.56.102,NmapScan,attacker,easy,direct,PortScan,False
+"After the port scan, run version detection on the target machine",NmapScan,attacker,hard,multistep,CheckVulnerability,False
+Read the system authentication log here,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+List the ports in LISTEN state,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Tail the system log (syslog) recently here,ReadSyslog,shared,easy,direct,ReadSyslog,True
+"Report the system info: hostname, OS, uptime on this machine",GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Run ss -tlnp and show the listening sockets,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Do some recon on the defender,PortScan,attacker,hard,ambiguous,NmapScan,False
+How many failed SSH logins were there in the last hour here?,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Don't just scan the target — tell me if ssh 2.4.49 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Find failed SSH authentication attempts over the past day on this host,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Add an iptables DROP rule for 10.0.0.66,BlockIP,defender,easy,direct,BlockIP,True
+"Once we know it's vsftpd 1.18, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Deny network access from the attacker IP at the firewall,BlockIP,defender,easy,direct,BlockIP,True
+Enumerate open ports on 192.168.56.102 across 1-1000,PortScan,attacker,easy,direct,NmapScan,False
+"Once we know it's ssh 1.18, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Show basic system information on this host,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+10.0.0.66 is clearly bad news — get rid of it,BlockIP,defender,hard,natural,BlockIP,True
+"Forget the auth log, show me the general system log instead",ReadSyslog,shared,hard,opposite,ReadSyslog,True
+Not the syslog — I mean the authentication log since boot,ReadAuthLog,defender,hard,trick,ReadAuthLog,True
+What service versions are running on the target machine?,NmapScan,attacker,easy,direct,NmapScan,True
+Give me the uname and load average in the last hour,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Never mind the processes — which sockets are in LISTEN state this morning?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+Enumerate the running processes recently on this box,ListProcesses,defender,easy,direct,ListProcesses,True
+Ban the malicious host using iptables,BlockIP,defender,easy,direct,BlockIP,True
+"No need for service versions, only tell me which ports are open on the target machine",PortScan,attacker,hard,trick,NmapScan,False
+What's actually running on 192.168.56.102?,NmapScan,attacker,hard,natural,NmapScan,True
+Anything weird in the logs recently?,ReadSyslog,shared,hard,natural,ReadSyslog,True
+How many failed SSH logins were there on the defender?,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Dump recent /var/log/syslog lines,ReadSyslog,shared,easy,direct,ReadSyslog,True
+"First scan 192.168.56.102 for open ports, then we'll look at versions",PortScan,attacker,hard,multistep,NmapScan,False
+What server ports are bound and listening today on this machine?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Show me the recent general system log entries recently on the server,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Show me the SSH authentication events on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Show me the recent general system log entries over the past day on this host,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Does MySQL version 2.3.4 have any known vulnerabilities?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Look up known CVEs for nginx 1.18,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+"Show the hostname, kernel and uptime since boot on the server",GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Authenticate to the defender over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Can you see what doors are open on 192.168.56.102?,PortScan,attacker,hard,natural,NmapScan,False
+Firewall off the flagged address,BlockIP,defender,easy,direct,BlockIP,True
+Someone keeps trying to get into the server this morning — can you check?,CheckFailedLogins,defender,hard,natural,CheckFailedLogins,True
+Ignore the running processes; I want the listening ports in the last hour,ListeningPorts,defender,hard,trick,ListeningPorts,True
+Show basic system information since boot on this host,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Dump recent /var/log/syslog lines on this machine,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Identify the exact service versions exposed by the target,NmapScan,attacker,easy,direct,NmapScan,True
+How many failed SSH logins were there this morning on the server?,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Show basic system information in the last hour,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Run nmap -p 22-443 against the defender,PortScan,attacker,easy,direct,NmapScan,False
+Don't just log it — actually block the flagged address at the firewall,BlockIP,defender,hard,trick,BlockIP,True
+Display the tail of the syslog on the server,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Show the top processes by CPU usage,ListProcesses,defender,easy,direct,ListProcesses,True
+Show basic system information lately on this host,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Show the last entries of /var/log/syslog this morning on this machine,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Can you see what doors are open on the defender?,PortScan,attacker,hard,natural,NmapScan,False
+Find published CVEs affecting Apache 8.2,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Does Apache version 8.0.32 have any known vulnerabilities?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Display the tail of the auth log today,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Give me the process list sorted by CPU on the defender,ListProcesses,defender,easy,direct,ListProcesses,True
+Port-scan the target VM and report which ports are open,PortScan,attacker,easy,direct,NmapScan,False
+Show me the SSH authentication events recently on the defender,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Port-scan 192.168.56.102 and report which ports are open,PortScan,attacker,easy,direct,NmapScan,False
+Don't just scan the target VM — tell me if http 2.3.4 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Open an SSH session to the target VM,SSHConnect,attacker,easy,direct,SSHConnect,True
+Read the last entries in /var/log/auth.log on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Start a remote shell on 192.168.56.102 via SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+What service versions are running on the defender host?,NmapScan,attacker,easy,direct,NmapScan,True
+Run an nmap -sV version scan of the target,NmapScan,attacker,easy,direct,NmapScan,True
+Run nmap -p 22-443 against 192.168.56.102,PortScan,attacker,easy,direct,NmapScan,False
+Give me an overview of this host lately,GetSystemInfo,shared,hard,ambiguous,ReadSyslog,False
+Find published CVEs affecting vsftpd 8.2,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Show the last entries of /var/log/syslog since boot on the server,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Fingerprint the service versions on the target with nmap,NmapScan,attacker,easy,direct,NmapScan,True
+"After the port scan, run version detection on the defender",NmapScan,attacker,hard,multistep,CheckVulnerability,False
+Don't just scan the defender host — tell me if the web server 8.2 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Block 192.168.56.101 with iptables,BlockIP,defender,easy,direct,BlockIP,True
+Deny network access from the suspicious IP at the firewall,BlockIP,defender,easy,direct,BlockIP,True
+Read the recent syslog messages on this host,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Is ssh 2.3.4 vulnerable to any known exploits?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+We identified 192.168.56.101 as the attacker — now block it,BlockIP,defender,hard,multistep,BlockIP,True
+Don't just scan the defender — tell me if the web server 2.4.49 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+"Once we know it's Apache 7.2, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Start a remote shell on the target machine via SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Which processes are using the most CPU since boot on the server?,ListProcesses,defender,easy,direct,ListProcesses,True
+Does ssh version 2.3.4 have any known vulnerabilities?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+List the open TCP ports on the defender,PortScan,attacker,easy,direct,PortScan,True
+What server ports are bound and listening right now here?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Run nmap -p 80-8080 against 192.168.56.102,PortScan,attacker,easy,direct,NmapScan,False
+Connect to 192.168.56.102 via SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Show me the SSH authentication events today here,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Firewall off the suspicious IP,BlockIP,defender,easy,direct,BlockIP,True
+Run ps aux and show the top processes right now here,ListProcesses,defender,easy,direct,ListProcesses,True
+Don't just scan the target — tell me if vsftpd 8.2 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Show basic system information right now here,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Display the tail of the syslog over the past day here,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Show me what the system has been up to since boot,ReadSyslog,shared,hard,ambiguous,ReadSyslog,True
+Check this host for suspicious activity today,ReadAuthLog,defender,hard,ambiguous,ListeningPorts,False
+Give me an overview of this host just now,GetSystemInfo,shared,hard,ambiguous,GetSystemInfo,True
+Read the recent syslog messages recently on this host,ReadSyslog,shared,easy,direct,ReadSyslog,True
+List the running processes sorted by CPU,ListProcesses,defender,easy,direct,ListProcesses,True
+See what's active on this box right now,ListProcesses,defender,hard,ambiguous,ListeningPorts,False
+Use nmap -sV to detect software versions on the target VM,NmapScan,attacker,easy,direct,NmapScan,True
+Enumerate the listening ports just now on this box,ListeningPorts,defender,easy,direct,ListeningPorts,True
+What OS and kernel is this machine running?,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+See what's active on this box recently,ListProcesses,defender,hard,ambiguous,ReadAuthLog,False
+Show the failed password entries from auth.log on this machine,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+We identified the attacker IP as the attacker — now block it,BlockIP,defender,hard,multistep,BlockIP,True
+Find published CVEs affecting nginx 1.18,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Port-scan the target and report which ports are open,PortScan,attacker,easy,direct,NmapScan,False
+Ban the attacker IP using iptables,BlockIP,defender,easy,direct,BlockIP,True
+"Once we know it's OpenSSH 8.0.32, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Dump the recent lines of auth.log on the defender,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Give me the uname and load average right now on this machine,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Dump recent /var/log/syslog lines on the server,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Grep auth.log for failed password attempts over the past day on the server,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Enumerate the listening ports this morning on this host,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Show me the recent general system log entries just now on this host,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Firewall off the attacker IP,BlockIP,defender,easy,direct,BlockIP,True
+Give me an overview of this host this morning,GetSystemInfo,shared,hard,ambiguous,ReadSyslog,False
+Run ss -tlnp and show the listening sockets here,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Don't scan any ports — just tell me what processes are running just now,ListProcesses,defender,hard,trick,ListProcesses,True
+Show the open listening TCP sockets here,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Start a remote shell on the defender via SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Show me the recent general system log entries lately on this box,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Add an iptables DROP rule for the attacker IP,BlockIP,defender,easy,direct,BlockIP,True
+Never mind the processes — which sockets are in LISTEN state just now?,ListeningPorts,defender,hard,opposite,ListeningPorts,True
+Do a port scan of the target that also reports the service version on each port,NmapScan,attacker,hard,opposite,PortScan,False
+Do a port scan of 192.168.56.102 that also reports the service version on each port,NmapScan,attacker,hard,opposite,NmapScan,True
+"Once we know it's vsftpd 2.4.49, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+"Show the hostname, kernel and uptime right now on this machine",GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Which processes are using the most CPU recently on this host?,ListProcesses,defender,easy,direct,ListProcesses,True
+Display the tail of the auth log just now on this box,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Check this host for suspicious activity since boot,ReadAuthLog,defender,hard,ambiguous,ListeningPorts,False
+"Once we know it's Apache 8.2, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Don't just scan the target machine — tell me if the web server 2.4.49 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+Can you get me onto 192.168.56.102?,SSHConnect,attacker,hard,natural,SSHConnect,True
+"Pull the auth log first, then we'll count the failures",ReadAuthLog,defender,hard,multistep,ReadAuthLog,True
+Run uname -a and uptime here,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Someone keeps trying to get into the server over the past day — can you check?,CheckFailedLogins,defender,hard,natural,CheckFailedLogins,True
+Read the last entries in /var/log/auth.log on the defender,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+the malicious host is clearly bad news — get rid of it,BlockIP,defender,hard,natural,BlockIP,True
+Read the auth log and pull out just the failed password lines,CheckFailedLogins,defender,hard,opposite,ReadAuthLog,False
+Run nmap -p 1-65535 against the defender,PortScan,attacker,easy,direct,NmapScan,False
+Which local ports are in LISTEN state in the last hour on this machine?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Don't just scan the target machine — tell me if MySQL 8.2 is actually exploitable,CheckVulnerability,attacker,hard,opposite,CheckVulnerability,True
+"Show the processes, then we'll decide what to kill",ListProcesses,defender,hard,multistep,ListProcesses,True
+Is MySQL 7.2 vulnerable to any known exploits?,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+List recent failed login attempts today on this host,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+Run an nmap -sV version scan of the target VM,NmapScan,attacker,easy,direct,NmapScan,True
+Drop all incoming traffic from 10.0.0.66,BlockIP,defender,easy,direct,BlockIP,True
+Which processes are using the most CPU on this box?,ListProcesses,defender,easy,direct,ListProcesses,True
+Look up known CVEs for OpenSSH 7.2,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+How many failed SSH logins were there recently here?,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+"Once we know it's MySQL 2.3.4, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Dump the recent lines of auth.log here,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Identify the exact service versions exposed by the target machine,NmapScan,attacker,easy,direct,NmapScan,True
+Block the flagged address with iptables,BlockIP,defender,easy,direct,BlockIP,True
+Display the tail of the syslog in the last hour on the server,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Run ps aux and show the top processes this morning on this box,ListProcesses,defender,easy,direct,ListProcesses,True
+"Report the system info: hostname, OS, uptime on this box",GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Give me the uname and load average since boot on this box,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+"Once we know it's http 7.2, check it for known CVEs",CheckVulnerability,attacker,hard,multistep,CheckVulnerability,True
+Dump the recent lines of auth.log on this machine,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Show the recent authentication log today on this host,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Look up known CVEs for ssh 1.18,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Check http 2.3.4 against the vulnerability database,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Report known security advisories for vsftpd 2.3.4,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Fingerprint the service versions on the target machine with nmap,NmapScan,attacker,easy,direct,NmapScan,True
+Check 192.168.56.102 over the network,NmapScan,attacker,hard,ambiguous,NmapScan,True
+"After the port scan, run version detection on 192.168.56.102",NmapScan,attacker,hard,multistep,CheckVulnerability,False
+Show me the SSH authentication events recently on the server,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+What OS and kernel is this machine running on this machine?,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+What OS and kernel is this machine running here?,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Add an iptables DROP rule for the suspicious IP,BlockIP,defender,easy,direct,BlockIP,True
+Check this host for suspicious activity this morning,ReadAuthLog,defender,hard,ambiguous,ListeningPorts,False
+Grep auth.log for failed password attempts on this box,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Which local ports are in LISTEN state right now?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Show the top processes by CPU usage on the defender,ListProcesses,defender,easy,direct,ListProcesses,True
+Run nmap -p 1-65535 against the target machine,PortScan,attacker,easy,direct,NmapScan,False
+Run uname -a and uptime,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Look up known CVEs for OpenSSH 8.0.32,CheckVulnerability,attacker,easy,direct,CheckVulnerability,True
+Open a secure shell to the defender host,SSHConnect,attacker,easy,direct,SSHConnect,True
+Do a port scan of 192.168.56.102 over range 80-8080,PortScan,attacker,easy,direct,NmapScan,False
+"No need for service versions, only tell me which ports are open on the defender host",PortScan,attacker,hard,trick,NmapScan,False
+Read the last entries in /var/log/auth.log here,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+SSH to the target machine and open a session,SSHConnect,attacker,easy,direct,SSHConnect,True
+Show the open listening TCP sockets on this host,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Show the recent authentication log in the last hour on this machine,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Drop all incoming traffic from 192.168.56.101,BlockIP,defender,easy,direct,BlockIP,True
+Can you see what doors are open on the defender host?,PortScan,attacker,hard,natural,NmapScan,False
+Show the top processes by CPU usage on this box,ListProcesses,defender,easy,direct,ListProcesses,True
+Not the whole auth log — only the failed password attempts,CheckFailedLogins,defender,hard,trick,CheckFailedLogins,True
+Deny network access from 10.0.0.66 at the firewall,BlockIP,defender,easy,direct,BlockIP,True
+List the ports in LISTEN state today on the defender,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Read the system authentication log on the defender,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+How many failed SSH logins were there right now on this host?,CheckFailedLogins,defender,easy,direct,CheckFailedLogins,True
+Show the open listening TCP sockets,ListeningPorts,defender,easy,direct,ListeningPorts,True
+List the ports in LISTEN state recently on this box,ListeningPorts,defender,easy,direct,ListeningPorts,True
+"Skip the plain port list, I need the service versions on the target VM",NmapScan,attacker,hard,trick,CheckVulnerability,False
+Use nmap -sV to detect software versions on 192.168.56.102,NmapScan,attacker,easy,direct,NmapScan,True
+"Report the system info: hostname, OS, uptime here",GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Someone keeps trying to get into the server since boot — can you check?,CheckFailedLogins,defender,hard,natural,ListeningPorts,False
+Display the tail of the auth log this morning on this machine,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Look at ssh on 192.168.56.102 from a security angle,CheckVulnerability,attacker,hard,ambiguous,CheckVulnerability,True
+Find failed SSH authentication attempts just now on this box,CheckFailedLogins,defender,easy,direct,ReadAuthLog,False
+Report known security advisories for ssh 8.2,CheckVulnerability,attacker,easy,direct,PortScan,False
+Enumerate open ports on the target VM across 1-1000,PortScan,attacker,easy,direct,PortScan,True
+the attacker IP is clearly bad news — get rid of it,BlockIP,defender,hard,natural,BlockIP,True
+Log in to the target over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Give me the uname and load average today here,GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Enumerate services and their versions on the defender,NmapScan,attacker,easy,direct,PortScan,False
+Log in to the target VM over SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+"Show the hostname, kernel and uptime today here",GetSystemInfo,shared,easy,direct,ReadSyslog,False
+Connect to the target VM via SSH,SSHConnect,attacker,easy,direct,SSHConnect,True
+Show the recent authentication log since boot on this machine,ReadAuthLog,defender,easy,direct,ReadAuthLog,True
+Display the tail of the syslog recently on the defender,ReadSyslog,shared,easy,direct,ReadSyslog,True
+Which local ports are in LISTEN state over the past day on this machine?,ListeningPorts,defender,easy,direct,ListeningPorts,True
+Run uname -a and uptime on this machine,GetSystemInfo,shared,easy,direct,GetSystemInfo,True
+Run ps aux and show the top processes on the defender,ListProcesses,defender,easy,direct,ListProcesses,True

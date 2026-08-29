@@ -253,6 +253,24 @@ mock-first so the whole pipeline runs before the VMs exist.
 git commit -m "cyber-01: SSH tool suite, attacker/defender agents, mock mode"
 ```
 
+### cyber-02 — full labelled dataset
+- [x] `scripts/generate_cyber_queries.py` — seeded generator, 640 queries, 11 tools
+- [x] Corrected tool names: attacker {SSHConnect, NmapScan, PortScan, CheckVulnerability},
+  defender {ReadAuthLog, ListeningPorts, BlockIP, CheckFailedLogins, ListProcesses},
+  shared {GetSystemInfo, ReadSyslog}
+- [x] `difficulty` (easy/hard) + `category` (direct/ambiguous/opposite/multistep/natural/trick) fields
+- [x] `scripts/measure_cyber_baseline.py` — LLM baseline, per-difficulty + per-category
+- [x] **Hard-subset LLM accuracy 72.5% (target 65-75% — met)**; overall 79.7%
+
+> ⚠️ **Not yet wired into the agent.** `agents/cyber_agent.py` still routes only the
+> 3 original tools per role and drops `agent=shared` queries, so only 349/640 of the
+> new dataset flow through it. Extending the dispatch to all 11 tools + shared routing
+> is the next step before a training run on cyber trajectories.
+
+```bash
+git commit -m "cyber-02: 640-query labelled dataset, difficulty+category, LLM baseline 72.5% hard"
+```
+
 ---
 
 ## Current Status
@@ -267,7 +285,7 @@ git commit -m "cyber-01: SSH tool suite, attacker/defender agents, mock mode"
 | 6 — Model Comparison | 🟢 Done (folded into train.py, `data/model_comparison.csv`) |
 | 7 — Paper (Conference) | 🔴 Not started |
 | 8 — Multi-Agent + RL | 🔴 Not started |
-| 9 — Cyber Scenario | 🟡 cyber-01 done (mock pipeline; VMs + full dataset pending) |
+| 9 — Cyber Scenario | 🟡 cyber-01+02 (pipeline + 640-query dataset; agent dispatch + VMs pending) |
 
 ---
 
