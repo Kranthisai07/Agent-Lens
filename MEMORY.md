@@ -378,6 +378,44 @@ Saved: `data/cyber_cv_results.csv`, `paper/figures/fig2_confusion_matrix.png`
 (train_cyber.py writes the CV matrix straight into paper/figures/). The deployed
 model (single-split SVM) and evaluate_cyber.py are unchanged.
 
+
+### LaTeX Conversion — paper-08 — 2026-08-29
+
+The paper draft is now a complete IEEE two-column LaTeX source, ready for
+Overleaf upload.
+
+**`paper/agentlens.tex`** — `\documentclass[conference]{IEEEtran}`, all seven
+sections converted from `agentlens_draft.md` (Abstract, Introduction, Related
+Work, Methodology, Experiments, Discussion, Conclusion), plus IEEEkeywords.
+Tables in booktabs style (Table I categories, Table II CV results). All four
+figures included: fig1 architecture and fig2 confusion matrix as full-width
+`figure*`, fig3 category accuracy and fig4 latency as single-column `figure`.
+Bibliography: 7 `ibitem` entries (Toolformer, ToolLLM, Gorilla, ReAct, Llama
+3.2, scikit-learn, Paramiko), all cited, none dangling.
+
+**`paper/compile.sh`** — runs pdflatex twice (for references).
+
+Sanity-checked (no pdflatex in this env; verified structurally): all LaTeX
+environments balanced, every `%` escaped, zero non-ASCII chars (portable), all
+`\includegraphics` targets present, all `\cite` keys resolve.
+
+**Conversion decisions (flagged for review):**
+- Table I uses `direct = 83.0%` per the paper-08 instruction (dataset-generation
+  pass). This disagrees by 1 pt with Fig 3, which plots 82.0% (collection run,
+  same source as the 79.4% overall baseline). Reconcile one before camera-ready.
+- The draft's ref [5] was Pomerleau (behavioral cloning); the supplied 7-entry
+  bibliography has no Pomerleau, so the Related Work behavioral-cloning sentence
+  is left without a citation number. Add the ref if the attribution is wanted.
+- The review-only Appendix A and the ASCII architecture block were dropped from
+  the .tex (Appendix A is marked "not for camera-ready"; the ASCII block is
+  replaced by Fig 1). The Markdown draft retains both.
+- Author byline set to "Kranthi Bitra, Ricardo Calix", PNW, Hammond IN,
+  {kbitra, rcalix}@pnw.edu, per instruction.
+
+Still needed before submission: a target venue (Big Data 2026 deadline passed),
+final reference list confirmation, and a local/Overleaf pdflatex compile (not
+runnable in this environment).
+
 ---
 
 ## Key Decisions Made
@@ -424,7 +462,8 @@ model (single-split SVM) and evaluate_cyber.py are unchanged.
 | 97e83bf | cyber-01 | SSH tool suite, attacker/defender agents, mock mode |
 | 27acef3 | cyber-02 | 640-query labelled dataset, difficulty+category, LLM baseline 72.5% hard |
 | 76d2255 | cyber-02 | full 11-tool dispatch, cyber trajectory collection, classifier training |
-| (this) | eval-cyber-03 | 5-fold cross-validation, confidence intervals, updated confusion matrix |
+| a5c24b0 | eval-cyber-03 | 5-fold cross-validation, confidence intervals, updated confusion matrix |
+| (this) | paper-08 | LaTeX conversion, IEEE two-column format |
 
 ---
 
