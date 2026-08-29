@@ -77,6 +77,8 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 - AgentOS (separate project, independent study — complete)
 
 ### What's In Progress 🟡
+- Phase 9 — Cyber scenario. Mock pipeline done (cyber-01). Next: build the VMs
+  and expand the 60-query stub into a real labelled dataset.
 - Phase 7 — paper. Blocked on a venue decision (Big Data deadline passed 2026-08-21)
   and on the dataset-difficulty problem below.
 
@@ -170,6 +172,51 @@ cybersecurity attacker/defender dataset needs genuinely ambiguous queries
 (two plausible tools), overlapping vocabulary between tools, and human-written
 phrasings — targeting a task where TF-IDF lands in the 70-80s, not 100.
 
+
+### Cyber Scenario — cyber-01 — 2026-08-29
+
+The project's pivot to a cybersecurity attacker/defender use case now has a
+working (mock) pipeline. This is the journal-paper (Phase 8) direction and a
+response to the Phase 4-5 saturation problem: SSH tool selection is a harder,
+more ambiguous task than Calc/Search/Table.
+
+**Built:**
+- `docs/VM_SETUP.md` — two Ubuntu 20.04 VMs, VirtualBox host-only 192.168.56.0/24
+  (attacker .101 / defender .102), SSH + `agentlens` user, isolation warnings.
+- `tools/cyber/` package: `ssh_connector.py` (paramiko), `attacker_tools.py`
+  (NmapScan, PortScan, CheckVulnerability), `defender_tools.py` (ReadAuthLog,
+  ListeningPorts, CheckFailedLogins, BlockIP, ListProcesses), `shared_tools.py`
+  (get_system_info, read_syslog), plus `config.py`, `mocks.py`, and a
+  `logging_tool`/`cyber_logs` pair mirroring `tools/__init__.py`.
+- `agents/cyber_agent.py` — attacker + defender agents, per-role tool sets and
+  system prompts, LLM tool selection with an offline keyword fallback.
+- `data/cyber_queries.json` — 60-query stub (10 per tool × 3 tools × 2 agents).
+
+**MOCK_MODE:** default True (env `AGENTLENS_MOCK` overrides). Tools return canned
+nmap/auth.log/ss/iptables output so the pipeline runs with no VMs. Flip to False
+once VM_SETUP.md is done. Live mode fails gracefully (SSH timeout -> error
+string) rather than crashing.
+
+**Trajectory schema (new columns):** `prompt, tool_predicted, tool_ground_truth,
+agent_role, run_id`, written to SEPARATE files
+`data/trajectories/attacker_logs.csv` and `defender_logs.csv`.
+
+**Smoke test (run_id 20260829-150610, MOCK_MODE):**
+- attacker 30/30 queries, LLM baseline 23/30 = 76.7% (confuses PortScan vs
+  NmapScan on some phrasings — a genuinely ambiguous distinction, which is the point)
+- defender 30/30 queries, LLM baseline 30/30 = 100.0%
+- both CSVs written, 5-field schema, zero nulls
+
+**Dependency:** `paramiko` (5.0.0) added to requirements.txt.
+
+**Security note:** authorized lab use only. All recon/firewall tools target VMs
+the researcher owns on an isolated host-only network. `agentlens123` is a
+throwaway lab credential; passwords are never logged (only host+user on connect).
+
+**Not done yet:** real VMs (VM_SETUP.md written, lab unbuilt); the full labelled
+cyber dataset (this is a 60-row stub — needs the ambiguous/human-written queries
+that justify the harder task); training/eval on cyber trajectories; RL layer.
+
 ---
 
 ## Key Decisions Made
@@ -212,7 +259,8 @@ phrasings — targeting a task where TF-IDF lands in the 70-80s, not 100.
 | 1188169 | data-03 | expand query dataset to 500+ examples across 3 tool categories |
 | 3f646e6 | rescue-00 | restore docs and trajectories to version control |
 | e57a51e | fix-01 | log ground truth labels alongside LLM predictions, fix eval() security issue |
-| (this) | train-04+eval-05 | TF-IDF classifier pipeline, 4-model comparison, confusion matrix |
+| aa05b91 | train-04+eval-05 | TF-IDF classifier pipeline, 4-model comparison, confusion matrix |
+| (this) | cyber-01 | SSH tool suite, attacker/defender agents, mock mode |
 
 ---
 

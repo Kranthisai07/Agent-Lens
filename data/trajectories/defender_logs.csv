@@ -1,0 +1,31 @@
+prompt,tool_predicted,tool_ground_truth,agent_role,run_id
+Show the recent authentication log,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+Read the last entries in auth.log,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+Display the tail of /var/log/auth.log,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+What does the authentication log show recently?,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+Pull up the recent auth log entries,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+Show me the latest SSH authentication events,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+Read the system authentication log,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+Check the auth.log for recent activity,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+Give me the recent lines from auth.log,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+Inspect the authentication log on this machine,ReadAuthLog,ReadAuthLog,defender,20260829-150610
+What ports are currently listening?,ListeningPorts,ListeningPorts,defender,20260829-150610
+List the open listening sockets on this machine,ListeningPorts,ListeningPorts,defender,20260829-150610
+Show all TCP ports in LISTEN state,ListeningPorts,ListeningPorts,defender,20260829-150610
+Which services are listening for connections?,ListeningPorts,ListeningPorts,defender,20260829-150610
+Display the listening network ports,ListeningPorts,ListeningPorts,defender,20260829-150610
+Check what ports this host is listening on,ListeningPorts,ListeningPorts,defender,20260829-150610
+Show the open server sockets,ListeningPorts,ListeningPorts,defender,20260829-150610
+List listening TCP endpoints on the defender,ListeningPorts,ListeningPorts,defender,20260829-150610
+What is bound and listening on this machine?,ListeningPorts,ListeningPorts,defender,20260829-150610
+Enumerate the listening ports,ListeningPorts,ListeningPorts,defender,20260829-150610
+Block the suspicious IP address 192.168.56.101,BlockIP,BlockIP,defender,20260829-150610
+Add a firewall rule to drop traffic from the attacker,BlockIP,BlockIP,defender,20260829-150610
+Block 192.168.56.101 with iptables,BlockIP,BlockIP,defender,20260829-150610
+Drop all incoming traffic from the attacker IP,BlockIP,BlockIP,defender,20260829-150610
+Firewall off the suspicious host 192.168.56.101,BlockIP,BlockIP,defender,20260829-150610
+Deny network access from 192.168.56.101,BlockIP,BlockIP,defender,20260829-150610
+Ban the attacker's IP at the firewall,BlockIP,BlockIP,defender,20260829-150610
+Add an iptables DROP rule for 192.168.56.101,BlockIP,BlockIP,defender,20260829-150610
+Stop traffic from the malicious IP address,BlockIP,BlockIP,defender,20260829-150610
+Blacklist 192.168.56.101 on the firewall,BlockIP,BlockIP,defender,20260829-150610

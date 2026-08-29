@@ -1,0 +1,31 @@
+prompt,tool_predicted,tool_ground_truth,agent_role,run_id
+Connect to the target via SSH,SSHConnect,SSHConnect,attacker,20260829-150610
+Open an SSH session to the defender host,SSHConnect,SSHConnect,attacker,20260829-150610
+SSH into 192.168.56.102,SSHConnect,SSHConnect,attacker,20260829-150610
+Establish an SSH connection to the target machine,SSHConnect,SSHConnect,attacker,20260829-150610
+Log in to the defender over SSH,SSHConnect,SSHConnect,attacker,20260829-150610
+Start a remote shell on the target via SSH,SSHConnect,SSHConnect,attacker,20260829-150610
+Authenticate to the defender host over SSH,SSHConnect,SSHConnect,attacker,20260829-150610
+Get an SSH connection to 192.168.56.102,SSHConnect,SSHConnect,attacker,20260829-150610
+Open a secure shell to the target,SSHConnect,SSHConnect,attacker,20260829-150610
+Connect to the defender machine remotely,SSHConnect,SSHConnect,attacker,20260829-150610
+What services are running on the defender machine?,NmapScan,NmapScan,attacker,20260829-150610
+Do a version scan of 192.168.56.102,NmapScan,NmapScan,attacker,20260829-150610
+Enumerate services and their versions on the target,NmapScan,NmapScan,attacker,20260829-150610
+Run a service detection scan against the defender,NmapScan,NmapScan,attacker,20260829-150610
+Identify what software is running on the target's open ports,NmapScan,NmapScan,attacker,20260829-150610
+Fingerprint the services on 192.168.56.102,NmapScan,NmapScan,attacker,20260829-150610
+Which service versions are exposed on the target?,NmapScan,NmapScan,attacker,20260829-150610
+Perform an nmap version scan of the defender host,NmapScan,NmapScan,attacker,20260829-150610
+Detect running services and versions on the target,NmapScan,NmapScan,attacker,20260829-150610
+Scan the defender to see what services it exposes,NmapScan,NmapScan,attacker,20260829-150610
+Scan the target for open ports,NmapScan,PortScan,attacker,20260829-150610
+Scan ports 1 to 1000 on the defender,NmapScan,PortScan,attacker,20260829-150610
+Which TCP ports are open on 192.168.56.102?,NmapScan,PortScan,attacker,20260829-150610
+Find all open ports on the target machine,NmapScan,PortScan,attacker,20260829-150610
+Do a port scan of the defender host,PortScan,PortScan,attacker,20260829-150610
+List the open ports on 192.168.56.102,NmapScan,PortScan,attacker,20260829-150610
+Check which ports are open on the target,PortScan,PortScan,attacker,20260829-150610
+Enumerate open TCP ports on the defender,PortScan,PortScan,attacker,20260829-150610
+Run a port scan against 192.168.56.102,NmapScan,PortScan,attacker,20260829-150610
+What ports are reachable on the target?,NmapScan,PortScan,attacker,20260829-150610

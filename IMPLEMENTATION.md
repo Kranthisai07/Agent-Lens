@@ -217,6 +217,44 @@ git commit -m "multiagent-08: add second agent and RL tool selection policy"
 
 ---
 
+## Phase 9 — Cyber Scenario (Attacker/Defender)
+**Goal:** Two agents (attacker, defender) drive SSH tools across two isolated
+Linux VMs, generating role-tagged trajectories for the journal paper. Built
+mock-first so the whole pipeline runs before the VMs exist.
+
+- [x] **9.1** `docs/VM_SETUP.md` — VirtualBox, two Ubuntu 20.04 VMs on host-only
+  192.168.56.0/24 (attacker .101 / defender .102), SSH, `agentlens` user, connectivity tests
+- [x] **9.2** `tools/cyber/` package — `cyber_logs`, `logging_tool`, `MOCK_MODE`,
+  `config.py`, `mocks.py`
+- [x] **9.3** `tools/cyber/ssh_connector.py` — paramiko `connect_ssh` / `execute_command` /
+  `run_on`; graceful failure; connection attempts logged (never the password)
+- [x] **9.4** `tools/cyber/attacker_tools.py` — NmapScan (`nmap -sV`), PortScan (`nmap -p`),
+  CheckVulnerability (mock CVE table)
+- [x] **9.5** `tools/cyber/defender_tools.py` — ReadAuthLog, ListeningPorts (`ss -tlnp`),
+  CheckFailedLogins, BlockIP (`iptables`), ListProcesses
+- [x] **9.6** `tools/cyber/shared_tools.py` — get_system_info, read_syslog
+- [x] **9.7** `MOCK_MODE = True` default (env `AGENTLENS_MOCK` overrides) — canned
+  outputs so no VM is required to build/test
+- [x] **9.8** `agents/cyber_agent.py` — attacker + defender agents, per-role tool sets,
+  logs `prompt, tool_predicted, tool_ground_truth, agent_role, run_id` to separate CSVs
+- [x] **9.9** `data/cyber_queries.json` — 60-query stub (10 per tool × 3 tools × 2 agents)
+- [x] **9.10** Smoke test: both agents run all 60 in MOCK_MODE, both CSVs written with
+  the 5-field schema (attacker 76.7%, defender 100% LLM baseline)
+- [x] `paramiko` added to requirements.txt
+
+> **Status:** `cyber-01` complete (mock pipeline). **Not yet done:** real VMs
+> (docs/VM_SETUP.md is written but the lab is unbuilt), the full labelled query
+> dataset (this is a 60-row stub), and the training run on cyber trajectories.
+> The scenario is deliberately harder than the Calc/Search/Table task — see the
+> saturation caveat in Phase 5 — but that only pays off once real, ambiguous
+> queries replace the stub.
+
+```bash
+git commit -m "cyber-01: SSH tool suite, attacker/defender agents, mock mode"
+```
+
+---
+
 ## Current Status
 | Phase | Status |
 |---|---|
@@ -229,6 +267,7 @@ git commit -m "multiagent-08: add second agent and RL tool selection policy"
 | 6 — Model Comparison | 🟢 Done (folded into train.py, `data/model_comparison.csv`) |
 | 7 — Paper (Conference) | 🔴 Not started |
 | 8 — Multi-Agent + RL | 🔴 Not started |
+| 9 — Cyber Scenario | 🟡 cyber-01 done (mock pipeline; VMs + full dataset pending) |
 
 ---
 

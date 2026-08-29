@@ -1,0 +1,302 @@
+[
+  {
+    "query": "Connect to the target via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "Open an SSH session to the defender host",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "SSH into 192.168.56.102",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "Establish an SSH connection to the target machine",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "Log in to the defender over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "Start a remote shell on the target via SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "Authenticate to the defender host over SSH",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "Get an SSH connection to 192.168.56.102",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "Open a secure shell to the target",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "Connect to the defender machine remotely",
+    "tool": "SSHConnect",
+    "agent": "attacker"
+  },
+  {
+    "query": "What services are running on the defender machine?",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Do a version scan of 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Enumerate services and their versions on the target",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Run a service detection scan against the defender",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Identify what software is running on the target's open ports",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Fingerprint the services on 192.168.56.102",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Which service versions are exposed on the target?",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Perform an nmap version scan of the defender host",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Detect running services and versions on the target",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Scan the defender to see what services it exposes",
+    "tool": "NmapScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Scan the target for open ports",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Scan ports 1 to 1000 on the defender",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Which TCP ports are open on 192.168.56.102?",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Find all open ports on the target machine",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Do a port scan of the defender host",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "List the open ports on 192.168.56.102",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Check which ports are open on the target",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Enumerate open TCP ports on the defender",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Run a port scan against 192.168.56.102",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "What ports are reachable on the target?",
+    "tool": "PortScan",
+    "agent": "attacker"
+  },
+  {
+    "query": "Show the recent authentication log",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "Read the last entries in auth.log",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "Display the tail of /var/log/auth.log",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "What does the authentication log show recently?",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "Pull up the recent auth log entries",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "Show me the latest SSH authentication events",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "Read the system authentication log",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "Check the auth.log for recent activity",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "Give me the recent lines from auth.log",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "Inspect the authentication log on this machine",
+    "tool": "ReadAuthLog",
+    "agent": "defender"
+  },
+  {
+    "query": "What ports are currently listening?",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "List the open listening sockets on this machine",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "Show all TCP ports in LISTEN state",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "Which services are listening for connections?",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "Display the listening network ports",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "Check what ports this host is listening on",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "Show the open server sockets",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "List listening TCP endpoints on the defender",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "What is bound and listening on this machine?",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "Enumerate the listening ports",
+    "tool": "ListeningPorts",
+    "agent": "defender"
+  },
+  {
+    "query": "Block the suspicious IP address 192.168.56.101",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Add a firewall rule to drop traffic from the attacker",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Block 192.168.56.101 with iptables",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Drop all incoming traffic from the attacker IP",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Firewall off the suspicious host 192.168.56.101",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Deny network access from 192.168.56.101",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Ban the attacker's IP at the firewall",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Add an iptables DROP rule for 192.168.56.101",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Stop traffic from the malicious IP address",
+    "tool": "BlockIP",
+    "agent": "defender"
+  },
+  {
+    "query": "Blacklist 192.168.56.101 on the firewall",
+    "tool": "BlockIP",
+    "agent": "defender"
+  }
+]
