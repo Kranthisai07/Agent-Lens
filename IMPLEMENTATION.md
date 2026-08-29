@@ -271,6 +271,22 @@ git commit -m "cyber-01: SSH tool suite, attacker/defender agents, mock mode"
 git commit -m "cyber-02: 640-query labelled dataset, difficulty+category, LLM baseline 72.5% hard"
 ```
 
+### cyber-02 — 11-tool dispatch, trajectory collection, training
+- [x] agents/cyber_agent.py routes all 11 tools across attacker/defender/shared by `agent` field
+- [x] Log schema adds `difficulty` + `category`; one combined data/trajectories/cyber_logs.csv (640 rows)
+- [x] Collection reproduces the LLM baseline: overall 79.4%, hard 73.5% (~72.5% at gen)
+- [x] training/train_cyber.py — 4 models, stratified-on-difficulty split, per-difficulty breakdown
+- [x] training/evaluate_cyber.py — confusion matrix (data/cyber_confusion_matrix.png) + paper table
+- [x] **Result: best classifier (SVM) 96.9% overall / 90.0% hard vs LLM 81.2% / 80.0% on held-out set**
+- [x] models/cyber_policy_model.pkl (+ vectorizer, label classes), data/cyber_model_comparison.csv
+
+> ⚠️ Hard test subset is n=40 (noisy); trajectories are MOCK_MODE (real tool
+> selection, fake execution); VMs still unbuilt.
+
+```bash
+git commit -m "cyber-02: full 11-tool dispatch, cyber trajectory collection, classifier training"
+```
+
 ---
 
 ## Current Status
@@ -285,7 +301,7 @@ git commit -m "cyber-02: 640-query labelled dataset, difficulty+category, LLM ba
 | 6 — Model Comparison | 🟢 Done (folded into train.py, `data/model_comparison.csv`) |
 | 7 — Paper (Conference) | 🔴 Not started |
 | 8 — Multi-Agent + RL | 🔴 Not started |
-| 9 — Cyber Scenario | 🟡 cyber-01+02 (pipeline + 640-query dataset; agent dispatch + VMs pending) |
+| 9 — Cyber Scenario | 🟢 pipeline+dataset+dispatch+training (SVM 96.9%/90% hard vs LLM 81.2%/80%); VMs pending |
 
 ---
 

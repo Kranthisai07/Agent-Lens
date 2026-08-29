@@ -77,9 +77,9 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 - AgentOS (separate project, independent study — complete)
 
 ### What's In Progress 🟡
-- Phase 9 — Cyber scenario. Pipeline (cyber-01) + 640-query labelled dataset
-  (cyber-02) done. Next: wire all 11 tools + shared routing into cyber_agent.py,
-  then build the VMs.
+- Phase 9 — Cyber scenario. Pipeline + dataset + 11-tool dispatch + training all
+  done. Classifier beats LLM 96.9% vs 81.2% (hard 90% vs 80%) on the held-out set.
+  Next: larger hard test set (n=40 is noisy), then build the VMs for real execution.
 - Phase 7 — paper. Blocked on a venue decision (Big Data deadline passed 2026-08-21)
   and on the dataset-difficulty problem below.
 
@@ -267,6 +267,69 @@ headroom here (unlike the general dataset).
 tools + shared before collecting cyber trajectories and training. VMs still
 unbuilt (mock mode).
 
+
+### Cyber Dispatch + Training — cyber-02 (dispatch/train) — 2026-08-29
+
+Extended agents/cyber_agent.py to all 11 tools across 3 roles, collected full
+trajectories, and trained the cyber policy. **This is the paper's headline
+result** — unlike the general dataset (classifier saturates at 100%, no margin
+over the LLM), the cyber task gives the trained classifier a real, non-trivial
+win over the LLM, including on hard queries.
+
+**Dispatch:** attacker {SSHConnect, NmapScan, PortScan, CheckVulnerability},
+defender {ReadAuthLog, ListeningPorts, BlockIP, CheckFailedLogins, ListProcesses},
+shared {GetSystemInfo, ReadSyslog}. Routed by the query's `agent` field. All
+640/640 queries now route (was 349/640).
+
+**Trajectory schema** (data/trajectories/cyber_logs.csv, one combined file):
+prompt, tool_predicted, tool_ground_truth, agent_role, difficulty, category, run_id.
+
+**Collection (run_id 20260829-162521, MOCK_MODE, 640 rows):**
+- LLM overall 79.4%, hard 73.5% — reproduces the dataset-gen 72.5% (per-role
+  prompt wording accounts for the ~1 pt difference)
+- by role: attacker 68.2%, defender 85.3%, shared 91.5%
+
+**Training** (training/train_cyber.py; TF-IDF (1,2)-gram/5000; stratified 80/20
+on DIFFICULTY -> 512 train / 128 test, 40 hard in test):
+
+| Model | Overall | Hard | Easy | macro F1 |
+|---|---|---|---|---|
+| **SVM (best)** | **96.9%** | **90.0%** | 100% | 0.970 |
+| LogReg | 96.9% | 90.0% | 100% | 0.970 |
+| MLP | 96.9% | 90.0% | 100% | 0.970 |
+| RandomForest | 95.3% | 85.0% | 100% | 0.956 |
+
+**Paper results table** (training/evaluate_cyber.py, same 128-row test split for
+all methods; latency: classifier 0.3 ms vs LLM median 209 ms):
+
+| Method | Overall | Hard | Latency |
+|---|---|---|---|
+| LLM Baseline | 81.2% | 80.0% | 209 ms |
+| LogReg / SVM / MLP | 96.9% | 90.0% | 0.3 ms |
+| RandomForest | 95.3% | 85.0% | 0.3 ms |
+
+**Best classifier vs LLM on the held-out set: 96.9% vs 81.2% overall,
+90.0% vs 80.0% hard** — a real margin on exactly the ambiguous queries, at ~700x
+lower latency. On the full 640 (which the classifier can't be scored on, having
+trained on 80%) the LLM hard baseline is 73.5%.
+
+**Confusion matrix** (data/cyber_confusion_matrix.png, paper figure) has real
+content, not an empty diagonal: NmapScan<->PortScan, ListeningPorts->NmapScan,
+GetSystemInfo->ReadSyslog, ReadSyslog->ReadAuthLog — semantically adjacent tools.
+
+**Caveats:**
+- Hard TEST subset is only n=40, so 90.0% = 36/40 — wide error bars; report with
+  a CI or a larger hard test set before final numbers.
+- Trajectories are MOCK_MODE (canned tool output); tool *selection* is real LLM,
+  tool *execution* is fake. VMs still unbuilt.
+- LLM baseline on the test split (81.2%/80.0%) runs higher than on the full set
+  (79.4%/73.5%) just from which rows fell into the split; the test-split figure
+  is the fair same-rows comparison, the full-set figure is the honest baseline.
+
+Saved: models/cyber_policy_model.pkl (SVM, gitignored), cyber_tfidf_vectorizer.pkl
+(gitignored), cyber_label_classes.json, data/cyber_model_comparison.csv,
+data/cyber_confusion_matrix.png, data/cyber_test_index.json.
+
 ---
 
 ## Key Decisions Made
@@ -311,7 +374,8 @@ unbuilt (mock mode).
 | e57a51e | fix-01 | log ground truth labels alongside LLM predictions, fix eval() security issue |
 | aa05b91 | train-04+eval-05 | TF-IDF classifier pipeline, 4-model comparison, confusion matrix |
 | 97e83bf | cyber-01 | SSH tool suite, attacker/defender agents, mock mode |
-| (this) | cyber-02 | 640-query labelled dataset, difficulty+category, LLM baseline 72.5% hard |
+| 27acef3 | cyber-02 | 640-query labelled dataset, difficulty+category, LLM baseline 72.5% hard |
+| (this) | cyber-02 | full 11-tool dispatch, cyber trajectory collection, classifier training |
 
 ---
 

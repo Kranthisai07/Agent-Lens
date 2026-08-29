@@ -1,0 +1,18 @@
+{
+  "classes": [
+    "BlockIP",
+    "CheckFailedLogins",
+    "CheckVulnerability",
+    "GetSystemInfo",
+    "ListProcesses",
+    "ListeningPorts",
+    "NmapScan",
+    "PortScan",
+    "ReadAuthLog",
+    "ReadSyslog",
+    "SSHConnect"
+  ],
+  "best_model": "SVM",
+  "random_state": 42,
+  "test_size": 0.2
+}
