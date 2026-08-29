@@ -1,0 +1,5 @@
+model,overall_acc_mean,overall_acc_std,hard_acc_mean,hard_acc_std,f1_macro_mean,f1_macro_std
+SVM,0.9828,0.0077,0.945,0.0245,0.9824,0.0078
+LogReg,0.9812,0.0062,0.94,0.02,0.9807,0.0064
+MLP,0.9797,0.008,0.935,0.0255,0.9784,0.0091
+RandomForest,0.9781,0.0151,0.93,0.0485,0.9776,0.016

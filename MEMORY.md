@@ -77,9 +77,9 @@ Agents running long tasks drift from their goal — they forget context, pick wr
 - AgentOS (separate project, independent study — complete)
 
 ### What's In Progress 🟡
-- Phase 9 — Cyber scenario. Pipeline + dataset + 11-tool dispatch + training all
-  done. Classifier beats LLM 96.9% vs 81.2% (hard 90% vs 80%) on the held-out set.
-  Next: larger hard test set (n=40 is noisy), then build the VMs for real execution.
+- Phase 9 — Cyber scenario. Pipeline + dataset + dispatch + training + 5-fold CV
+  all done. CV: SVM 98.3% +/- 0.8% overall, 94.5% +/- 2.5% hard, vs LLM 79.4%/73.5%.
+  Next: build the VMs for real tool execution (only remaining caveat).
 - Phase 7 — paper. Blocked on a venue decision (Big Data deadline passed 2026-08-21)
   and on the dataset-difficulty problem below.
 
@@ -330,6 +330,53 @@ Saved: models/cyber_policy_model.pkl (SVM, gitignored), cyber_tfidf_vectorizer.p
 (gitignored), cyber_label_classes.json, data/cyber_model_comparison.csv,
 data/cyber_confusion_matrix.png, data/cyber_test_index.json.
 
+
+### Cyber Cross-Validation — eval-cyber-03 — 2026-08-29
+
+Replaced the single 80/20 split's noisy hard number (36/40 = 90%, n=40) with
+5-fold stratified CV over the full 640 rows. **Caveat #1 (small hard test set)
+is resolved** — hard accuracy is now measured across all 200 hard queries with a
+tight confidence interval.
+
+**Method:** StratifiedKFold(k=5, shuffle, seed=42) stratified on the combined
+`tool_ground_truth + "_" + difficulty` label, so every (tool, difficulty) cell
+appears in each fold. TF-IDF is fit inside each fold (no leakage). Per model:
+mean +- std of overall acc, hard-only acc, and macro F1 across folds.
+`training/train_cyber.py`; results in `data/cyber_cv_results.csv`.
+
+**Paper results table (5-fold CV, mean +/- std):**
+
+| Method | Overall Acc | Hard Acc | Latency |
+|---|---|---|---|
+| LLM Baseline | 79.4% (no CV) | 73.5% (no CV) | 209 ms |
+| **SVM (best)** | **98.3% +/- 0.8%** | **94.5% +/- 2.5%** | 0.3 ms |
+| LogReg | 98.1% +/- 0.6% | 94.0% +/- 2.0% | 0.3 ms |
+| MLP | 98.0% +/- 0.8% | 93.5% +/- 2.5% | 0.3 ms |
+| RandomForest | 97.8% +/- 1.5% | 93.0% +/- 4.9% | 0.3 ms |
+
+**Interpretation:** the single-split 90% hard was a pessimistic fold; the honest
+CV estimate is 94.5% +/- 2.5% hard for SVM. The classifier beats the LLM by
+~19 pp overall (98.3 vs 79.4) and ~21 pp on hard queries (94.5 vs 73.5), at ~700x
+lower latency. All four models are statistically comparable overall; RF has the
+widest hard-acc spread (+/-4.9%).
+
+**Confusion matrix** `data/cyber_confusion_matrix_cv.png` (aggregated out-of-fold,
+n=640, pooled 98.3%) replaces the single-split figure for the paper. 11 errors
+total, all between semantically adjacent tools: NmapScan->PortScan (2),
+ListProcesses->ListeningPorts (2), and the log family (CheckFailedLogins,
+GetSystemInfo, ReadAuthLog -> ReadSyslog).
+
+**Remaining caveats (updated):**
+- ~~#1 hard test n=40~~ RESOLVED — CV over all 200 hard queries, hard acc
+  94.5% +/- 2.5%.
+- #2 trajectories are MOCK_MODE (real tool selection, canned execution); VMs
+  unbuilt. Still open.
+- #3 two LLM baselines (test-split vs full-set): the CV table uses the full-set
+  LLM baseline (79.4% / 73.5%), which is the honest single-pass figure.
+
+Saved: `data/cyber_cv_results.csv`, `data/cyber_confusion_matrix_cv.png`. The
+deployed model (single-split SVM) and evaluate_cyber.py are unchanged.
+
 ---
 
 ## Key Decisions Made
@@ -375,7 +422,8 @@ data/cyber_confusion_matrix.png, data/cyber_test_index.json.
 | aa05b91 | train-04+eval-05 | TF-IDF classifier pipeline, 4-model comparison, confusion matrix |
 | 97e83bf | cyber-01 | SSH tool suite, attacker/defender agents, mock mode |
 | 27acef3 | cyber-02 | 640-query labelled dataset, difficulty+category, LLM baseline 72.5% hard |
-| (this) | cyber-02 | full 11-tool dispatch, cyber trajectory collection, classifier training |
+| 76d2255 | cyber-02 | full 11-tool dispatch, cyber trajectory collection, classifier training |
+| (this) | eval-cyber-03 | 5-fold cross-validation, confidence intervals, updated confusion matrix |
 
 ---
 
