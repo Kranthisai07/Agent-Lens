@@ -1,0 +1,5 @@
+model,accuracy,f1_macro,train_time_ms,f1_Calculator,f1_Search,f1_TableSummarizer
+"MLP(64,32)",1.0,1.0,421.5,1.0,1.0,1.0
+SVM(linear),0.9904,0.9903,16.8,1.0,0.9855,0.9855
+LogisticRegression,0.9808,0.9807,17.5,0.9859,0.9706,0.9855
+RandomForest,0.9615,0.9616,136.9,0.9565,0.9429,0.9855

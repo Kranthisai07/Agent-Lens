@@ -1,0 +1,10 @@
+{
+  "classes": [
+    "Calculator",
+    "Search",
+    "TableSummarizer"
+  ],
+  "best_model": "MLP(64,32)",
+  "random_state": 42,
+  "test_size": 0.2
+}

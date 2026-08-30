@@ -1,0 +1,10 @@
+{
+  "n": 12,
+  "mean_ms": 815.7,
+  "median_ms": 209.4,
+  "min_ms": 147.5,
+  "max_ms": 7668.2,
+  "stdev_ms": 2158.3,
+  "model": "llama3.2:3b",
+  "note": "CPU, Q4_K_M, ollama.chat temperature=0 seed=42"
+}

@@ -2,14 +2,9 @@ __pycache__/
 *.pyc
 .env
 models/*.pkl
-data/trajectories/*.csv
+models/*.joblib
 
 # Local installer / runtime binaries (do not check in)
 *.exe
 *.zip
 
-# Ignore specific agent markdown files
-CLAUDE.md
-IMPLEMENTATION.md
-MEMORY.md
-SKILLS.md
