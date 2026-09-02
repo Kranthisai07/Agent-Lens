@@ -8,3 +8,7 @@ models/*.joblib
 *.exe
 *.zip
 
+# Documentation / paper files
+*.md
+paper/
+
