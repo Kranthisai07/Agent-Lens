@@ -10,5 +10,6 @@ models/*.joblib
 
 # Documentation / paper files
 *.md
+!README.md
 paper/
 
