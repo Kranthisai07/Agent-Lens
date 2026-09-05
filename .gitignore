@@ -3,13 +3,6 @@ __pycache__/
 .env
 models/*.pkl
 models/*.joblib
-
-# Local installer / runtime binaries (do not check in)
 *.exe
 *.zip
-
-# Documentation / paper files
-*.md
-!README.md
-paper/
-
+data/trajectories/*.csv
