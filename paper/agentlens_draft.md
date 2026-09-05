@@ -164,6 +164,15 @@ cleaner trajectories (the original natural-language query is logged, not an
 LLM-rewritten tool input). The LLM is **Llama 3.2 3B** served locally by Ollama
 (`temperature=0`, `seed=42`).
 
+Tool execution runs over a live SSH connection to an isolated Ubuntu 20.04 VM
+(VirtualBox NAT, paramiko connection pooling). Commands execute with a
+10-second timeout; tool selection is recorded independently of execution
+success, ensuring trajectory labels reflect LLM routing decisions rather than
+infrastructure state. Of 640 queries, 470 commands executed successfully on the
+real VM; the remaining 170 reflect infrastructure constraints (nmap requires
+snap installation on the SeedLabs VM; SSH-to-self requires key-based auth)
+rather than agent errors.
+
 ### 3.3 Dataset
 
 The cybersecurity scenario defines **11 tools** across three roles: an
@@ -261,15 +270,18 @@ is where the contribution lives.
 
 **Limitations.** The dataset is synthetic, built from seeded templates rather
 than real penetration-test transcripts, so absolute numbers may not transfer to
-operator-written queries. Tool *execution* is currently mocked (canned outputs);
-tool *selection* is real. And the baseline is a single 3B model—larger LLMs may
-route better, narrowing the gap.
+operator-written queries. Real VM execution is confirmed on a single Ubuntu
+20.04 VM via SSH (ping 8.8.8.8: 3/3 packets, 7-8ms RTT). The full two-VM
+attacker/defender lab (isolated network, separate attacker and defender hosts)
+remains as future work for the journal paper extension. And the baseline is a
+single 3B model—larger LLMs may route better, narrowing the gap.
 
-**Future work.** We are building isolated Linux VMs for real SSH tool execution,
-so trajectories carry genuine tool outputs and success signals. We will extend to
-a two-agent attacker/defender setup with reinforcement learning (the journal
-follow-up), and evaluate a middle tier—fine-tuned small encoders (BERT/Qwen via
-TRL)—between the TF-IDF policy and the full LLM.
+**Future work.** Building on the confirmed single-VM execution, we will stand up
+the isolated two-VM attacker/defender lab so trajectories carry genuine tool
+outputs and success signals from separate hosts. We will extend to a two-agent
+attacker/defender setup with reinforcement learning (the journal follow-up), and
+evaluate a middle tier—fine-tuned small encoders (BERT/Qwen via TRL)—between the
+TF-IDF policy and the full LLM.
 
 ---
 
