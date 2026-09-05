@@ -1,0 +1,51 @@
+command,output,success,timestamp
+ping -c 3 8.8.8.8,"PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=64 time=7.66 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=64 time=7.24 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=64 time=8.39 ms
+
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2006ms
+rtt min/avg/max/mdev = 7.241/7.764/8.394/0.476 ms
+",True,2026-09-05T16:12:14
+ifconfig,"docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 02:42:1c:af:f9:67  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::adde:ea9c:961a:172a  prefixlen 64  scopeid 0x20<link>
+        inet6 fd17:625c:f037:2:ada0:294b:8faf:849d  prefixlen 64  scopeid 0x0<global>
+        inet6 fd17:625c:f037:2:8f60:867c:9ad:e196  prefixlen 64  scopeid 0x0<global>
+        ether 08:00:27:4c:52:07  txqueuelen 1000  (Ethernet)
+        RX packets 116307  bytes 167223940 (167.2 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 7001  bytes 485796 (485.7 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 93  bytes 9731 (9.7 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 93  bytes 9731 (9.7 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+",True,2026-09-05T16:12:17
+ls -l,"total 32
+drwxr-xr-x 2 seed seed 4096 Nov 24  2020 Desktop
+drwxr-xr-x 2 seed seed 4096 Nov 24  2020 Documents
+drwxr-xr-x 2 seed seed 4096 Nov 24  2020 Downloads
+drwxr-xr-x 2 seed seed 4096 Nov 24  2020 Music
+drwxr-xr-x 2 seed seed 4096 Nov 24  2020 Pictures
+drwxr-xr-x 2 seed seed 4096 Nov 24  2020 Public
+drwxr-xr-x 2 seed seed 4096 Nov 24  2020 Templates
+drwxr-xr-x 2 seed seed 4096 Nov 24  2020 Videos
+",True,2026-09-05T16:12:17
+uname -a,"Linux VM 5.4.0-54-generic #60-Ubuntu SMP Fri Nov 6 10:37:59 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux
+",True,2026-09-05T16:12:17
