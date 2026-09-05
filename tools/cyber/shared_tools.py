@@ -1,24 +1,27 @@
-"""Shared tools — usable by either agent, run over SSH on a given host.
+"""Shared tools — usable by either agent, run over the pooled SSH connection.
 
-Defaults to the defender host but accepts any lab host so both roles can
-inspect their own machine.
+Each tool takes the shared SSH client, runs its real command on the VM, and
+returns {"command", "output", "success"}.
 """
 
-from .config import DEFENDER_HOST
-from .ssh_connector import run_on
+from .ssh_connector import exec_pooled
 
 TOOL_PREFIX = "Shared"
 
 
-def get_system_info(host=DEFENDER_HOST) -> str:
-    """Hostname, kernel/OS and uptime/load (uname -a && uptime)."""
-    return run_on(host, "uname -a && uptime")
+def _result(command, r):
+    return {"command": command, "output": r["output"], "success": r["success"]}
 
 
-def read_syslog(lines=20, host=DEFENDER_HOST) -> str:
-    """Recent /var/log/syslog entries."""
+def get_system_info(client):
+    cmd = "uname -a && uptime && df -h"
+    return _result(cmd, exec_pooled(client, cmd))
+
+
+def read_syslog(client, lines=20):
     try:
         n = int(lines)
     except (TypeError, ValueError):
         n = 20
-    return run_on(host, f"tail -{n} /var/log/syslog")
+    cmd = f"sudo tail -{n} /var/log/syslog"
+    return _result(cmd, exec_pooled(client, cmd))

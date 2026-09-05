@@ -8,20 +8,12 @@ MOCK_MODE default is True; the AGENTLENS_MOCK env var overrides it
 (AGENTLENS_MOCK=0 -> live SSH, =1 -> mock).
 """
 
-import os
-
 # ---- shared state (defined before tool submodules import from this package) ----
 cyber_logs = []
 
-
-def _env_mock(default=True):
-    val = os.environ.get("AGENTLENS_MOCK")
-    if val is None:
-        return default
-    return val.strip().lower() not in ("0", "false", "no", "off")
-
-
-MOCK_MODE = _env_mock(default=True)
+# Single source of truth for MOCK_MODE lives in config.py (default: real SSH;
+# AGENTLENS_MOCK=1 forces mock). Re-exported here for back-compat imports.
+from .config import MOCK_MODE  # noqa: E402
 
 
 def logging_tool(tool_name, func):

@@ -428,6 +428,51 @@ docs. All paper and docs restored to tracking Sep 2026 (commit `rescue-01`):
 `.gitignore` rewritten without the `*.md`/`paper/` exclusions and the 14 files
 force-added back, plus `agents/vm_proof_of_concept.py` newly tracked.
 
+
+### Real VM Execution — cyber-04 — 2026-09-05
+
+Wired cyber_agent.py to REAL SSH execution against the confirmed SeedLabs VM
+(seed@127.0.0.1:2222, NAT). MOCK_MODE default flipped to False in
+tools/cyber/config.py; AGENTLENS_MOCK=1 still forces mock. Real run now the
+default.
+
+**Design.** One pooled SSH connection per run (open_pool) reused across all
+tool calls, closed at the end — no per-call handshake. exec_pooled bounds every
+command to a 10 s wall-clock deadline (paramiko's recv_exit_status ignores the
+channel timeout, so we poll a deadline) and returns {"output","success"};
+TIMEOUT on overrun. All 11 tools refactored to run their real command over the
+pooled client and return {command, output, success}.
+
+**Trajectory files (which is which):**
+- `data/trajectories/cyber_logs.csv` — MOCK run (cyber-02), 7-field schema.
+- `data/trajectories/cyber_logs_real.csv` — REAL run (cyber-04), adds
+  command/output/success. 640 rows.
+- `data/trajectories/real_vm_test.csv` — 10-query real smoke test (8/10 exec ok).
+All under data/trajectories/ which is gitignored again — committed with `-f`.
+
+**Real vs mock baseline (STEP 7):**
+| Metric | Mock (cyber_logs.csv) | Real (cyber_logs_real.csv) |
+|---|---|---|
+| LLM overall | 79.4% | 79.4% (508/640) |
+| LLM hard | 73.5% | 73.5% (n=200) |
+Identical (same LLM, temp 0, seed 42, same queries) — SSH latency did not
+affect tool selection, as expected: selection happens before execution.
+
+**Command execution:** 470/640 succeeded, 0 timeouts. Failures are real VM
+limitations, not bugs: NmapScan (109) + PortScan (16) — **nmap is not
+apt-installable on this SeedVM** ("No apt package nmap, but there is a snap");
+SSHConnect (45) — ssh-to-self has no non-interactive auth. All read tools
+(auth.log, ss -tlnp, ps aux, uname/df, syslog) and BlockIP returned genuine VM
+output.
+
+**BlockIP safety:** default block target is 192.0.2.1 (TEST-NET-1), NOT the NAT
+gateway 10.0.2.2 — over NAT port-forwarding the pooled SSH connection appears to
+originate from 10.0.2.2 inside the guest, so blocking it would sever the run.
+Verified: BlockIP ran and later queries still succeeded.
+
+VM: Ubuntu 5.4.0-54-generic (SeedVM). The paper's "tool execution is mocked"
+limitation is now partially retired — real single-VM execution works end to end.
+
 ---
 
 ## Key Decisions Made

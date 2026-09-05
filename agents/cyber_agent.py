@@ -1,18 +1,15 @@
 """Cyber scenario — attacker / defender / shared agents over SSH tools.
 
-For each query an LLM (Llama 3.2 3B) is asked for a single-word tool name from
-the querying role's tool set, and the chosen tool is dispatched through the
-cyber logging_tool wrapper. Runs in MOCK_MODE by default (no VMs) — see
-tools/cyber/__init__.py and docs/VM_SETUP.md.
+For each query an LLM (Llama 3.2 3B) picks a tool from the querying role's tool
+set; the chosen tool then runs its real command on the VM over ONE pooled SSH
+connection (cyber-04). AGENTLENS_MOCK=1 forces the old mock flow.
 
-All 11 tools across 3 roles are dispatched. Trajectories for the whole run go to
-one file, data/trajectories/cyber_logs.csv, with schema:
-    prompt, tool_predicted, tool_ground_truth, agent_role, difficulty, category, run_id
+Real run  -> data/trajectories/cyber_logs_real.csv (adds command/output/success)
+Mock run  -> data/trajectories/cyber_logs.csv (7-field schema)
 """
 
 import json
 import sys
-from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
@@ -21,191 +18,185 @@ sys.path.insert(0, str(ROOT))
 
 import pandas as pd
 
-from tools.cyber import MOCK_MODE, cyber_logs, logging_tool
+from tools.cyber import MOCK_MODE
 from tools.cyber import attacker_tools as atk
 from tools.cyber import defender_tools as dfd
 from tools.cyber import shared_tools as shd
-from tools.cyber.ssh_connector import connect_ssh
+from tools.cyber.config import VM_HOST, VM_PORT, VM_USER
+from tools.cyber.ssh_connector import open_pool
 
 QUERIES_PATH = ROOT / "data" / "cyber_queries.json"
-LOGS_PATH = ROOT / "data" / "trajectories" / "cyber_logs.csv"
+TRAJ_DIR = ROOT / "data" / "trajectories"
+REAL_PATH = TRAJ_DIR / "cyber_logs_real.csv"
+MOCK_PATH = TRAJ_DIR / "cyber_logs.csv"
 MODEL = "llama3.2:3b"
+MOCK_BASELINE = 0.794  # overall LLM accuracy from the mock run (cyber_logs.csv)
+OUTPUT_CAP = 2000      # chars of tool output stored per row
 
-SCHEMA = ["prompt", "tool_predicted", "tool_ground_truth",
-          "agent_role", "difficulty", "category", "run_id"]
+REAL_SCHEMA = ["prompt", "tool_predicted", "tool_ground_truth", "agent_role",
+               "difficulty", "category", "command", "output", "success", "run_id"]
+MOCK_SCHEMA = ["prompt", "tool_predicted", "tool_ground_truth", "agent_role",
+               "difficulty", "category", "run_id"]
 
-# Per-role tool dispatch (all 11 tools). Each callable takes (query, **meta),
-# logs to cyber_logs and executes the tool (canned output in MOCK_MODE). Tools
-# are wrapped in lambdas so every entry has the same (query) signature; args
-# that the tool needs but the query text does not supply use lab defaults.
-ATTACKER_TOOLS = {
-    "SSHConnect": logging_tool("SSHConnect", lambda q: connect_ssh(atk.ATTACKER_HOST)),
-    "NmapScan": logging_tool("NmapScan", lambda q: atk.nmap_scan()),
-    "PortScan": logging_tool("PortScan", lambda q: atk.port_scan()),
-    "CheckVulnerability": logging_tool("CheckVulnerability", lambda q: atk.check_vulnerability("ssh", "8.2")),
+# tool name -> callable(client) -> {"command","output","success"}
+DISPATCH = {
+    "SSHConnect": lambda c: atk.ssh_connect(c),
+    "NmapScan": lambda c: atk.nmap_scan(c),
+    "PortScan": lambda c: atk.port_scan(c),
+    "CheckVulnerability": lambda c: atk.check_vulnerability(c),
+    "ReadAuthLog": lambda c: dfd.read_auth_log(c),
+    "ListeningPorts": lambda c: dfd.list_listening_ports(c),
+    "BlockIP": lambda c: dfd.block_ip(c),
+    "CheckFailedLogins": lambda c: dfd.check_failed_logins(c),
+    "ListProcesses": lambda c: dfd.list_processes(c),
+    "GetSystemInfo": lambda c: shd.get_system_info(c),
+    "ReadSyslog": lambda c: shd.read_syslog(c),
 }
-DEFENDER_TOOLS = {
-    "ReadAuthLog": logging_tool("ReadAuthLog", lambda q: dfd.read_auth_log()),
-    "ListeningPorts": logging_tool("ListeningPorts", lambda q: dfd.list_listening_ports()),
-    "BlockIP": logging_tool("BlockIP", lambda q: dfd.block_ip("192.168.56.101")),
-    "CheckFailedLogins": logging_tool("CheckFailedLogins", lambda q: dfd.check_failed_logins()),
-    "ListProcesses": logging_tool("ListProcesses", lambda q: dfd.list_processes()),
-}
-SHARED_TOOLS = {
-    "GetSystemInfo": logging_tool("GetSystemInfo", lambda q: shd.get_system_info()),
-    "ReadSyslog": logging_tool("ReadSyslog", lambda q: shd.read_syslog()),
-}
-
 ROLE_TOOLS = {
-    "attacker": ATTACKER_TOOLS,
-    "defender": DEFENDER_TOOLS,
-    "shared": SHARED_TOOLS,
+    "attacker": ["SSHConnect", "NmapScan", "PortScan", "CheckVulnerability"],
+    "defender": ["ReadAuthLog", "ListeningPorts", "BlockIP",
+                 "CheckFailedLogins", "ListProcesses"],
+    "shared": ["GetSystemInfo", "ReadSyslog"],
 }
-
-_ROLE_INTRO = {
-    "attacker": "a penetration-testing agent",
-    "defender": "a defensive security agent",
-    "shared": "a system-inspection agent",
-}
+_ROLE_INTRO = {"attacker": "a penetration-testing agent",
+               "defender": "a defensive security agent",
+               "shared": "a system-inspection agent"}
 
 
 def _system_prompt(role):
-    tools = ", ".join(ROLE_TOOLS[role])
     return (f"You are a tool selector for {_ROLE_INTRO[role]}. Given a task, "
-            f"respond with exactly one word — the tool to use, chosen from: {tools}.")
+            f"respond with exactly one word — the tool to use, chosen from: "
+            f"{', '.join(ROLE_TOOLS[role])}.")
 
 
-def select_tool(query: str, role: str) -> str:
-    """Ask the LLM which tool to use for this role. Returns tool name or 'Unknown'."""
+def select_tool(query, role):
+    """LLM tool selection; falls back to a keyword heuristic if Ollama is down."""
     valid = set(ROLE_TOOLS[role])
     try:
         import ollama
-        response = ollama.chat(
-            model=MODEL,
-            messages=[
-                {"role": "system", "content": _system_prompt(role)},
-                {"role": "user", "content": query},
-            ],
-            options={"temperature": 0, "seed": 42},
-        )
-        raw = response["message"]["content"].strip()
-    except Exception as e:
-        print(f"  LLM unavailable ({e}); falling back to keyword heuristic")
+        resp = ollama.chat(model=MODEL, messages=[
+            {"role": "system", "content": _system_prompt(role)},
+            {"role": "user", "content": query}],
+            options={"temperature": 0, "seed": 42})
+        raw = resp["message"]["content"].strip()
+    except Exception as e:  # noqa: BLE001
+        print(f"  LLM unavailable ({e}); using keyword heuristic")
         raw = _heuristic(query, role)
-    for token in raw.replace(".", " ").replace(":", " ").replace(",", " ").split():
-        if token in valid:
-            return token
+    for tok in raw.replace(".", " ").replace(":", " ").replace(",", " ").split():
+        if tok in valid:
+            return tok
     return "Unknown"
 
 
-def _heuristic(query: str, role: str) -> str:
-    """Offline fallback so the pipeline is testable without Ollama running.
-
-    Only a safety net — the LLM is the real baseline. Deliberately simple, so on
-    hard/ambiguous queries it will be wrong (as the LLM sometimes is).
-    """
+def _heuristic(query, role):
     q = query.lower()
     if role == "attacker":
-        if "ssh" in q or "connect" in q or "shell" in q or "log in" in q or "onto" in q:
+        if any(w in q for w in ("ssh", "connect", "shell", "log in", "onto")):
             return "SSHConnect"
-        if "cve" in q or "vulnerab" in q or "exploit" in q or "advisor" in q:
+        if any(w in q for w in ("cve", "vulnerab", "exploit", "advisor")):
             return "CheckVulnerability"
-        if "version" in q or "service" in q or "software" in q or "fingerprint" in q:
+        if any(w in q for w in ("version", "service", "software", "fingerprint")):
             return "NmapScan"
         return "PortScan"
     if role == "defender":
-        if "block" in q or "drop" in q or "firewall" in q or "ban" in q or "deny" in q or "blacklist" in q:
+        if any(w in q for w in ("block", "drop", "firewall", "ban", "deny", "blacklist")):
             return "BlockIP"
-        if "failed" in q or "brute" in q or "guess" in q:
+        if any(w in q for w in ("failed", "brute", "guess")):
             return "CheckFailedLogins"
         if "listen" in q or "socket" in q or "bound" in q or ("port" in q and "open" in q):
             return "ListeningPorts"
-        if "process" in q or "cpu" in q or "running" in q or "ps aux" in q:
+        if any(w in q for w in ("process", "cpu", "running", "ps aux")):
             return "ListProcesses"
         return "ReadAuthLog"
-    # shared
     if "syslog" in q or "system log" in q or "logs" in q:
         return "ReadSyslog"
     return "GetSystemInfo"
 
 
-def _save(run_id):
-    """Overwrite cyber_logs.csv with this run's rows (single deterministic pass;
-    run_id is stored so history can be reconstructed if rows are ever appended)."""
-    rows = [dict(r) for r in cyber_logs if r.get("run_id") == run_id
-            and "tool_ground_truth" in r]
-    df = pd.DataFrame(rows)[SCHEMA]
-    LOGS_PATH.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(LOGS_PATH, index=False)
-    print(f"\nSaved {len(df)} trajectories -> {LOGS_PATH.relative_to(ROOT)}")
+def run_one(client, query, role):
+    """Select a tool for the query and execute it. Returns (chosen, result)."""
+    chosen = select_tool(query, role)
+    if chosen in DISPATCH:
+        res = DISPATCH[chosen](client)
+    else:
+        res = {"command": "", "output": f"unrecognized tool: {chosen}",
+               "success": False}
+    return chosen, res
+
+
+def _status(res):
+    if res["output"] == "TIMEOUT":
+        return "TIMEOUT"
+    return "OK" if res["success"] else "FAIL"
+
+
+def run_agents(limit=None):
+    run_id = datetime.now().strftime("%Y%m%d-%H%M%S")
+    queries = json.loads(QUERIES_PATH.read_text(encoding="utf-8"))
+    if limit:
+        queries = queries[:limit]
+    n = len(queries)
+    print(f"Cyber run {run_id} — {n} queries — "
+          f"{'MOCK' if MOCK_MODE else f'REAL SSH {VM_USER}@{VM_HOST}:{VM_PORT}'}")
+
+    client = open_pool()
+    if client is None:
+        print("\nVM not reachable — cannot run real SSH.\n"
+              "Follow docs/VM_SETUP.md (Path A) to start the VM, or set "
+              "AGENTLENS_MOCK=1 for mock mode.")
+        return None
+
+    rows = []
+    try:
+        for i, q in enumerate(queries, 1):
+            role, qt, gt = q["agent"], q["query"], q["tool"]
+            chosen, res = run_one(client, qt, role)
+            rows.append({
+                "prompt": qt, "tool_predicted": chosen, "tool_ground_truth": gt,
+                "agent_role": role, "difficulty": q.get("difficulty"),
+                "category": q.get("category"), "command": res["command"],
+                "output": res["output"][:OUTPUT_CAP], "success": res["success"],
+                "run_id": run_id,
+            })
+            print(f"Query {i}/{n}: {chosen} [{_status(res)}]")
+    finally:
+        client.close()
+
+    df = pd.DataFrame(rows)
+    TRAJ_DIR.mkdir(parents=True, exist_ok=True)
+    if MOCK_MODE:
+        df[MOCK_SCHEMA].to_csv(MOCK_PATH, index=False)
+        out = MOCK_PATH
+    else:
+        df[REAL_SCHEMA].to_csv(REAL_PATH, index=False)
+        out = REAL_PATH
+    print(f"\nSaved {len(df)} trajectories -> {out.relative_to(ROOT)}")
+    _summary(df)
     return df
 
 
-def run_role(role, queries, run_id):
-    tools = ROLE_TOOLS[role]
-    role_q = [q for q in queries if q.get("agent") == role]
-    print(f"\n=== {role.upper()} — {len(role_q)} queries "
-          f"({len(tools)} tools, MOCK_MODE={MOCK_MODE}) ===")
-    hits = 0
-    for i, q in enumerate(role_q, 1):
-        query_text, gt = q["query"], q.get("tool")
-        chosen = select_tool(query_text, role)
-        if chosen == gt:
-            hits += 1
-        meta = {
-            "tool_ground_truth": gt, "agent_role": role,
-            "difficulty": q.get("difficulty"), "category": q.get("category"),
-            "run_id": run_id,
-        }
-        if chosen in tools:
-            tools[chosen](query_text, **meta)
-        else:
-            cyber_logs.append({"prompt": query_text, "tool_predicted": chosen, **meta})
-        if i % 40 == 0 or i == len(role_q):
-            print(f"  [{i}/{len(role_q)}] running accuracy: {hits/i:.1%}")
-    return hits, len(role_q)
-
-
 def _summary(df):
-    print("\n" + "=" * 60)
-    print("Cyber trajectory collection — summary")
-    print("=" * 60)
-    print(f"Total rows: {len(df)}")
-
-    print("\nPer-tool distribution (ground truth):")
-    for tool, n in df["tool_ground_truth"].value_counts().items():
-        print(f"  {tool:20} {n:3}")
-
-    correct = df["tool_predicted"] == df["tool_ground_truth"]
-    print("\nPer-difficulty LLM accuracy:")
-    for diff, g in df.groupby("difficulty"):
-        c = (g["tool_predicted"] == g["tool_ground_truth"]).mean()
-        print(f"  {diff:6} n={len(g):3}  acc={c:.1%}")
-
-    print("\nPer-category LLM accuracy:")
-    order = ["direct", "ambiguous", "opposite", "multistep", "natural", "trick"]
-    for cat in order:
-        g = df[df["category"] == cat]
-        if len(g):
-            c = (g["tool_predicted"] == g["tool_ground_truth"]).mean()
-            print(f"  {cat:10} n={len(g):3}  acc={c:.1%}")
-
+    acc = (df["tool_predicted"] == df["tool_ground_truth"]).mean()
     hard = df[df["difficulty"] == "hard"]
-    hard_acc = (hard["tool_predicted"] == hard["tool_ground_truth"]).mean()
-    print(f"\nOverall LLM baseline accuracy: {correct.mean():.1%}  ({correct.sum()}/{len(df)})")
-    print(f"Hard-subset accuracy: {hard_acc:.1%}  (dataset-gen measured 72.5%)")
-
-
-def run_agents():
-    run_id = datetime.now().strftime("%Y%m%d-%H%M%S")
-    queries = json.loads(QUERIES_PATH.read_text(encoding="utf-8"))
-    cyber_logs.clear()
-    print(f"Cyber run {run_id} — {len(queries)} queries total")
-    for role in ("attacker", "defender", "shared"):
-        run_role(role, queries, run_id)
-    df = _save(run_id)
-    _summary(df)
+    hard_acc = (hard["tool_predicted"] == hard["tool_ground_truth"]).mean() if len(hard) else float("nan")
+    print("\n" + "=" * 60)
+    print("LLM tool-selection accuracy (real run)" if not MOCK_MODE
+          else "LLM tool-selection accuracy (mock run)")
+    print("=" * 60)
+    print(f"  Overall: {acc:.1%}  ({(df['tool_predicted']==df['tool_ground_truth']).sum()}/{len(df)})")
+    if len(hard):
+        print(f"  Hard:    {hard_acc:.1%}  (n={len(hard)})")
+    if not MOCK_MODE:
+        print(f"\n  Mock LLM baseline: {MOCK_BASELINE:.1%}")
+        print(f"  Real LLM baseline: {acc:.1%}")
+        print(f"  Difference:        {(acc-MOCK_BASELINE)*100:+.1f} pp "
+              "(same LLM+queries; large gap would suggest SSH latency hurt LLM output)")
+    if "success" in df.columns:
+        ok = df["success"].sum()
+        to = (df["output"] == "TIMEOUT").sum()
+        print(f"\n  Command execution: {ok}/{len(df)} succeeded, {to} timed out")
 
 
 if __name__ == "__main__":
-    run_agents()
+    cli_limit = int(sys.argv[1]) if len(sys.argv) > 1 else None
+    run_agents(limit=cli_limit)
