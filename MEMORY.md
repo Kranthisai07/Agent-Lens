@@ -416,6 +416,18 @@ Still needed before submission: a target venue (Big Data 2026 deadline passed),
 final reference list confirmation, and a local/Overleaf pdflatex compile (not
 runnable in this environment).
 
+
+### rescue-01 — 2026-09-02 (restore) / logged 2026-09-05
+
+`.gitignore` had `*.md` and `paper/` excluded by commit `00ee048` (Sep 2,
+2026), which also removed 14 files from tracking — all project docs
+(CLAUDE.md, IMPLEMENTATION.md, MEMORY.md, SKILLS.md), docs/VM_SETUP.md, and
+the entire paper (agentlens.tex, agentlens_draft.md, compile.sh, and the four
+figure PNGs + fig1_architecture.py). The remote no longer had the paper or
+docs. All paper and docs restored to tracking Sep 2026 (commit `rescue-01`):
+`.gitignore` rewritten without the `*.md`/`paper/` exclusions and the 14 files
+force-added back, plus `agents/vm_proof_of_concept.py` newly tracked.
+
 ---
 
 ## Key Decisions Made
