@@ -191,7 +191,7 @@ across two physically separate Ubuntu 20.04 VMs on a bridged local network
 (attacker: 10.0.0.188, defender: 10.0.0.114). In Round 1, the attacker performed
 reconnaissance via ICMP ping. In Round 2, the defender detected activity in the
 authentication log and enabled the UFW firewall. In Round 3, the defender blocked
-the attacker IP via iptables rule insertion, successfully dropping all subsequent
+the attacker IP via UFW rule insertion, successfully dropping all subsequent
 TCP connections from the attacker while ICMP echo requests continued to pass,
 consistent with UFW's default ICMP policy. A total of 20 actions were logged
 across both agents.
