@@ -287,6 +287,14 @@ git commit -m "cyber-02: 640-query labelled dataset, difficulty+category, LLM ba
 git commit -m "cyber-02: full 11-tool dispatch, cyber trajectory collection, classifier training"
 ```
 
+### cyber-03/04/05/06 — real VM execution
+- [x] **cyber-03** single VM reachable, agent SSHes in and pings 8.8.8.8 (`agents/vm_proof_of_concept.py`)
+- [x] **cyber-04** real SSH execution wired into cyber_agent.py (pooled connection, 10s timeout); 640-query real run, `cyber_logs_real.csv`
+- [x] **cyber-05** two-VM bridged config (attacker 10.0.0.188 / defender 10.0.0.114); `agents/test_two_vm.py` -> BOTH CONNECTED
+- [x] **cyber-06** two-VM attacker/defender scenario (`agents/attacker_defender_scenario.py`): 3 rounds, real SSH both VMs, LLM defender analysis each round -> `data/trajectories/two_vm_scenario.csv` (20 actions)
+  - Round 1 ping OK; Round 2 firewall enabled OK; **Round 3 attacker blocked OK** (post-block TCP:22 = BLOCKED; ICMP ping still passes — ufw permits echo)
+  - Lessons: `ufw --force enable` (bare enable hangs), `ufw allow 22/tcp` before enable (else lockout — one console recovery), `ufw insert 1 deny from` (append is ineffective vs the allow-22 rule)
+
 ---
 
 ## Current Status
@@ -301,7 +309,7 @@ git commit -m "cyber-02: full 11-tool dispatch, cyber trajectory collection, cla
 | 6 — Model Comparison | 🟢 Done (folded into train.py, `data/model_comparison.csv`) |
 | 7 — Paper (Conference) | 🔴 Not started |
 | 8 — Multi-Agent + RL | 🔴 Not started |
-| 9 — Cyber Scenario | 🟢 pipeline+dataset+dispatch+training (SVM 96.9%/90% hard vs LLM 81.2%/80%); VMs pending |
+| 9 — Cyber Scenario | 🟢 pipeline+dataset+dispatch+training (SVM 96.9%/90% hard vs LLM 81.2%/80%); real single-VM + two-VM attacker/defender scenario running (cyber-03..06) |
 
 ---
 

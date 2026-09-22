@@ -473,6 +473,44 @@ Verified: BlockIP ran and later queries still succeeded.
 VM: Ubuntu 5.4.0-54-generic (SeedVM). The paper's "tool execution is mocked"
 limitation is now partially retired — real single-VM execution works end to end.
 
+
+### Two-VM Attacker/Defender Scenario — cyber-05 / cyber-06 — 2026-09-22
+
+Real two-VM lab live and the core paper experiment runs end to end.
+
+**Config (cyber-05):** `tools/cyber/config.py` has ATTACKER_VM_* (10.0.0.188)
+and DEFENDER_VM_* (10.0.0.114), both seed/dees:22, bridged LAN, env-overridable.
+`agents/test_two_vm.py` confirms BOTH CONNECTED.
+
+**Scenario (cyber-06):** `agents/attacker_defender_scenario.py`, 3 rounds over
+live SSH to both VMs, LLM (Llama 3.2 3B) defender analysis each round. 20 actions
+-> `data/trajectories/two_vm_scenario.csv` (schema: round, agent_role, tool,
+command, output, success, llm_prompt, llm_response, timestamp).
+
+**Result — attacker WAS blocked:**
+- Round 1: attacker ping defender [OK]
+- Round 2: defender enabled firewall [OK]
+- Round 3: attacker blocked [OK] — post-block attacker->defender **TCP:22 =
+  BLOCKED** (authoritative check). ICMP ping still passes: ufw before.rules
+  accept echo-request ahead of user rules, so `ufw deny from` blocks TCP/UDP but
+  not ping. This is a real, reportable nuance, not a failure. All 3 LLM analyses
+  ran (0 OLLAMA_UNAVAILABLE); the round-2 LLM correctly named 10.0.0.188.
+
+**Two bugs found + fixed (both cost a lesson):**
+1. `ufw enable` over non-interactive SSH hangs on the y/n prompt -> use
+   `ufw --force enable`.
+2. Enabling ufw with default-deny and no SSH allow rule LOCKED OUT the defender
+   on the next connection (in-session survived via ESTABLISHED; new connects
+   dropped). Required a VirtualBox console `sudo ufw disable` to recover. Fixed:
+   `sudo ufw allow 22/tcp` before enable, and `ufw insert 1 deny from <atk>`
+   (a plain append lands after the allow-22 rule and wouldn't block TCP:22).
+   Setup does `ufw --force reset` so "firewall starts OFF" holds on re-runs.
+
+**Caveat:** both VMs report hostname "VM" (same SeedLabs image clone). nmap and
+nc are not installed on the attacker VM, so NmapScan/PortProbe log as unavailable
+/ FAIL — recon commands that need them don't execute, but ping/log/firewall
+actions are all real.
+
 ---
 
 ## Key Decisions Made
