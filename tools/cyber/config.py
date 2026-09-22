@@ -36,7 +36,18 @@ MOCK_MODE = _env_bool("AGENTLENS_MOCK", default=False)
 SSH_TIMEOUT = float(os.environ.get("AGENTLENS_SSH_TIMEOUT", "10"))
 CONNECT_TIMEOUT = float(os.environ.get("AGENTLENS_CONNECT_TIMEOUT", "10"))
 
-# --- Host-only two-VM lab (Path B, not used by the single-VM real run) ---
+# --- Real two-VM lab (bridged LAN: separate attacker + defender hosts) ---
+ATTACKER_VM_HOST = os.environ.get("AGENTLENS_ATTACKER_VM_HOST", "10.0.0.188")
+ATTACKER_VM_PORT = int(os.environ.get("AGENTLENS_ATTACKER_VM_PORT", "22"))
+ATTACKER_VM_USER = os.environ.get("AGENTLENS_ATTACKER_VM_USER", "seed")
+ATTACKER_VM_PASS = os.environ.get("AGENTLENS_ATTACKER_VM_PASS", "dees")
+
+DEFENDER_VM_HOST = os.environ.get("AGENTLENS_DEFENDER_VM_HOST", "10.0.0.114")
+DEFENDER_VM_PORT = int(os.environ.get("AGENTLENS_DEFENDER_VM_PORT", "22"))
+DEFENDER_VM_USER = os.environ.get("AGENTLENS_DEFENDER_VM_USER", "seed")
+DEFENDER_VM_PASS = os.environ.get("AGENTLENS_DEFENDER_VM_PASS", "dees")
+
+# --- Host-only two-VM lab (Path B, superseded by the bridged lab above) ---
 ATTACKER_HOST = os.environ.get("AGENTLENS_ATTACKER_HOST", "192.168.56.101")
 DEFENDER_HOST = os.environ.get("AGENTLENS_DEFENDER_HOST", "192.168.56.102")
 
