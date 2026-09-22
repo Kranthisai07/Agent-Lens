@@ -186,6 +186,16 @@ real VM; the remaining 170 reflect infrastructure constraints (nmap requires
 snap installation on the SeedLabs VM; SSH-to-self requires key-based auth)
 rather than agent errors.
 
+To validate the attacker/defender dynamics, we conducted a three-round scenario
+across two physically separate Ubuntu 20.04 VMs on a bridged local network
+(attacker: 10.0.0.188, defender: 10.0.0.114). In Round 1, the attacker performed
+reconnaissance via ICMP ping. In Round 2, the defender detected activity in the
+authentication log and enabled the UFW firewall. In Round 3, the defender blocked
+the attacker IP via iptables rule insertion, successfully dropping all subsequent
+TCP connections from the attacker while ICMP echo requests continued to pass,
+consistent with UFW's default ICMP policy. A total of 20 actions were logged
+across both agents.
+
 \subsection{Dataset}
 
 The cybersecurity scenario defines \textbf{11 tools} across three roles: an
@@ -312,6 +322,30 @@ policy feasible at scale, and removes per-query model cost entirely.
 \label{fig:latency}
 \end{figure}
 
+\subsection{Two-VM Scenario Results}
+
+Table~\ref{tab:scenario} summarizes the three-round attacker/defender scenario
+executed on real hardware. The defender agent successfully detected
+reconnaissance activity, enabled the firewall, and blocked the attacker IP within
+three rounds. Post-block verification confirmed TCP port 22 connections from the
+attacker were dropped while ICMP traffic continued, demonstrating selective
+protocol-level defense consistent with UFW rule ordering.
+
+\begin{table}[htbp]
+\caption{Two-VM Attacker/Defender Scenario (3 rounds, real hardware)}
+\label{tab:scenario}
+\centering
+\begin{tabular}{llll}
+\toprule
+Round & Attacker Action & Defender Response & Result \\
+\midrule
+1 & ICMP ping recon & Read auth.log     & Detected \\
+2 & Port probe      & Enable UFW        & Firewall up \\
+3 & TCP:22 attempt  & Block attacker IP & TCP blocked \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 % ---------------------------------------------------------------- DISCUSSION
 \section{Discussion}
 
@@ -325,18 +359,22 @@ $\sim$21-point hard-query gap is where the contribution lives.
 
 \textbf{Limitations.} The dataset is synthetic, built from seeded templates
 rather than real penetration-test transcripts, so absolute numbers may not
-transfer to operator-written queries. Real VM execution is confirmed on a single
-Ubuntu 20.04 VM via SSH (ping 8.8.8.8: 3/3 packets, 7-8ms RTT). The full two-VM
-attacker/defender lab (isolated network, separate attacker and defender hosts)
-remains as future work for the journal paper extension. And the baseline is a
+transfer to operator-written queries. Real execution is confirmed on two
+separate Ubuntu 20.04 VMs over SSH, though both are clones of the same base image
+and lack nmap/searchsploit, so some reconnaissance tools did not run, and the lab
+is a bridged LAN rather than a fully isolated network. And the baseline is a
 single 3B model---larger LLMs may route better, narrowing the gap.
 
-\textbf{Future work.} Building on the confirmed single-VM execution, we will
-stand up the isolated two-VM attacker/defender lab so trajectories carry genuine
-tool outputs and success signals from separate hosts. We
-will extend to a two-agent attacker/defender setup with reinforcement learning
-(the journal follow-up), and evaluate a middle tier---fine-tuned small encoders
-(BERT/Qwen via TRL)---between the TF-IDF policy and the full LLM.
+The two-VM scenario demonstrates that AgentLens operates on real network
+infrastructure. The TCP/ICMP split behavior---where UFW blocks TCP while
+permitting ICMP echo by default---represents a non-obvious protocol-level nuance
+that the defender agent correctly navigated, highlighting the value of behavioral
+trajectory logging for understanding agent decisions in live environments.
+
+\textbf{Future work.} We will add reinforcement learning to the two-agent
+attacker/defender setup (the journal follow-up), scale the lab beyond same-image
+clones on an isolated network, and evaluate a middle tier---fine-tuned small
+encoders (BERT/Qwen via TRL)---between the TF-IDF policy and the full LLM.
 
 % ---------------------------------------------------------------- CONCLUSION
 \section{Conclusion}
